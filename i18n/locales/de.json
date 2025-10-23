@@ -1,0 +1,582 @@
+{
+  "alerts": {
+    "The given data was invalid.": {
+      "text": "Ihre Daten sind fehlerhaft.",
+      "title": "Fehler"
+    },
+    "code_not_found": {
+      "text": "Ihr Code wurde nicht gefunden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns, wenn das Problem weiterhin besteht.",
+      "title": "Code nicht gefunden"
+    },
+    "event_information_not_found": {
+      "text": "Die Informationen zum gewünschten Event konnten nicht geladen werden.",
+      "title": "Fehler"
+    },
+    "general_error": {
+      "text": "Es ist ein Fehler aufgetreten. Bitte erneut versuchen.",
+      "title": "Fehler"
+    },
+    "incomplete": {
+      "text": "Bitte füllen Sie alle Pflichtfelder aus.",
+      "title": "Fehlende Daten"
+    },
+    "limit_reached": {
+      "text": "Das Limit wurde erreicht.",
+      "title": "Limit erreicht"
+    },
+    "loading": {
+      "title": "Lädt"
+    },
+    "login_success": {
+      "text": "Sie sind jetzt eingeloggt.",
+      "title": "Anmeldung erfolgreich"
+    },
+    "message_error": {
+      "text": "Ihre Nachricht konnte aus technischen Gründen leider nicht gesendet werden.",
+      "title": "Fehler"
+    },
+    "message_incomplete": {
+      "text": "Bitte schreiben Sie einige Worte, bevor Sie die Nachricht senden.",
+      "title": "Fehlende Daten"
+    },
+    "message_sent": {
+      "text": "Ihre Nachricht wurde gesendet.",
+      "title": "Vielen Dank"
+    },
+    "pax_limit_reached": {
+      "text": "Bitte laden Sie die Seite neu und versuchen Sie es erneut.",
+      "title": "Das Teilnehmerlimit wurde während Ihres Registrierungsprozesses erreicht"
+    },
+    "re_login_not_allowed": {
+      "text": "Ihr Code wurde bereits verwendet. Wenn Sie Ihre Anmeldung ändern möchten, wenden Sie sich bitte an Ihren Ansprechpartner.",
+      "title": "Zugang verweigert!"
+    },
+    "representative_not_enabled": {
+      "text": "Bitte versuchen Sie es später noch einmal.",
+      "title": "Vertretung nicht erlaubt"
+    },
+    "remove_guest": {
+      "title": "SIND SIE SICHER?",
+      "text": "Möchten Sie diese Begleitung wirklich stornieren? Diese Aktion kann nicht rückgängig gemacht werden.",
+      "yes_cancel": "Ja, stornieren",
+      "no_keep": "Nein, behalten"
+    },
+    "cancelled_guest": {
+      "title": "STORNIERT!",
+      "text": "Die Begleitperson wurde erfolgreich storniert."
+    },
+    "rsvp_not_found": {
+      "text": "Ihr Code wurde leider nicht gefunden. Bitte wenden Sie sich an Ihren Ansprechpartner.",
+      "title": "Code nicht gefunden"
+    },
+    "general_file_import_error": {
+      "title": "File Error",
+      "text": "There was an error with the file"
+    },
+    "general_file_import_success": {
+      "title": "Success",
+      "text": "The file was imported successfully"
+    },
+    "success": {
+      "text": "",
+      "title": "Anmeldung abgeschlossen"
+    },
+    "validation": {
+      "text": "Bitte überprüfen Sie Ihre Daten.",
+      "title": "Daten fehlerhaft"
+    }
+  },
+  "buttons": {
+    "add_guest": "Teammitglied hinzufügen",
+    "add_recommendation": "Empfehlung hinzufügen",
+    "back": "Zurück",
+    "close": "Schließen",
+    "confirm_cancellation": "Send cancellation",
+    "confirm_nomination": "Send nomination",
+    "contact_form_submit": "Abfrage absenden",
+    "next": "Weiter",
+    "open_menu": "Menü öffnen",
+    "recommend": "Weiterempfehlen",
+    "remove_guest": "Begleitung entfernen",
+    "cancel_guest": "Begleitung stornieren",
+    "remove_recommendation": "Empfehlung entfernen",
+    "skip_content": "Zum Hauptinhalt springen",
+    "submit": "Bestätigen",
+    "submit_recommendation": "WEITEREMPHELUNG ABSENDEN",
+    "to_cancelling": "Leider ist es mir nicht möglich teilzunehmen",
+    "to_cancelled": "Absagen",
+    "to_confirming": "Jetzt anmelden",
+    "to_confirmed": "Verbindlich anmelden",
+    "to_nominating": "Ich würde gerne einen Vertreter benennen",
+    "to_registration": "Zur Registrierung",
+    "upload": "Datei hochladen"
+  },
+  "countdown": {
+    "days": "Tage",
+    "hours": "Stunden",
+    "minutes": "Minuten",
+    "seconds": "Sekunden"
+  },
+  "email": "<a href='mailto:info{'@'}starterproportfolio.com' class=\"whitespace-nowrap underline\">info{'@'}starterproportfolio.com</a>",
+  "footer": {
+    "contact": "Kontakt",
+    "cookies": "Cookies",
+    "data_privacy": "Datenschutz",
+    "imprint": "Impressum",
+    "legal": "Rechtliche"
+  },
+  "form": {
+    "booking": {
+      "extended_fields": {}
+    },
+    "contact": {
+      "city": "Ort",
+      "company_name": "Unternehmensname",
+      "country": "Land",
+      "country_options": {
+        "ad": "Andorra",
+        "ae": "Vereinigte Arabische Emirate",
+        "af": "Afghanistan",
+        "ag": "Antigua und Barbuda",
+        "ai": "Anguilla",
+        "al": "Albanien",
+        "am": "Armenien",
+        "ao": "Angola",
+        "aq": "Antarktis",
+        "ar": "Argentinien",
+        "as": "Amerikanisch-Samoa",
+        "at": "Österreich",
+        "au": "Australien",
+        "aw": "Aruba",
+        "ax": "Ålandinseln",
+        "az": "Aserbaidschan",
+        "ba": "Bosnien und Herzegowina",
+        "bb": "Barbados",
+        "bd": "Bangladesch",
+        "be": "Belgien",
+        "bf": "Burkina Faso",
+        "bg": "Bulgarien",
+        "bh": "Bahrain",
+        "bi": "Burundi",
+        "bj": "Benin",
+        "bl": "St. Barthélemy",
+        "bm": "Bermuda",
+        "bn": "Brunei Darussalam",
+        "bo": "Bolivien",
+        "bq": "Bonaire, Sint Eustatius und Saba",
+        "br": "Brasilien",
+        "bs": "Bahamas",
+        "bt": "Bhutan",
+        "bv": "Bouvetinsel",
+        "bw": "Botsuana",
+        "by": "Belarus",
+        "bz": "Belize",
+        "ca": "Kanada",
+        "cc": "Kokosinseln",
+        "cd": "Kongo-Kinshasa",
+        "cf": "Zentralafrikanische Republik",
+        "cg": "Kongo-Brazzaville",
+        "ch": "Schweiz",
+        "ci": "Côte d’Ivoire",
+        "ck": "Cookinseln",
+        "cl": "Chile",
+        "cm": "Kamerun",
+        "cn": "China",
+        "co": "Kolumbien",
+        "cr": "Costa Rica",
+        "cu": "Kuba",
+        "cv": "Cabo Verde",
+        "cw": "Curaçao",
+        "cx": "Weihnachtsinsel",
+        "cy": "Zypern",
+        "cz": "Tschechien",
+        "de": "Deutschland",
+        "dj": "Dschibuti",
+        "dk": "Dänemark",
+        "dm": "Dominica",
+        "do": "Dominikanische Republik",
+        "dz": "Algerien",
+        "ec": "Ecuador",
+        "ee": "Estland",
+        "eg": "Ägypten",
+        "eh": "Westsahara",
+        "er": "Eritrea",
+        "es": "Spanien",
+        "et": "Äthiopien",
+        "fi": "Finnland",
+        "fj": "Fidschi",
+        "fk": "Falklandinseln",
+        "fm": "Mikronesien",
+        "fo": "Färöer",
+        "fr": "Frankreich",
+        "ga": "Gabun",
+        "gb": "Vereinigtes Königreich",
+        "gd": "Grenada",
+        "ge": "Georgien",
+        "gf": "Französisch-Guayana",
+        "gg": "Guernsey",
+        "gh": "Ghana",
+        "gi": "Gibraltar",
+        "gl": "Grönland",
+        "gm": "Gambia",
+        "gn": "Guinea",
+        "gp": "Guadeloupe",
+        "gq": "Äquatorialguinea",
+        "gr": "Griechenland",
+        "gs": "Südgeorgien und die Südlichen Sandwichinseln",
+        "gt": "Guatemala",
+        "gu": "Guam",
+        "gw": "Guinea-Bissau",
+        "gy": "Guyana",
+        "hk": "Sonderverwaltungsregion Hongkong",
+        "hm": "Heard und McDonaldinseln",
+        "hn": "Honduras",
+        "hr": "Kroatien",
+        "ht": "Haiti",
+        "hu": "Ungarn",
+        "id": "Indonesien",
+        "ie": "Irland",
+        "il": "Israel",
+        "im": "Isle of Man",
+        "in": "Indien",
+        "io": "Britisches Territorium im Indischen Ozean",
+        "iq": "Irak",
+        "ir": "Iran",
+        "is": "Island",
+        "it": "Italien",
+        "je": "Jersey",
+        "jm": "Jamaika",
+        "jo": "Jordanien",
+        "jp": "Japan",
+        "ke": "Kenia",
+        "kg": "Kirgisistan",
+        "kh": "Kambodscha",
+        "ki": "Kiribati",
+        "km": "Komoren",
+        "kn": "St. Kitts und Nevis",
+        "kp": "Nordkorea",
+        "kr": "Südkorea",
+        "kw": "Kuwait",
+        "ky": "Kaimaninseln",
+        "kz": "Kasachstan",
+        "la": "Laos",
+        "lb": "Libanon",
+        "lc": "St. Lucia",
+        "li": "Liechtenstein",
+        "lk": "Sri Lanka",
+        "lr": "Liberia",
+        "ls": "Lesotho",
+        "lt": "Litauen",
+        "lu": "Luxemburg",
+        "lv": "Lettland",
+        "ly": "Libyen",
+        "ma": "Marokko",
+        "mc": "Monaco",
+        "md": "Republik Moldau",
+        "me": "Montenegro",
+        "mf": "St. Martin",
+        "mg": "Madagaskar",
+        "mh": "Marshallinseln",
+        "mk": "Nordmazedonien",
+        "ml": "Mali",
+        "mm": "Myanmar",
+        "mn": "Mongolei",
+        "mo": "Sonderverwaltungsregion Macau",
+        "mp": "Nördliche Marianen",
+        "mq": "Martinique",
+        "mr": "Mauretanien",
+        "ms": "Montserrat",
+        "mt": "Malta",
+        "mu": "Mauritius",
+        "mv": "Malediven",
+        "mw": "Malawi",
+        "mx": "Mexiko",
+        "my": "Malaysia",
+        "mz": "Mosambik",
+        "na": "Namibia",
+        "nc": "Neukaledonien",
+        "ne": "Niger",
+        "nf": "Norfolkinsel",
+        "ng": "Nigeria",
+        "ni": "Nicaragua",
+        "nl": "Niederlande",
+        "no": "Norwegen",
+        "np": "Nepal",
+        "nr": "Nauru",
+        "nu": "Niue",
+        "nz": "Neuseeland",
+        "om": "Oman",
+        "pa": "Panama",
+        "pe": "Peru",
+        "pf": "Französisch-Polynesien",
+        "pg": "Papua-Neuguinea",
+        "ph": "Philippinen",
+        "pk": "Pakistan",
+        "pl": "Polen",
+        "pm": "St. Pierre und Miquelon",
+        "pn": "Pitcairninseln",
+        "pr": "Puerto Rico",
+        "ps": "Palästinensische Autonomiegebiete",
+        "pt": "Portugal",
+        "pw": "Palau",
+        "py": "Paraguay",
+        "qa": "Katar",
+        "re": "Réunion",
+        "ro": "Rumänien",
+        "rs": "Serbien",
+        "ru": "Russland",
+        "rw": "Ruanda",
+        "sa": "Saudi-Arabien",
+        "sb": "Salomonen",
+        "sc": "Seychellen",
+        "sd": "Sudan",
+        "se": "Schweden",
+        "sg": "Singapur",
+        "sh": "St. Helena",
+        "si": "Slowenien",
+        "sj": "Spitzbergen und Jan Mayen",
+        "sk": "Slowakei",
+        "sl": "Sierra Leone",
+        "sm": "San Marino",
+        "sn": "Senegal",
+        "so": "Somalia",
+        "sr": "Suriname",
+        "ss": "Südsudan",
+        "st": "São Tomé und Príncipe",
+        "sv": "El Salvador",
+        "sx": "Sint Maarten",
+        "sy": "Syrien",
+        "sz": "Eswatini",
+        "tc": "Turks- und Caicosinseln",
+        "td": "Tschad",
+        "tf": "Französische Süd- und Antarktisgebiete",
+        "tg": "Togo",
+        "th": "Thailand",
+        "tj": "Tadschikistan",
+        "tk": "Tokelau",
+        "tl": "Timor-Leste",
+        "tm": "Turkmenistan",
+        "tn": "Tunesien",
+        "to": "Tonga",
+        "tr": "Türkei",
+        "tt": "Trinidad und Tobago",
+        "tv": "Tuvalu",
+        "tw": "Taiwan",
+        "tz": "Tansania",
+        "ua": "Ukraine",
+        "ug": "Uganda",
+        "um": "Amerikanische Überseeinseln",
+        "us": "Vereinigte Staaten",
+        "uy": "Uruguay",
+        "uz": "Usbekistan",
+        "va": "Vatikanstadt",
+        "vc": "St. Vincent und die Grenadinen",
+        "ve": "Venezuela",
+        "vg": "Britische Jungferninseln",
+        "vi": "Amerikanische Jungferninseln",
+        "vn": "Vietnam",
+        "vu": "Vanuatu",
+        "wf": "Wallis und Futuna",
+        "ws": "Samoa",
+        "xk": "Kosovo",
+        "ye": "Jemen",
+        "yt": "Mayotte",
+        "za": "Südafrika",
+        "zm": "Sambia",
+        "zw": "Simbabwe"
+      },
+      "department": "Abteilung",
+      "email": "E-Mail",
+      "first_name": "Vorname",
+      "house_number": "Hausnummer",
+      "last_name": "Nachname",
+      "phone": "Festnetz",
+      "phone_2": "Mobil",
+      "position": "Position",
+      "sex": "Geschlecht",
+      "sex_options": {
+        "female": "Frau",
+        "male": "Herr",
+        "diverse": "Divers"
+      },
+      "street": "Straße",
+      "title": "Titel",
+      "zip": "PLZ"
+    },
+    "default_option": "Bitte auswählen",
+    "extended_fields": {
+      "agree_terms_and_conditions": "Teilnahmebedingungen"
+    },
+    "mandatory": "(*) Bitte füllen Sie alle Pflichtfelder aus.",
+    "steps": {
+      "1": "Persönliche Daten",
+      "2": "Begleitung und Empfehlung",
+      "3": "Übersicht"
+    }
+  },
+  "guest_roles": {
+    "main": "Hauptgast",
+    "companion": "Begleitung"
+  },
+  "ics_file": {
+    "title": "Besprechung",
+    "description": "Treffen wir uns in Berlin"
+  },
+  "login": {
+    "text_1": "Sollten Sie bereits einen persönlichen Anmeldecode erhalten haben, können Sie diesen hier eingeben und sich einloggen.",
+    "text_2": "Sie haben noch keinen Zugang?",
+    "text_3": "Jetzt registrieren.",
+    "title": "LOGIN"
+  },
+  "meta": {
+    "name": "Starter Pro",
+    "title": "Starter Pro"
+  },
+  "navigation": {
+    "contact": "Kontakt",
+    "home": "Willkommen",
+    "recommendation": "Quiz Weiterempfehlen",
+    "register": "Registrierung",
+    "rules": "Spielregeln"
+  },
+  "page_promo": {
+    "base": {
+      "text_1": "DAS GROSSE",
+      "text_2": "ARCHITEKTEN QUIZ."
+    },
+    "recommendation": {
+      "text_1": "DAS GROSSE",
+      "text_2": "ARCHITEKTEN QUIZ",
+      "text_3": "WEITEREMPFEHLEN."
+    },
+    "registration": {
+      "text_1": "ANMELDUNG",
+      "text_2": "ARCHITEKTEN QUIZ."
+    }
+  },
+  "registration": {
+    "cancelled": {
+      "text": "Herzlichen Dank für Ihre Rückmeldung. Sie erhalten in Kürze eine Bestätigung Ihrer Absage per E-Mail.",
+      "title": "Ihre Absage wurde bestätigt."
+    },
+    "cancelling": {
+      "text": "Schade, dass Sie nicht teilnehmen können. Bitte bestätigen Sie hier Ihre Absage.",
+      "title": "Absage."
+    },
+    "choice": {
+      "text": "Bitte teilen Sie uns mit, ob Sie teilnehmen möchten.",
+      "title": "Möchten Sie an der Veranstaltung teilnehmen?"
+    },
+    "closed": {
+      "text": "Bei Fragen kontaktieren Sie uns bitte per E-Mail: @:email{'.'}",
+      "title": "Die Registrierung wurde bereits geschlossen. "
+    },
+    "confirmed": {
+      "text": "Herzlichen Dank für Ihre Anmeldung. Sie erhalten in Kürze eine Bestätigung Ihrer Teilnahme per E-Mail.",
+      "title": "Anmeldung erfolgreich."
+    },
+    "confirming": {
+      "text": "Wir freuen uns, dass Sie an der Veranstaltung teilnehmen werden.",
+      "title": "Anmeldung."
+    },
+    "guest": "Begleitung",
+    "nominated": {
+      "text": "Es tut uns sehr leid, dass Sie nicht teilnehmen können. Sie erhalten in Kürze eine Bestätigung Ihrer Absage per E-Mail.",
+      "title": "Sie haben eine(n) Vertreter*in benannt."
+    },
+    "nominating": {
+      "text": "Sie können nicht teilnehmen und wollen eine(n) Vertreter*in benennen. Bitte geben Sie die Daten Ihres/Ihrer Vertreter*in ein. Nach Prüfung Ihrer Anfrage werden wir Ihrem Vertreter eine Einladung schicken und ihn um eine Registrierung aus datenschutzrechtlichen Gründen bitten.",
+      "title": "Bitte benennen Sie Ihre(n) Vertreter*in."
+    },
+    "recommendation": "Empfehlung",
+    "required_fields": "Bitte füllen Sie alle Pflichtfelder (*) aus.",
+    "savethedate": {
+      "title": "Bestätigen Sie Ihre Teilnahme",
+      "text": "Bitte bestätigen Sie Ihre Teilnahme.",
+      "confirming": {
+        "title": "Ich nehme teil",
+        "text": "Ich nehme an der Veranstaltung teil",
+        "button": "Bestätigen"
+      },
+      "cancelling": {
+        "title": "Ich nehme nicht teil",
+        "text": "Ich nehme nicht an der Veranstaltung teil",
+        "button": "Absagen"
+      }
+    }
+  },
+  "status": {
+    "cancelled": "abgesagt",
+    "confirmed": "bestätigt",
+    "invited": "eingeladen",
+    "listed": "gelistet",
+    "requested": "angefordert",
+    "waitlisted": "Warteliste"
+  },
+  "validations": {
+    "email_invalid": "Email Address is incorrect",
+    "email_required": "Email Address is required",
+    "is_required": "ist ein Pflichtfeld",
+    "limit_reached": "Das Limit wurde erreicht",
+    "required": "Pflichtfeld"
+  },
+  "welcome": {
+    "game_rules": {
+      "accordion_1": {
+        "label": "Fairplay",
+        "text": "Lasst die Pläne in der Schublade, fragt Google nicht um Hilfe und ergeht euch nicht in Diskussionen mit openAI - vertraut auf euer Wissen, denn der wahre Architekt baut auf Ehrlichkeit!"
+      },
+      "accordion_2": {
+        "label": "Teamgeist",
+        "text": "Gemeinsam funktioniert alles besser. Bildet deshalb Teams, tauscht euch aus und findet gemeinsam die richtigen Antworten."
+      },
+      "accordion_3": {
+        "label": "Spaß",
+        "text": "Genießt das Quiz für euch selbst oder nutzt die Gelegenheit euch mit weiteren befreundeten Kollegen aus anderen Büros zu messen.<br/> Egal wie, im Vordergrund steht der Spaß und die Freude am Wissen."
+      },
+      "subtitle": "Bevor wir loslegen, ein paar charmante Spielregeln, die unser Architekten Quiz zu einem fairen und spaßigen Erlebnis machen:",
+      "title": "Die Spielregeln"
+    },
+    "info": {
+      "section_1": {
+        "text_1": "Jede Runde bringt neue spannende Aufgaben. Ob Wissen, Geschick oder Schnelligkeit – hier ist alles gefragt! Wir informieren euch rechtzeitig per Mail und auf unserem Quizportal über alles, was ihr sonst noch wissen müsst.",
+        "title": "Vier aufregende Quizrunden:"
+      },
+      "section_2": {
+        "text_1": "Die Spiele dauern nur 10-15 Minuten. Perfekt für die Pause oder für den gemeinsamen Feierabenddrink. Der Spaß steht an erster Stelle!",
+        "title": "Eure Teamzeit im Arbeitsalltag:"
+      },
+      "section_3": {
+        "list_item_1": "1. Platz 3.000 EUR",
+        "list_item_2": "2. Platz 2.000 EUR",
+        "list_item_3": "3. Platz 1.000 EUR",
+        "text_1": "Die Gewinnerteams können Geldspendepreise gewinnen und selbst entscheiden, an welche gemeinnützige oder mildtätige Organisation oder Verein gespendet wird.",
+        "text_2": "Die ersten drei Gewinner erhalten Geldspendepreise in Höhe von:",
+        "title": "Tolle Preise:"
+      },
+      "title": "WAS ERWARTET EUCH?"
+    },
+    "participate_and_win": {
+      "button": "Jetzt Registrieren",
+      "subtitle": "Meldet euch an, schnappt euch eure Kollegen und macht mit!",
+      "title": "MITMACHEN UND GEWINNEN!"
+    },
+    "text_1": "DE Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt odio reprehenderit asperiores vero deserunt laborum voluptatum possimus quam totam sit? Esse necessitatibus cum voluptatem eligendi nemo. Ea distinctio deleniti error. 123",
+    "title_1": "DAS GROSSE",
+    "title_2": "ARCHITEKTEN QUIZ."
+  },
+  "dashboard": {
+    "buttons": {
+      "upload": "Hochladen und Gäste erstellen",
+      "reset": "Daten löschen und zurücksetzen",
+      "reupload": "Ich bin bereit, meine korrigierten Daten hochzuladen",
+      "export_errors": "Fehlerhafte Gäste exportieren"
+    },
+    "upload_errors": "Es gibt Fehler in Ihrer Datei",
+    "import_finished": "Import abgeschlossen.",
+    "import_meta": {
+      "successful": "Erfolgreich",
+      "failed": "Fehlgeschlagen"
+    }
+  }
+}

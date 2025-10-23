@@ -1,0 +1,119 @@
+@import 'tailwindcss';
+@import "@nuxt/ui";
+
+@layer base {
+body {
+  @apply antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;        
+}
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+:root {
+  --ui-text-dimmed: var(--ui-color-neutral-400);
+  --ui-text-muted: var(--ui-color-neutral-500);
+  --ui-text-toned: var(--ui-color-neutral-600);
+  --ui-text: var(--ui-color-neutral-900);
+  --ui-text-highlighted: var(--ui-color-neutral-900);
+  --ui-text-inverted: var(--color-white);
+}
+
+@theme {
+  --color-primary-50: #f5f1fb;
+  --color-primary-100: #ebe3f8;
+  --color-primary-200: #d7c8f1;
+  --color-primary-300: #b59de7;
+  --color-primary-400: #9673db;
+  --color-primary-500: #8354d3;
+  --color-primary-600: #6e3fbb;
+  --color-primary-700: #5b339a;
+  --color-primary-800: #48297a;
+  --color-primary-900: #36205c;
+  --color-primary-950: #211336;
+
+  /* Secondary */
+  /* --color-secondary: #6B7280; */
+
+  /* Red Palette */
+  --color-red-50: #fef2f2;
+  --color-red-100: #fee2e2;
+  --color-red-200: #fecaca;
+  --color-red-300: #fca5a5;
+  --color-red-400: #ef4444;
+  --color-red-500: #dc2626;
+  --color-red-600: #b91c1c;
+  --color-red-700: #991b1b;
+  --color-red-800: #7f1d1d;
+  --color-red-900: #450a0a;
+  --color-red-950: #1f0404;
+
+  /* Fonts */
+  --text-xxs: 0.625rem;
+  --text-xxs--line-height: calc(1 / 0.625);
+
+  /* Font Families */
+  --font-body: 'Work Sans', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-headline: 'Montserrat', Arial, sans-serif;
+
+  --radius: 0.625rem;
+}
+
+@utility container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 2rem;
+
+  @variant lg {
+    max-width: 1280px;
+  }
+}
+
+@utility btn {
+  align-items: center;
+  border-radius: var(--radius);
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1;
+  max-width: 100%;
+  padding: theme('space.3') theme('space.6');
+  width: auto;
+  position: relative;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+
+.swal2-container {
+  .swal2-popup {
+    border-radius: var(--radius);
+  }
+
+  .swal2-title {
+    font-weight: 700;
+    font-family: var(--font-headline);
+    text-transform: uppercase;
+    font-size: 24px;
+  }
+
+  .swal2-actions {
+    .swal2-confirm.swal2-styled {
+      border-radius: var(--radius);
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    .swal2-styled.swal2-confirm:focus {
+      box-shadow: none;
+    }
+  }
+}

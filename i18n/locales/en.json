@@ -1,0 +1,527 @@
+{
+  "alerts": {
+    "Abonnementlimit erreicht": {
+      "title": "Error",
+      "text": "Subscription limit reached."
+    },
+    "The given data was invalid.": {
+      "text": "Your data is incorrect.",
+      "title": "Error"
+    },
+    "code_not_found": {
+      "text": "Your code was not found. Please try again or contact us if the problem persists.",
+      "title": "Code not found"
+    },
+    "event_information_not_found": {
+      "text": "The information for the desired event could not be loaded.",
+      "title": "Error"
+    },
+    "general_error": {
+      "text": "Your data could not be uploaded for technical reasons. Please try again.",
+      "title": "Error"
+    },
+    "incomplete": {
+      "text": "Please fill in all required fields.",
+      "title": "Missing data"
+    },
+    "limit_reached": {
+      "text": "The limit was reached.",
+      "title": "Limit reached"
+    },
+    "loading": {
+      "title": "Loading"
+    },
+    "login_success": {
+      "text": "You are now logged in",
+      "title": "Successful Login"
+    },
+    "message_error": {
+      "text": "Unfortunately, your message could not be sent for technical reasons.",
+      "title": "Error"
+    },
+    "message_incomplete": {
+      "text": "Please write a few words before you send the message.",
+      "title": "Missing data"
+    },
+    "message_sent": {
+      "text": "Your message has been sent.",
+      "title": "Thank you!"
+    },
+    "pax_limit_reached": {
+      "text": "Please reload the page and try again.",
+      "title": "The limit of participants has been reached during your registration process"
+    },
+    "re_login_not_allowed": {
+      "text": "Your password has already been used. If you would like to change your registration, please contact us.",
+      "title": "Re-login not allowed"
+    },
+    "representative_not_enabled": {
+      "text": "Please try again later.",
+      "title": "Nominating is not allowed"
+    },
+    "remove_guest": {
+      "title": "ARE YOU SURE?",
+      "text": "Do you really want to cancel this companion? This action cannot be undone.",
+      "yes_cancel": "Yes, cancel",
+      "no_keep": "No, keep"
+    },
+    "cancelled_guest": {
+      "title": "Cancelled!",
+      "text": "The companion was successfully cancelled."
+    },
+    "rsvp_not_found": {
+      "text": "Your password was not found. Please try again or contact us if the problem persists.",
+      "title": "Code not found"
+    },
+    "general_file_import_error": {
+      "title": "File Error",
+      "text": "There was an error with the file"
+    },
+    "general_file_import_success": {
+      "title": "Success",
+      "text": "The file was imported successfully"
+    },
+    "success": {
+      "text": "",
+      "title": "Registration successful"
+    },
+    "validation": {
+      "text": "Please verify your data.",
+      "title": "Incorrect data"
+    }
+  },
+  "buttons": {
+    "add_guest": "Add companion",
+    "add_recommendation": "Add recommendation",
+    "back": "Back",
+    "close": "Close",
+    "confirm_cancellation": "Send cancellation",
+    "confirm_nomination": "Send nomination",
+    "contact_form_submit": "Send contact form",
+    "next": "Next",
+    "open_menu": "Open menu",
+    "remove_guest": "Remove companion",
+    "cancel_guest": "Cancel guest",
+    "remove_recommendation": "Remove recommendation",
+    "skip_content": "Skip to main content",
+    "submit": "Submit",
+    "to_cancelling": "I am unable to attend",
+    "to_cancelled": "Cancel",
+    "to_confirming": "I will be attending",
+    "to_confirmed": "Register now",
+    "to_nominating": "I would like to nominate a substitute",
+    "to_registration": "Go to registration",
+    "upload": "Upload file"
+  },
+  "countdown": {
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
+  },
+  "email": "<a href='mailto:info{'@'}starterproportfolio.com' class=\"whitespace-nowrap underline\">info{'@'}starterproportfolio.com</a>",
+  "footer": {
+    "cookies": "Cookies",
+    "data_privacy": "Data Protection",
+    "imprint": "Imprint",
+    "legal": "Legal"
+  },
+  "form": {
+    "booking": {
+      "extended_fields": {}
+    },
+    "contact": {
+      "city": "City",
+      "company_name": "Company",
+      "country": "Country",
+      "country_options": {
+        "ad": "Andorra",
+        "ae": "United Arab Emirates",
+        "af": "Afghanistan",
+        "ag": "Antigua and Barbuda",
+        "ai": "Anguilla",
+        "al": "Albania",
+        "am": "Armenia",
+        "ao": "Angola",
+        "aq": "Antarctica",
+        "ar": "Argentina",
+        "as": "American Samoa",
+        "at": "Austria",
+        "au": "Australia",
+        "aw": "Aruba",
+        "ax": "Aland Islands",
+        "az": "Azerbaijan",
+        "ba": "Bosnia and Herzegovina",
+        "bb": "Barbados",
+        "bd": "Bangladesh",
+        "be": "Belgium",
+        "bf": "Burkina Faso",
+        "bg": "Bulgaria",
+        "bh": "Bahrain",
+        "bi": "Burundi",
+        "bj": "Benin",
+        "bl": "Saint Barthelemy",
+        "bm": "Bermuda",
+        "bn": "Brunei",
+        "bo": "Bolivia",
+        "bq": "Bonaire, Saint Eustatius and Saba",
+        "br": "Brazil",
+        "bs": "Bahamas",
+        "bt": "Bhutan",
+        "bv": "Bouvet Island",
+        "bw": "Botswana",
+        "by": "Belarus",
+        "bz": "Belize",
+        "ca": "Canada",
+        "cc": "Cocos Islands",
+        "cd": "Democratic Republic of the Congo",
+        "cf": "Central African Republic",
+        "cg": "Republic of the Congo",
+        "ch": "Switzerland",
+        "ci": "Ivory Coast",
+        "ck": "Cook Islands",
+        "cl": "Chile",
+        "cm": "Cameroon",
+        "cn": "China",
+        "co": "Colombia",
+        "cr": "Costa Rica",
+        "cu": "Cuba",
+        "cv": "Cape Verde",
+        "cw": "Curacao",
+        "cx": "Christmas Island",
+        "cy": "Cyprus",
+        "cz": "Czech Republic",
+        "de": "Germany",
+        "dj": "Djibouti",
+        "dk": "Denmark",
+        "dm": "Dominica",
+        "do": "Dominican Republic",
+        "dz": "Algeria",
+        "ec": "Ecuador",
+        "ee": "Estonia",
+        "eg": "Egypt",
+        "eh": "Western Sahara",
+        "er": "Eritrea",
+        "es": "Spain",
+        "et": "Ethiopia",
+        "fi": "Finland",
+        "fj": "Fiji",
+        "fk": "Falkland Islands",
+        "fm": "Micronesia",
+        "fo": "Faroe Islands",
+        "fr": "France",
+        "ga": "Gabon",
+        "gb": "United Kingdom",
+        "gd": "Grenada",
+        "ge": "Georgia",
+        "gf": "French Guiana",
+        "gg": "Guernsey",
+        "gh": "Ghana",
+        "gi": "Gibraltar",
+        "gl": "Greenland",
+        "gm": "Gambia",
+        "gn": "Guinea",
+        "gp": "Guadeloupe",
+        "gq": "Equatorial Guinea",
+        "gr": "Greece",
+        "gs": "South Georgia and the South Sandwich Islands",
+        "gt": "Guatemala",
+        "gu": "Guam",
+        "gw": "Guinea-Bissau",
+        "gy": "Guyana",
+        "hk": "Hong Kong",
+        "hm": "Heard Island and McDonald Islands",
+        "hn": "Honduras",
+        "hr": "Croatia",
+        "ht": "Haiti",
+        "hu": "Hungary",
+        "id": "Indonesia",
+        "ie": "Ireland",
+        "il": "Israel",
+        "im": "Isle of Man",
+        "in": "India",
+        "io": "British Indian Ocean Territory",
+        "iq": "Iraq",
+        "ir": "Iran",
+        "is": "Iceland",
+        "it": "Italy",
+        "je": "Jersey",
+        "jm": "Jamaica",
+        "jo": "Jordan",
+        "jp": "Japan",
+        "ke": "Kenya",
+        "kg": "Kyrgyzstan",
+        "kh": "Cambodia",
+        "ki": "Kiribati",
+        "km": "Comoros",
+        "kn": "Saint Kitts and Nevis",
+        "kp": "North Korea",
+        "kr": "South Korea",
+        "kw": "Kuwait",
+        "ky": "Cayman Islands",
+        "kz": "Kazakhstan",
+        "la": "Laos",
+        "lb": "Lebanon",
+        "lc": "Saint Lucia",
+        "li": "Liechtenstein",
+        "lk": "Sri Lanka",
+        "lr": "Liberia",
+        "ls": "Lesotho",
+        "lt": "Lithuania",
+        "lu": "Luxembourg",
+        "lv": "Latvia",
+        "ly": "Libya",
+        "ma": "Morocco",
+        "mc": "Monaco",
+        "md": "Moldova",
+        "me": "Montenegro",
+        "mf": "Saint Martin",
+        "mg": "Madagascar",
+        "mh": "Marshall Islands",
+        "mk": "North Macedonia",
+        "ml": "Mali",
+        "mm": "Myanmar",
+        "mn": "Mongolia",
+        "mo": "Macao",
+        "mp": "Northern Mariana Islands",
+        "mq": "Martinique",
+        "mr": "Mauritania",
+        "ms": "Montserrat",
+        "mt": "Malta",
+        "mu": "Mauritius",
+        "mv": "Maldives",
+        "mw": "Malawi",
+        "mx": "Mexico",
+        "my": "Malaysia",
+        "mz": "Mozambique",
+        "na": "Namibia",
+        "nc": "New Caledonia",
+        "ne": "Niger",
+        "nf": "Norfolk Island",
+        "ng": "Nigeria",
+        "ni": "Nicaragua",
+        "nl": "Netherlands",
+        "no": "Norway",
+        "np": "Nepal",
+        "nr": "Nauru",
+        "nu": "Niue",
+        "nz": "New Zealand",
+        "om": "Oman",
+        "pa": "Panama",
+        "pe": "Peru",
+        "pf": "French Polynesia",
+        "pg": "Papua New Guinea",
+        "ph": "Philippines",
+        "pk": "Pakistan",
+        "pl": "Poland",
+        "pm": "Saint Pierre and Miquelon",
+        "pn": "Pitcairn",
+        "pr": "Puerto Rico",
+        "ps": "Palestinian Territory",
+        "pt": "Portugal",
+        "pw": "Palau",
+        "py": "Paraguay",
+        "qa": "Qatar",
+        "re": "Reunion",
+        "ro": "Romania",
+        "rs": "Serbia",
+        "ru": "Russia",
+        "rw": "Rwanda",
+        "sa": "Saudi Arabia",
+        "sb": "Solomon Islands",
+        "sc": "Seychelles",
+        "sd": "Sudan",
+        "se": "Sweden",
+        "sg": "Singapore",
+        "sh": "Saint Helena",
+        "si": "Slovenia",
+        "sj": "Svalbard and Jan Mayen",
+        "sk": "Slovakia",
+        "sl": "Sierra Leone",
+        "sm": "San Marino",
+        "sn": "Senegal",
+        "so": "Somalia",
+        "sr": "Suriname",
+        "ss": "South Sudan",
+        "st": "Sao Tome and Principe",
+        "sv": "El Salvador",
+        "sx": "Sint Maarten",
+        "sy": "Syria",
+        "sz": "Swaziland",
+        "tc": "Turks and Caicos Islands",
+        "td": "Chad",
+        "tf": "French Southern Territories",
+        "tg": "Togo",
+        "th": "Thailand",
+        "tj": "Tajikistan",
+        "tk": "Tokelau",
+        "tl": "East Timor",
+        "tm": "Turkmenistan",
+        "tn": "Tunisia",
+        "to": "Tonga",
+        "tr": "Türkiye",
+        "tt": "Trinidad and Tobago",
+        "tv": "Tuvalu",
+        "tw": "Taiwan",
+        "tz": "Tanzania",
+        "ua": "Ukraine",
+        "ug": "Uganda",
+        "um": "United States Minor Outlying Islands",
+        "us": "United States",
+        "uy": "Uruguay",
+        "uz": "Uzbekistan",
+        "va": "Vatican",
+        "vc": "Saint Vincent and the Grenadines",
+        "ve": "Venezuela",
+        "vg": "British Virgin Islands",
+        "vi": "U.S. Virgin Islands",
+        "vn": "Vietnam",
+        "vu": "Vanuatu",
+        "wf": "Wallis and Futuna",
+        "ws": "Samoa",
+        "xk": "Kosovo",
+        "ye": "Yemen",
+        "yt": "Mayotte",
+        "za": "South Africa",
+        "zm": "Zambia",
+        "zw": "Zimbabwe"
+      },
+      "department": "Department",
+      "email": "Email",
+      "first_name": "First Name",
+      "house_number": "House No.",
+      "last_name": "Last Name",
+      "phone": "Landline",
+      "phone_2": "Mobile phone",
+      "position": "Position",
+      "sex": "Salutation",
+      "sex_options": {
+        "female": "Ms.",
+        "male": "Mr.",
+        "diverse": "Diverse"
+      },
+      "street": "Street",
+      "title": "Title",
+      "zip": "ZIP"
+    },
+    "default_option": "Please choose",
+    "mandatory": "(*) Mandatory Field.",
+    "rsvp": {
+      "custom_1": "Which boulder?",
+      "custom_1_options": {
+        "A": "Small Boulder",
+        "B": "Medium Boulder",
+        "C": "Large Boulder"
+      },
+      "privacy_policy": "Privacy policy",
+      "privacy_policy_label": "I have read and accept the Privacy Policy."
+    },
+    "steps": {
+      "1": "Personal details",
+      "2": "Guests and recommendations",
+      "3": "Summary"
+    }
+  },
+  "guest_roles": {
+    "main": "Guest",
+    "companion": "Companion"
+  },
+  "ics_file": {
+    "title": "Meeting in Berlin",
+    "description": "Let's discuss sth in Berlin"
+  },
+  "meta": {
+    "name": "Starter Pro",
+    "title": "Starter Pro"
+  },
+  "navigation": {
+    "contact": "Contact",
+    "home": "Home",
+    "register": "Register"
+  },
+  "registration": {
+    "cancelled": {
+      "text": "We are sorry that you are unable to join us. You will shortly receive a confirmation of cancellation by email.",
+      "title": "Cancellation confirmed."
+    },
+    "cancelling": {
+      "text": "It's a pity you can't attend. Please confirm your cancellation here.",
+      "title": "Cancellation."
+    },
+    "choice": {
+      "text": "Please let us know if you are going to participate.",
+      "title": "Will you attend the event?"
+    },
+    "closed": {
+      "text": "In case of questions please contact us at @:email{'.'}",
+      "title": "Registration has been already closed."
+    },
+    "confirmed": {
+      "text": "Thank you for registering! You will shortly receive a confirmation by email.",
+      "title": "Confirmation."
+    },
+    "confirming": {
+      "text": "We are happy to hear that you will be joining us.",
+      "title": "Registration."
+    },
+    "guest": "Guest",
+    "nominated": {
+      "text": "We are sorry that you are unable to join us. You will shortly receive a confirmation of cancellation by email.",
+      "title": "You have nominated a substitute."
+    },
+    "nominating": {
+      "text": "You are unable to participate and would like to nominate a substitute. Please fill in the contact details of the substitute. After reviewing your request, we will send your substitute an invitation and ask them to register due to privacy reasons.",
+      "title": "Please nominate a substitute."
+    },
+    "recommendation": "Recommendation",
+    "required_fields": "Please complete all required (*) fields.",
+    "savethedate": {
+      "title": "Save the Date",
+      "text": "Please confirm your attendance.",
+      "confirming": {
+        "title": "I will attend",
+        "text": "I will attend the event",
+        "button": "Confirm"
+      },
+      "cancelling": {
+        "title": "I will not attend",
+        "text": "I will not attend the event",
+        "button": "Cancel"
+
+      }
+    }
+  },
+  "status": {
+    "cancelled": "cancelled",
+    "confirmed": "confirmed",
+    "invited": "invited",
+    "listed": "listed",
+    "requested": "requested",
+    "waitlisted": "waitlisted"
+  },
+  "validations": {
+    "email_invalid": "Email Address is incorrect",
+    "email_required": "Email Address is required",
+    "is_required": "is required",
+    "limit_reached": "The Limit was reached",
+    "required": "Required"
+  },
+  "welcome": {
+    "text_1": "EN Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt odio reprehenderit asperiores vero deserunt laborum voluptatum possimus quam totam sit? Esse necessitatibus cum voluptatem eligendi nemo. Ea distinctio deleniti error. 123",
+    "title": "EN Welcome"
+  },
+  "dashboard": {
+    "buttons": {
+      "upload": "Upload and Create Guests",
+      "reset": "Clear Data and Reset",
+      "reupload": "I am ready to upload my corrected data",
+      "export_errors": "Export Errored Guests"
+    },
+    "upload_errors": "There are errors in your file",
+    "import_finished": "Import Finished.",
+    "import_meta": {
+      "successful": "Successful",
+      "failed": "Failed"
+    }
+  }
+}
