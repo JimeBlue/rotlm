@@ -20,7 +20,7 @@
         <div
           class="shadow-primary-50/10 space-y-14 rounded-2xl bg-white p-4 py-12 shadow-md ring-1 ring-gray-950/10 md:space-y-12 md:p-8"
         >
-          <Logo class="mx-auto h-[38px]" />
+          <Logo class="mx-auto h-14" />
           <AppLogin />
         </div>
       </div>
@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-import Logo from '~/assets/svg/logo.svg?component'
+import Logo from '~/assets/svg/starter-pro-logo.svg?component'
 
 definePageMeta({
   layout: 'blank',

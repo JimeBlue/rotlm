@@ -32,7 +32,7 @@
 <script setup>
 const props = defineProps({
   title: { type: String, default: null },
-  image: { type: String, default: '/images/event.jpeg' },
+  image: { type: String, default: '/images/hero.jpg' },
 })
 const { t } = useI18n()
 const eventStore = useEventStore()

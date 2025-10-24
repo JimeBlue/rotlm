@@ -130,7 +130,7 @@
 </template>
 
 <script setup>
-import Logo from '~/assets/svg/logo.svg?component'
+import Logo from '~/assets/svg/starter-pro-logo-icon.svg?component'
 
 const root = '/'
 

@@ -27,17 +27,17 @@ body {
 }
 
 @theme {
-  --color-primary-50: #f5f1fb;
-  --color-primary-100: #ebe3f8;
-  --color-primary-200: #d7c8f1;
-  --color-primary-300: #b59de7;
-  --color-primary-400: #9673db;
-  --color-primary-500: #8354d3;
-  --color-primary-600: #6e3fbb;
-  --color-primary-700: #5b339a;
-  --color-primary-800: #48297a;
-  --color-primary-900: #36205c;
-  --color-primary-950: #211336;
+  --color-primary-50: #edfcff;
+  --color-primary-100: #d6f6ff;
+  --color-primary-200: #b5f2ff;
+  --color-primary-300: #83ecff;
+  --color-primary-400: #48dfff;
+  --color-primary-500: #0096FF;
+  --color-primary-600: #06a9ff;
+  --color-primary-700: #0096ff;
+  --color-primary-800: #0872c5;
+  --color-primary-900: #0d609b;
+  --color-primary-950: #0e3a5d;
 
   /* Secondary */
   /* --color-secondary: #6B7280; */
@@ -60,8 +60,8 @@ body {
   --text-xxs--line-height: calc(1 / 0.625);
 
   /* Font Families */
-  --font-body: 'Work Sans', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  --font-headline: 'Montserrat', Arial, sans-serif;
+  --font-body: 'Ubuntu', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-headline: 'Ubuntu', Arial, sans-serif;
 
   --radius: 0.625rem;
 }
