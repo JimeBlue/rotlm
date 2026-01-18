@@ -27,17 +27,17 @@ body {
 }
 
 @theme {
-  --color-primary-50: #edfcff;
-  --color-primary-100: #d6f6ff;
-  --color-primary-200: #b5f2ff;
-  --color-primary-300: #83ecff;
-  --color-primary-400: #48dfff;
-  --color-primary-500: #0096FF;
-  --color-primary-600: #06a9ff;
-  --color-primary-700: #0096ff;
-  --color-primary-800: #0872c5;
-  --color-primary-900: #0d609b;
-  --color-primary-950: #0e3a5d;
+  --color-primary-50: #ffeff1;
+  --color-primary-100: #ffe0e5;
+  --color-primary-200: #ffc6d2;
+  --color-primary-300: #ff97ab;
+  --color-primary-400: #ff5d81;
+  --color-primary-500: #fd0148;
+  --color-primary-600: #ff255b;
+  --color-primary-700: #d7003c;
+  --color-primary-800: #b3003b;
+  --color-primary-900: #99023a;
+  --color-primary-950: #56001a;
 
   /* Secondary */
   /* --color-secondary: #6B7280; */
@@ -55,13 +55,19 @@ body {
   --color-red-900: #450a0a;
   --color-red-950: #1f0404;
 
+  /* Yellow Neon */
+  --color-yellow-neon: #FDE304;
+
+  /* Green Neon */
+  --color-green-neon: #8BFC2B;
+
   /* Fonts */
   --text-xxs: 0.625rem;
   --text-xxs--line-height: calc(1 / 0.625);
 
   /* Font Families */
-  --font-body: 'Ubuntu', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  --font-headline: 'Ubuntu', Arial, sans-serif;
+  --font-body: 'Rubik', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-headline: 'Syne', Arial, sans-serif;
 
   --radius: 0.625rem;
 }

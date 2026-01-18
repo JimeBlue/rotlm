@@ -1,12 +1,12 @@
 {
-  "name": "starter-pro",
+  "name": "raiders-of-the-lost-missile",
   "type": "module",
   "version": "1.0.0",
   "private": true,
   "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72",
   "author": {
     "name": "Jimena Miguez",
-    "email": "your.email@example.com"
+    "email": "jimeblau@gmail.com"
   },
   "description": "Portfolio project - Event management with mock APIs",
   "scripts": {

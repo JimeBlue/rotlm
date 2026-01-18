@@ -6,13 +6,13 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // No external API keys needed for mock implementation
     public: {
-      eventId: 'portfolio-event-2024',
+      eventId: 'Raiders of the Lost Missile',
     },
   },
 
   app: {
     head: {
-      title: 'Starter Pro',
+      title: 'Raiders of the Lost Missile',
       meta: [
         { charset: 'utf-8' },
         {
@@ -24,7 +24,7 @@ export default defineNuxtConfig({
         {
           rel: 'icon',
           type: 'image/x-png',
-          href: '/favicon.png',
+          href: '/favicon.jpg',
         },
       ],
     },

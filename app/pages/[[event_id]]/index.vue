@@ -11,6 +11,10 @@
 </template>
 
 <script setup>
+definePageMeta({
+  layout: 'public',
+})
+
 const eventStore = useEventStore()
 const { getEvent } = eventStore
 
