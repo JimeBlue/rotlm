@@ -61,6 +61,18 @@ export default defineNuxtConfig({
         language: 'de-DE',
         file: 'de.json',
       },
+      {
+        name: 'Italiano',
+        code: 'it',
+        language: 'it-IT',
+        file: 'it.json',
+      },
+      {
+        name: 'Español',
+        code: 'es',
+        language: 'es-ES',
+        file: 'es.json',
+      },
     ],
     defaultLocale: 'de',
     strategy: 'prefix_except_default',

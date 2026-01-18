@@ -3,8 +3,7 @@
     <BaseHero />
     <section>
       <div class="container">
-        <!-- <Registration /> -->
-        Hello
+        This is the band section
       </div>
     </section>
   </div>
