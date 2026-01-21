@@ -17,7 +17,8 @@
             <li v-for="{ to, label } in pages" :key="to">
               <NuxtLink
                 :to="localePath(to)"
-                class="text-base text-white border border-white rounded-xl px-6 py-2 hover:bg-white/10 transition-all"
+                class="text-base uppercase px-2 py-2 hover:text-yellow-neon transition-all"
+                :class="route.hash === to.replace('/', '') ? 'text-green-neon' : 'text-white'"
               >
                 {{ label }}
               </NuxtLink>
@@ -31,12 +32,12 @@
             :popper="{ placement: 'bottom-start' }"
           >
             <UButton
-              color="primary"
+              color="neutral"
               variant="ghost"
               icon="heroicons:globe-alt"
               size="sm"
               :label="locale"
-              class="uppercase data-[state=open]:bg-elevated"
+              class="uppercase text-white hover:text-black data-[state=open]:bg-elevated data-[state=open]:text-black"
             />
             <template #item="{ item }">
               <span class="truncate">{{ item.label }}</span>
@@ -53,20 +54,19 @@
         <USlideover
           v-model:open="menuOpen"
           :transition="false"
-          title="Menu"
-          :ui="{ header: 'h-20' }"
+          :ui="{ header: 'h-20 bg-primary border-none', content: 'bg-primary ring-primary', body: 'bg-primary', close: 'text-white hover:text-white/80 bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent focus-visible:bg-transparent scale-150' }"
         >
           <UButton
-            size="md"
+            size="xl"
             color="primary"
-            variant="soft"
+            variant="ghost"
             square
             padded
             class="relative lg:hidden"
             @click="menuOpen = true"
           >
             <template #leading>
-              <div class="text-primary grid size-5 transform place-items-center">
+              <div class="text-white grid size-5 transform place-items-center">
                 <span
                   aria-hidden="true"
                   class="absolute block h-0.5 w-5 transform rounded-lg bg-current transition duration-300 ease-in-out"
@@ -100,13 +100,18 @@
                   <UButton
                     :to="localePath(to)"
                     variant="ghost"
-                    color="primary"
+                    color="neutral"
                     block
                     justify="start"
-                    class="font-bold"
+                    class="justify-start! hover:bg-transparent focus:bg-transparent active:bg-transparent focus-visible:bg-transparent"
                     @click="menuOpen = false"
                   >
-                    {{ label }}
+                    <span
+                      class="text-2xl font-extrabold uppercase transition-all hover:text-yellow-neon"
+                      :class="route.hash === to.replace('/', '') ? 'text-green-neon' : 'text-black'"
+                    >
+                      {{ label }}
+                    </span>
                   </UButton>
                 </li>
               </ul>
@@ -124,6 +129,7 @@ const logoSrc = '/images/rotlm_logo_white_bg_transparent.png'
 const root = '/'
 
 const { t } = useI18n()
+const route = useRoute()
 
 const localePath = useLocalePath()
 const { locale, locales } = useI18n()

@@ -4,6 +4,15 @@
 @layer base {
 body {
   @apply antialiased;
+    /* Override Reka UI scroll lock styles that cause layout shift */
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+  overflow: visible !important;
+
+  /* Re-enable scroll lock when modal/dialog is open */
+  &:has([data-state="open"][role="dialog"]) {
+    overflow: hidden !important;
+  }
 }
 
 :focus-visible {
