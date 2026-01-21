@@ -53,8 +53,7 @@
 
         <USlideover
           v-model:open="menuOpen"
-          :transition="false"
-          :ui="{ header: 'h-20 bg-primary border-none', content: 'bg-primary ring-primary', body: 'bg-primary', close: 'text-white hover:text-white/80 bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent focus-visible:bg-transparent scale-150' }"
+          :ui="{ overlay: 'bg-transparent', header: 'h-20 bg-primary border-none', content: 'bg-primary ring-primary', body: 'bg-primary', close: 'text-white hover:text-white/80 bg-transparent hover:bg-transparent focus:bg-transparent active:bg-transparent focus-visible:bg-transparent scale-150' }"
         >
           <UButton
             size="xl"
