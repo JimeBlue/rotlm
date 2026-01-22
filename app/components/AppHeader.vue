@@ -101,8 +101,7 @@
                     variant="ghost"
                     color="neutral"
                     block
-                    justify="start"
-                    class="justify-start! hover:bg-transparent focus:bg-transparent active:bg-transparent focus-visible:bg-transparent"
+                    class="justify-center! hover:bg-transparent focus:bg-transparent active:bg-transparent focus-visible:bg-transparent"
                     @click="menuOpen = false"
                   >
                     <span
@@ -114,6 +113,7 @@
                   </UButton>
                 </li>
               </ul>
+              <RotlmLogo class="mt-6 mx-auto w-40 text-green-neon" />
             </div>
           </template>
         </USlideover>
@@ -123,6 +123,8 @@
 </template>
 
 <script setup>
+import RotlmLogo from '~/assets/svg/ROTLM_logo.svg?component'
+
 const logoSrc = '/images/rotlm_logo_white_bg_transparent.png'
 
 const root = '/'
