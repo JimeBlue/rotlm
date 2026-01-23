@@ -79,6 +79,9 @@ body {
   --font-headline: 'Syne', Arial, sans-serif;
 
   --radius: 0.625rem;
+
+  /* Custom animation - slower spin */
+  --animate-spin-slow: spin 3s linear infinite;
 }
 
 @utility container {

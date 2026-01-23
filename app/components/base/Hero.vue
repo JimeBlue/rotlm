@@ -18,22 +18,36 @@
       </motion.div>
       <div class="mx-auto mt-4 h-1 w-20 bg-primary-500" />
 
-      <motion.img
-        :src="image"
-        alt="ROTLM Band"
-        class="mx-auto mt-12 w-full max-w-4xl rounded-xl will-change-transform"
-        :initial="imageInitial"
-        :animate="imageAnimate"
-        :transition="imageTransition"
-      />
+      <div class="relative mx-auto mt-12 w-full max-w-4xl">
+        <RotlmLogo class="absolute -bottom-10 md:top-2 lg:top-6 -right-10 md:-left-5  w-28 md:w-36 lg:w-32 z-20 text-primary-500 md:block  animate-spin-slow" />
+        <motion.img
+          :src="image"
+          alt="ROTLM Band"
+          class="relative z-10 w-full rounded-xl will-change-transform"
+          :initial="imageInitial"
+          :animate="imageAnimate"
+          :transition="imageTransition"
+        />
+      </div>
     </div>
+
+    <!-- Decorative images - visible from lg screens -->
+    <Brandmark
+      class="absolute bottom-36 left-0 hidden -translate-x-1/2 translate-y-1/4 lg:block text-yellow-neon lg:w-[720px]"
+    />
+    <BrandmarkDown
+      class="absolute bottom-48 right-10 hidden translate-x-1/2 translate-y-1/4 text-primary-500 lg:block lg:w-[520px]"
+    />
   </section>
 </template>
 
 <script setup>
 import { usePreferredReducedMotion } from '@vueuse/core'
 import { motion } from 'motion-v'
+import BrandmarkDown from '~/assets/svg/bandmark_down.svg?component'
+import Brandmark from '~/assets/svg/brandmark.svg?component'
 import PhraseLogo from '~/assets/svg/phrase_logo_white.svg?component'
+import RotlmLogo from '~/assets/svg/ROTLM_logo.svg?component'
 
 const props = defineProps({
   image: { type: String, default: '/images/ROTLM_hero.png' },
