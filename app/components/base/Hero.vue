@@ -4,7 +4,17 @@
     class="relative mb-10 overflow-hidden bg-black"
   >
     <div class="container mx-auto pt-20 lg:pt-16">
-      <PhraseLogo class="mx-auto w-full max-w-4xl" />
+      <motion.div
+        :initial="{ opacity: 0, scale: 0 }"
+        :animate="{ opacity: 1, scale: 1 }"
+        :transition="{
+          duration: 0.4,
+          scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 },
+        }"
+        class="mx-auto w-full max-w-4xl"
+      >
+        <PhraseLogo class="w-full" />
+      </motion.div>
       <div class="mx-auto mt-4 h-1 w-20 bg-primary-500" />
     </div>
     <div class="text-white">
@@ -14,6 +24,7 @@
 </template>
 
 <script setup>
+import { motion } from 'motion-v'
 import PhraseLogo from '~/assets/svg/phrase_logo_white.svg?component'
 
 const props = defineProps({
@@ -21,5 +32,4 @@ const props = defineProps({
   image: { type: String, default: '/images/hero.jpg' },
 })
 const { t } = useI18n()
-const eventStore = useEventStore()
 </script>

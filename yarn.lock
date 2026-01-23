@@ -4847,6 +4847,15 @@ framer-motion@12.23.12:
     motion-utils "^12.23.6"
     tslib "^2.4.0"
 
+framer-motion@^12.25.0:
+  version "12.29.0"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-12.29.0.tgz#f031407c6025f96e9425de3da039b73c368b4153"
+  integrity sha512-1gEFGXHYV2BD42ZPTFmSU9buehppU+bCuOnHU0AD18DKh9j4DuTx47MvqY5ax+NNWRtK32qIcJf1UxKo1WwjWg==
+  dependencies:
+    motion-dom "^12.29.0"
+    motion-utils "^12.27.2"
+    tslib "^2.4.0"
+
 framesync@6.1.2, framesync@^6.1.2:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/framesync/-/framesync-6.1.2.tgz#755eff2fb5b8f3b4d2b266dd18121b300aefea27"
@@ -6355,10 +6364,22 @@ motion-dom@^12.23.12:
   dependencies:
     motion-utils "^12.23.6"
 
+motion-dom@^12.23.23, motion-dom@^12.29.0:
+  version "12.29.0"
+  resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-12.29.0.tgz#93ba293d15df5edc9f3fd43225a5b59c26997a5c"
+  integrity sha512-3eiz9bb32yvY8Q6XNM4AwkSOBPgU//EIKTZwsSWgA9uzbPBhZJeScCVcBuwwYVqhfamewpv7ZNmVKTGp5qnzkA==
+  dependencies:
+    motion-utils "^12.27.2"
+
 motion-utils@^12.23.6:
   version "12.23.6"
   resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-12.23.6.tgz#fafef80b4ea85122dd0d6c599a0c63d72881f312"
   integrity sha512-eAWoPgr4eFEOFfg2WjIsMoqJTW6Z8MTUCgn/GZ3VRpClWBdnbjryiA3ZSNLyxCTmCQx4RmYX6jX1iWHbenUPNQ==
+
+motion-utils@^12.27.2:
+  version "12.27.2"
+  resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-12.27.2.tgz#cd3038236ae2dc3d643bdb272ed831fd6d8ab616"
+  integrity sha512-B55gcoL85Mcdt2IEStY5EEAsrMSVE2sI14xQ/uAdPL+mfQxhKKFaEag9JmfxedJOR4vZpBGoPeC/Gm13I/4g5Q==
 
 motion-v@^1.7.1:
   version "1.7.3"
@@ -6368,6 +6389,15 @@ motion-v@^1.7.1:
     framer-motion "12.23.12"
     hey-listen "^1.0.8"
     motion-dom "12.23.12"
+
+motion-v@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/motion-v/-/motion-v-1.9.0.tgz#1da1f69dc0a9287b7eb5ddc7365683d014f3fc6f"
+  integrity sha512-B5VeO69gO416yIqCyNL9EAD7v6n/h/9ktv7gGSRKzTCQhAhnC/N1VWLOTYvOiH90f/tZivbgN/V0MzSU5nsJLA==
+  dependencies:
+    framer-motion "^12.25.0"
+    hey-listen "^1.0.8"
+    motion-dom "^12.23.23"
 
 mrmime@^2.0.0:
   version "2.0.1"

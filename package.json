@@ -33,6 +33,7 @@
     "fetch-blob": "^4.0.0",
     "lodash-es": "^4.17.21",
     "maska": "^2.1.11",
+    "motion-v": "^1.9.0",
     "nuxt": "^4.1.2",
     "nuxt-svgo": "^4.0.0",
     "pinia": "^2.1.7",
