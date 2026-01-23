@@ -1,35 +1,21 @@
 <template>
   <section
     id="hero"
-    class="relative mb-10 flex h-full min-h-112 flex-col overflow-hidden bg-cover bg-center"
+    class="relative mb-10 overflow-hidden bg-black"
   >
-    <img
-      class="pointer-events-none absolute inset-0 size-full select-none object-cover object-center"
-      :src="props.image"
-      alt=""
-    >
-    <div
-      class="bg-primary-950/75 relative z-10 flex size-full flex-1 flex-col"
-    >
-      <div class="container mx-auto flex h-full flex-1 items-center py-6">
-        <div class="max-w-xl text-white">
-          <h1 class="text-3xl font-bold capitalize xl:text-4xl">
-            <!-- {{ eventStore.event?.name || 'Event' }} -->
-            {{ props.title ? props.title : t("meta.name") }}
-          </h1>
-          <p class="mt-4 text-lg leading-tight">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
-            error odit vel minima optio consequuntur atque omnis, repellendus
-            eos, rerum totam quas vitae voluptatibus, facere distinctio fugit?
-            Nam, iure expedita!
-          </p>
-        </div>
-      </div>
+    <div class="container mx-auto pt-20 lg:pt-16">
+      <PhraseLogo class="mx-auto w-full max-w-4xl" />
+      <div class="mx-auto mt-4 h-1 w-20 bg-primary-500" />
+    </div>
+    <div class="text-white">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus debitis tempore, libero rem saepe, eos eaque sit ipsa sunt ratione aperiam reprehenderit provident praesentium nisi illum voluptas aspernatur, architecto accusantium! Minima, quae voluptatum. Debitis perspiciatis asperiores laudantium. Ipsa repellat ex quae possimus quasi quibusdam dolores delectus aspernatur dolor mollitia deserunt, adipisci laudantium praesentium quaerat placeat perspiciatis natus. In, adipisci facilis!</p>
     </div>
   </section>
 </template>
 
 <script setup>
+import PhraseLogo from '~/assets/svg/phrase_logo_white.svg?component'
+
 const props = defineProps({
   title: { type: String, default: null },
   image: { type: String, default: '/images/hero.jpg' },
