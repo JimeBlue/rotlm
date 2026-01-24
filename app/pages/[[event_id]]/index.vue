@@ -1,11 +1,7 @@
 <template>
   <div>
     <BaseHero />
-    <section>
-      <div class="container">
-        This is the band section
-      </div>
-    </section>
+    <BaseBand />
   </div>
 </template>
 
