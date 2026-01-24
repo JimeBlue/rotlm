@@ -47,7 +47,6 @@
 
       <!-- Band photo with neon card -->
       <div
-        ref="bandPhotoRef"
         class="relative flex justify-center items-center mt-16 mx-auto max-w-4xl min-h-[500px] overflow-hidden"
       >
         <!-- Image container with green card behind -->
@@ -55,14 +54,20 @@
           <!-- Neon green background card -->
           <motion.div
             class="absolute inset-0 w-full h-full bg-green-neon rounded-xl z-0"
-            :style="{ rotate: cardRotate }"
+            :initial="{ rotate: 0 }"
+            :while-in-view="{ rotate: -8 }"
+            :viewport="{ once: true, amount: 0.3 }"
+            :transition="{ type: 'spring', stiffness: 150, damping: 12 }"
           />
           <!-- Band image -->
           <motion.img
             src="/images/ROTLM_Band.jpg"
             alt="ROTLM Band performing"
             class="relative w-full max-w-[680px] rounded-xl z-[1]"
-            :style="{ rotate: imageRotate }"
+            :initial="{ rotate: 0 }"
+            :while-in-view="{ rotate: 6 }"
+            :viewport="{ once: true, amount: 0.3 }"
+            :transition="{ type: 'spring', stiffness: 150, damping: 12 }"
           />
         </div>
       </div>
@@ -72,22 +77,9 @@
 
 <script setup>
 import { PortableText } from '@portabletext/vue'
-import { motion, useScroll, useTransform } from 'motion-v'
-import { ref } from 'vue'
+import { motion } from 'motion-v'
 
 const { band } = useBand()
-
-// Scroll-linked animation for band photo
-const bandPhotoRef = ref(null)
-const { scrollYProgress } = useScroll({
-  target: bandPhotoRef,
-  offset: ['start end', 'start center'],
-})
-
-// Card rotates from 2deg to -8deg as you scroll
-const cardRotate = useTransform(scrollYProgress, [0, 1], [3, -9])
-// Image rotates from -2deg to 6deg as you scroll
-const imageRotate = useTransform(scrollYProgress, [0, 1], [0, 1])
 
 // Custom components for rendering Portable Text
 const portableTextComponents = {
