@@ -115,12 +115,16 @@
               alt=""
               class="max-w-full lg:max-w-[50%]"
             >
-            <img
+            <motion.img
               v-if="band?.imageTwo"
               :src="band.imageTwo"
               alt=""
               class="max-w-full lg:max-w-[50%]"
-            >
+              :initial="{ rotate: 0 }"
+              :while-in-view="{ rotate: [0, -3, 3, -3, 3, -2, 2, 0] }"
+              :viewport="{ once: true, amount: 0.3 }"
+              :transition="{ duration: 0.6, ease: 'easeInOut' }"
+            />
           </div>
         </div>
       </div>
