@@ -49,7 +49,14 @@ export function useBand() {
     title,
     paragraph1,
     paragraph2,
-    members
+    paragraph3,
+    "imageOne": imageOne.asset->url,
+    "imageTwo": imageTwo.asset->url,
+    members,
+    "genres": genres[] {
+      name,
+      "logo": logo.asset->url
+    }
   }`
 
   const { data: rawBand } = useFetch(
@@ -69,11 +76,16 @@ export function useBand() {
       paragraph1: rawBand.value.paragraph1?.[locale.value] || rawBand.value.paragraph1?.en || '',
       // paragraph2 is Portable Text (array of blocks), fallback to empty array
       paragraph2: rawBand.value.paragraph2?.[locale.value] || rawBand.value.paragraph2?.en || [],
+      paragraph3: rawBand.value.paragraph3?.[locale.value] || rawBand.value.paragraph3?.en || '',
+      imageOne: rawBand.value.imageOne || null,
+      imageTwo: rawBand.value.imageTwo || null,
       // Transform members to include translated instrument
       members: (rawBand.value.members || []).map((member: any) => ({
         name: member.name,
         instrument: member.instrument?.[locale.value] || member.instrument?.en || '',
       })),
+      // Genre logos
+      genres: rawBand.value.genres || [],
     }
   })
 

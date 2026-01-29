@@ -60,6 +60,73 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'paragraph3',
+      title: 'Third Paragraph (Call to Action)',
+      type: 'object',
+      description: 'Text displayed in the pink section below the band photo',
+      fields: [
+        {name: 'en', type: 'string', title: 'English'},
+        {name: 'de', type: 'string', title: 'Deutsch'},
+        {name: 'it', type: 'string', title: 'Italiano'},
+        {name: 'es', type: 'string', title: 'Español'},
+      ],
+    }),
+    defineField({
+      name: 'imageOne',
+      title: 'Image One',
+      type: 'image',
+      description: 'First image displayed below the call to action text',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'imageTwo',
+      title: 'Image Two',
+      type: 'image',
+      description: 'Second image displayed next to Image One on desktop, below on mobile',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'genres',
+      title: 'Music Genres/Keywords',
+      type: 'array',
+      description: 'Logos for music styles like alt rock, grunge, crossover, loud, funk, rap',
+      of: [
+        {
+          type: 'object',
+          name: 'genre',
+          title: 'Genre',
+          fields: [
+            {
+              name: 'name',
+              type: 'string',
+              title: 'Genre Name',
+              description: 'e.g. Alt Rock, Grunge, Crossover, Loud, Funk, Rap',
+              validation: (rule) => rule.required(),
+            },
+            {
+              name: 'logo',
+              type: 'image',
+              title: 'Logo/Image',
+              options: {
+                hotspot: true,
+              },
+              validation: (rule) => rule.required(),
+            },
+          ],
+          preview: {
+            select: {
+              title: 'name',
+              media: 'logo',
+            },
+          },
+        },
+      ],
+    }),
+    defineField({
       name: 'members',
       title: 'Band Members',
       type: 'array',

@@ -170,3 +170,31 @@
     url('/fonts/Syne-ExtraBold.woff2') format('woff2'),
     url('/fonts/Syne-ExtraBold.woff') format('woff');
 }
+
+/* Oswald */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 500;
+  src:
+    url('/fonts/Oswald-Medium.woff2') format('woff2'),
+    url('/fonts/Oswald-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 600;
+  src:
+    url('/fonts/Oswald-SemiBold.woff2') format('woff2'),
+    url('/fonts/Oswald-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    url('/fonts/Oswald-Bold.woff2') format('woff2'),
+    url('/fonts/Oswald-Bold.woff') format('woff');
+}
