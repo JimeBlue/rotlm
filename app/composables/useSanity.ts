@@ -91,3 +91,34 @@ export function useBand() {
 
   return { band }
 }
+
+export function useFooter() {
+  const { locale } = useI18n()
+
+  const query = `*[_type == "footer"][0] {
+    copyright,
+    "socialLinks": socialLinks[] | order(order asc) {
+      name,
+      url,
+      order
+    }
+  }`
+
+  const { data: rawFooter } = useFetch(
+    () => `https://${client.config().projectId}.api.sanity.io/v${client.config().apiVersion}/data/query/${client.config().dataset}?query=${encodeURIComponent(query)}`,
+    {
+      key: 'footer',
+      transform: (response: any) => response.result || null,
+    },
+  )
+
+  const footer = computed(() => {
+    if (!rawFooter.value) return null
+    return {
+      copyright: rawFooter.value.copyright?.[locale.value] || rawFooter.value.copyright?.en || '',
+      socialLinks: rawFooter.value.socialLinks || [],
+    }
+  })
+
+  return { footer }
+}
