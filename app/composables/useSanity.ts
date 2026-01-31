@@ -14,22 +14,13 @@ export function useSanity() {
 export function useNavigation() {
   const { locale } = useI18n()
 
-  const query = `*[_type == "navigation" && visible == true] | order(order asc) {
-    key,
-    label
-  }`
-
-  const { data: rawNavigation, refresh } = useFetch(
-    () => `https://${client.config().projectId}.api.sanity.io/v${client.config().apiVersion}/data/query/${client.config().dataset}?query=${encodeURIComponent(query)}`,
-    {
-      key: 'navigation',
-      transform: (response: any) => response.result || [],
-    },
-  )
+  const { data: rawNavigation } = useFetch('/api/sanity/navigation', {
+    key: 'navigation',
+  })
 
   const navigation = computed(() => {
     if (!rawNavigation.value) return []
-    return rawNavigation.value.map((item: any) => ({
+    return (rawNavigation.value as any[]).map((item: any) => ({
       key: item.key,
       label: item.label?.[locale.value] || item.label?.en || item.key,
     }))
@@ -41,49 +32,30 @@ export function useNavigation() {
 export function useBand() {
   const { locale } = useI18n()
 
-  // GROQ query: fetch the first band document
-  // [0] because there's only one band section
-  const query = `*[_type == "band"][0] {
-    title,
-    paragraph1,
-    paragraph2,
-    paragraph3,
-    "imageOne": imageOne.asset->url,
-    "imageTwo": imageTwo.asset->url,
-    members,
-    "genres": genres[] {
-      name,
-      "logo": logo.asset->url
-    }
-  }`
-
-  const { data: rawBand } = useFetch(
-    () => `https://${client.config().projectId}.api.sanity.io/v${client.config().apiVersion}/data/query/${client.config().dataset}?query=${encodeURIComponent(query)}`,
-    {
-      key: 'band',
-      transform: (response: any) => response.result || null,
-    },
-  )
+  const { data: rawBand } = useFetch('/api/sanity/band', {
+    key: 'band',
+  })
 
   // Computed property that returns content in the current locale
   // Falls back to English if translation is missing
   const band = computed(() => {
     if (!rawBand.value) return null
+    const data = rawBand.value as any
     return {
-      title: rawBand.value.title?.[locale.value] || rawBand.value.title?.en || '',
-      paragraph1: rawBand.value.paragraph1?.[locale.value] || rawBand.value.paragraph1?.en || '',
+      title: data.title?.[locale.value] || data.title?.en || '',
+      paragraph1: data.paragraph1?.[locale.value] || data.paragraph1?.en || '',
       // paragraph2 is Portable Text (array of blocks), fallback to empty array
-      paragraph2: rawBand.value.paragraph2?.[locale.value] || rawBand.value.paragraph2?.en || [],
-      paragraph3: rawBand.value.paragraph3?.[locale.value] || rawBand.value.paragraph3?.en || '',
-      imageOne: rawBand.value.imageOne || null,
-      imageTwo: rawBand.value.imageTwo || null,
+      paragraph2: data.paragraph2?.[locale.value] || data.paragraph2?.en || [],
+      paragraph3: data.paragraph3?.[locale.value] || data.paragraph3?.en || '',
+      imageOne: data.imageOne || null,
+      imageTwo: data.imageTwo || null,
       // Transform members to include translated instrument
-      members: (rawBand.value.members || []).map((member: any) => ({
+      members: (data.members || []).map((member: any) => ({
         name: member.name,
         instrument: member.instrument?.[locale.value] || member.instrument?.en || '',
       })),
       // Genre logos
-      genres: rawBand.value.genres || [],
+      genres: data.genres || [],
     }
   })
 
@@ -93,28 +65,16 @@ export function useBand() {
 export function useFooter() {
   const { locale } = useI18n()
 
-  const query = `*[_type == "footer"][0] {
-    copyright,
-    "socialLinks": socialLinks[] | order(order asc) {
-      name,
-      url,
-      order
-    }
-  }`
-
-  const { data: rawFooter } = useFetch(
-    () => `https://${client.config().projectId}.api.sanity.io/v${client.config().apiVersion}/data/query/${client.config().dataset}?query=${encodeURIComponent(query)}`,
-    {
-      key: 'footer',
-      transform: (response: any) => response.result || null,
-    },
-  )
+  const { data: rawFooter } = useFetch('/api/sanity/footer', {
+    key: 'footer',
+  })
 
   const footer = computed(() => {
     if (!rawFooter.value) return null
+    const data = rawFooter.value as any
     return {
-      copyright: rawFooter.value.copyright?.[locale.value] || rawFooter.value.copyright?.en || '',
-      socialLinks: rawFooter.value.socialLinks || [],
+      copyright: data.copyright?.[locale.value] || data.copyright?.en || '',
+      socialLinks: data.socialLinks || [],
     }
   })
 
@@ -122,20 +82,10 @@ export function useFooter() {
 }
 
 export function useAlbums() {
-  const query = `*[_type == "album"] | order(order asc) {
-    title,
-    "coverImage": coverImage.asset->url,
-    spotifyEmbedUrl,
-    order
-  }`
-
-  const { data: albums } = useFetch(
-    () => `https://${client.config().projectId}.api.sanity.io/v${client.config().apiVersion}/data/query/${client.config().dataset}?query=${encodeURIComponent(query)}`,
-    {
-      key: 'albums',
-      transform: (response: any) => response.result || [],
-    },
-  )
+  const { data: albums } = useFetch<any[]>('/api/sanity/albums', {
+    key: 'albums',
+    default: () => [],
+  })
 
   return { albums }
 }
