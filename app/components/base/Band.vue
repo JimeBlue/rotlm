@@ -113,13 +113,13 @@
               v-if="band?.imageOne"
               :src="band.imageOne"
               alt=""
-              class="max-w-full lg:max-w-[50%]"
+              class="max-w-full lg:max-w-[50%] order-2 lg:order-1"
             >
             <motion.img
               v-if="band?.imageTwo"
               :src="band.imageTwo"
               alt=""
-              class="max-w-full lg:max-w-[50%]"
+              class="max-w-full lg:max-w-[50%] order-1 lg:order-2"
               :initial="{ rotate: 0 }"
               :while-in-view="{ rotate: [0, -3, 3, -3, 3, -2, 2, 0] }"
               :viewport="{ once: true, amount: 0.3 }"
