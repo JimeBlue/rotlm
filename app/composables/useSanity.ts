@@ -122,3 +122,22 @@ export function useFooter() {
 
   return { footer }
 }
+
+export function useAlbums() {
+  const query = `*[_type == "album"] | order(order asc) {
+    title,
+    "coverImage": coverImage.asset->url,
+    spotifyEmbedUrl,
+    order
+  }`
+
+  const { data: albums } = useFetch(
+    () => `https://${client.config().projectId}.api.sanity.io/v${client.config().apiVersion}/data/query/${client.config().dataset}?query=${encodeURIComponent(query)}`,
+    {
+      key: 'albums',
+      transform: (response: any) => response.result || [],
+    },
+  )
+
+  return { albums }
+}
