@@ -89,3 +89,29 @@ export function useAlbums() {
 
   return { albums }
 }
+
+export function useHero() {
+  const { data: hero } = useFetch<{ images: { url: string; alt?: string }[] }>('/api/sanity/hero', {
+    key: 'hero',
+  })
+
+  return { hero }
+}
+
+export function useMusic() {
+  const { locale } = useI18n()
+
+  const { data: rawMusic } = useFetch('/api/sanity/music', {
+    key: 'music',
+  })
+
+  const music = computed(() => {
+    if (!rawMusic.value) return null
+    const data = rawMusic.value as any
+    return {
+      title: data.title?.[locale.value] || data.title?.en || '',
+    }
+  })
+
+  return { music }
+}

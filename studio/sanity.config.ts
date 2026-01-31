@@ -15,6 +15,13 @@ export default defineConfig({
           .title('Content')
           .items([
             S.listItem()
+              .title('Hero')
+              .child(
+                S.documentList()
+                  .title('Hero')
+                  .filter('_type == "hero"')
+              ),
+            S.listItem()
               .title('Navigation')
               .child(
                 S.documentList()
@@ -31,10 +38,25 @@ export default defineConfig({
             S.listItem()
               .title('Music')
               .child(
-                S.documentList()
-                  .title('Albums')
-                  .filter('_type == "album"')
-                  .defaultOrdering([{field: 'order', direction: 'asc'}])
+                S.list()
+                  .title('Music')
+                  .items([
+                    S.listItem()
+                      .title('Music Section')
+                      .child(
+                        S.documentList()
+                          .title('Music Section')
+                          .filter('_type == "music"')
+                      ),
+                    S.listItem()
+                      .title('Albums')
+                      .child(
+                        S.documentList()
+                          .title('Albums')
+                          .filter('_type == "album"')
+                          .defaultOrdering([{field: 'order', direction: 'asc'}])
+                      ),
+                  ])
               ),
             S.listItem()
               .title('Footer')

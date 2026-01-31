@@ -1,23 +1,23 @@
 <template>
-  <section id="music" class="bg-black min-h-screen py-16 lg:py-24">
-    <div class="container mx-auto px-4">
-      <h1
-        v-motion
-        :initial="{ opacity: 0, y: 80 }"
-        :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
-        class="text-3xl lg:text-5xl font-bold text-white mb-12 text-center uppercase"
-      >
-        Music
-      </h1>
+  <section id="music">
+    <BaseHeroPhrase />
+    <div class="container">
+      <article>
+        <h1
+          v-motion
+          :initial="{ opacity: 0, y: 80 }"
+          :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
+          class="text-3xl lg:text-5xl font-bold text-white mb-12 text-center uppercase"
+        >
+          {{ music?.title || 'Music' }}
+        </h1>
+      </article>
 
       <!-- Albums from Sanity -->
       <div class="space-y-16 lg:space-y-24">
         <div
-          v-for="(album, index) in albums"
+          v-for="(album) in albums"
           :key="album.title"
-          v-motion
-          :initial="{ opacity: 0, y: 40 }"
-          :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 200 + index * 100 } }"
           class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto"
         >
           <!-- Album Cover Image -->
@@ -49,6 +49,7 @@
 
 <script setup>
 const { albums } = useAlbums()
+const { music } = useMusic()
 
 definePageMeta({
   layout: 'public',

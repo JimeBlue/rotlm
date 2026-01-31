@@ -12,9 +12,14 @@
           duration: 0.4,
           scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 },
         }"
-        class="mx-auto w-full max-w-4xl"
+        class="mx-auto w-full max-w-4xl mt-4 lg:mt-10"
       >
-        <PhraseLogo class="w-full" />
+        <img
+          v-if="phraseImage"
+          :src="phraseImage.url"
+          :alt="phraseImage.alt || 'Raiders of the Lost Missile'"
+          class="w-full"
+        >
       </motion.div>
       <div class="mx-auto mt-4 h-1 w-20 bg-primary-500" />
 
@@ -46,12 +51,15 @@ import { usePreferredReducedMotion } from '@vueuse/core'
 import { motion } from 'motion-v'
 import BrandmarkDown from '~/assets/svg/bandmark_down.svg?component'
 import Brandmark from '~/assets/svg/brandmark.svg?component'
-import PhraseLogo from '~/assets/svg/phrase_logo_white.svg?component'
 import RotlmLogo from '~/assets/svg/ROTLM_logo.svg?component'
 
 const props = defineProps({
   image: { type: String, default: '/images/ROTLM_hero.png' },
 })
+
+const { hero } = useHero()
+
+const phraseImage = computed(() => hero.value?.images?.[0])
 
 const reduced = usePreferredReducedMotion()
 

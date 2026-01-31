@@ -39,6 +39,15 @@ const queries: Record<string, string> = {
     spotifyEmbedUrl,
     order
   }`,
+  hero: `*[_type == "hero"][0] {
+    "images": images[] {
+      "url": asset->url,
+      alt
+    }
+  }`,
+  music: `*[_type == "music"][0] {
+    title
+  }`,
 }
 
 export default defineEventHandler(async (event) => {
