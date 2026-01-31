@@ -16,8 +16,7 @@ export function useNavigation() {
 
   const query = `*[_type == "navigation" && visible == true] | order(order asc) {
     key,
-    label,
-    anchor
+    label
   }`
 
   const { data: rawNavigation, refresh } = useFetch(
@@ -33,7 +32,6 @@ export function useNavigation() {
     return rawNavigation.value.map((item: any) => ({
       key: item.key,
       label: item.label?.[locale.value] || item.label?.en || item.key,
-      anchor: item.anchor || null,
     }))
   })
 

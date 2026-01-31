@@ -9,7 +9,7 @@ export default defineType({
       name: 'key',
       title: 'Key',
       type: 'string',
-      description: 'Unique identifier for this nav item (e.g., "home", "band", "contact")',
+      description: 'Unique identifier for this nav item. Use "band" for home page, others become /{key} routes (e.g., "music" → /music)',
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -23,12 +23,6 @@ export default defineType({
         {name: 'es', type: 'string', title: 'Español'},
       ],
       validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: 'anchor',
-      title: 'Anchor',
-      type: 'string',
-      description: 'Section anchor (e.g., "band", "contact"). Leave empty for home.',
     }),
     defineField({
       name: 'order',

@@ -143,8 +143,9 @@ const { navigation } = useNavigation()
 const pages = computed(() => {
   return navigation.value.map(item => ({
     label: item.label,
-    to: item.anchor ? `/#${item.anchor}` : '/',
-  }))
+    to: item.key === 'band' ? '/' : `/${item.key}`,
+    visible: true,
+  })).filter(i => i.visible)
 })
 
 const localeItems = computed(() => {
