@@ -17,8 +17,7 @@
             <li v-for="{ to, label } in pages" :key="to">
               <NuxtLink
                 :to="localePath(to)"
-                class="text-base uppercase px-2 py-2 hover:text-yellow-neon transition-all"
-                :class="route.hash === to.replace('/', '') ? 'text-green-neon' : 'text-white'"
+                class="text-base uppercase px-2 py-2 hover:text-yellow-neon transition-all text-white aria-[current=page]:text-green-neon"
               >
                 {{ label }}
               </NuxtLink>
@@ -96,21 +95,13 @@
             <div class="flex-1">
               <ul class="space-y-3">
                 <li v-for="{ to, label } in pages" :key="to">
-                  <UButton
+                  <NuxtLink
                     :to="localePath(to)"
-                    variant="ghost"
-                    color="neutral"
-                    block
-                    class="justify-center! hover:bg-transparent focus:bg-transparent active:bg-transparent focus-visible:bg-transparent"
+                    class="block text-center text-2xl font-extrabold uppercase transition-all hover:text-yellow-neon text-black aria-[current=page]:text-green-neon"
                     @click="menuOpen = false"
                   >
-                    <span
-                      class="text-2xl font-extrabold uppercase transition-all hover:text-yellow-neon"
-                      :class="route.hash === to.replace('/', '') ? 'text-green-neon' : 'text-black'"
-                    >
-                      {{ label }}
-                    </span>
-                  </UButton>
+                    {{ label }}
+                  </NuxtLink>
                 </li>
               </ul>
               <RotlmLogo class="mt-6 mx-auto w-40 text-green-neon" />
