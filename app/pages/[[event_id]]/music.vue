@@ -1,27 +1,28 @@
 <template>
-  <section id="music">
+  <section id="music" class="relative">
     <BaseHeroPhrase />
     <div class="container">
       <article>
-        <h1
+        <h2
           v-motion
           :initial="{ opacity: 0, y: 80 }"
           :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
-          class="text-3xl lg:text-5xl font-bold text-white mb-12 text-center uppercase"
+          class="text-3xl lg:text-5xl font-bold text-white text-center uppercase mt-16 lg:mt-24"
         >
           {{ music?.title || 'Music' }}
-        </h1>
+        </h2>
+        <div class="mx-auto mt-4 h-1 w-20 bg-primary-500" />
       </article>
 
       <!-- Albums from Sanity -->
-      <div class="space-y-16 lg:space-y-24">
+      <div class="relative space-y-16 lg:space-y-24 mt-10 lg:mt-20">
         <div
           v-for="(album) in albums"
           :key="album.title"
-          class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto"
+          class="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto"
         >
           <!-- Album Cover Image -->
-          <div>
+          <div class="relative z-10">
             <img
               :src="album.coverImage"
               :alt="album.title"
@@ -30,7 +31,7 @@
           </div>
 
           <!-- Spotify Embed -->
-          <div class="flex min-h-[500px] lg:min-h-0">
+          <div class="relative z-10 flex min-h-[500px] lg:min-h-0">
             <iframe
               class="rounded-xl w-full"
               :src="album.spotifyEmbedUrl"
@@ -48,6 +49,8 @@
 </template>
 
 <script setup>
+import RaySvg from '~/assets/svg/ray.svg?component'
+
 const { albums } = useAlbums()
 const { music } = useMusic()
 

@@ -1,5 +1,5 @@
 <template>
-  <section id="hero" class="relative pb-28 pt-20 lg:pt-16 overflow-hidden bg-black">
+  <section id="hero" class="relative pt-20 lg:pt-16 overflow-hidden bg-black">
     <div class="container mx-auto">
       <motion.div
         :initial="{ opacity: 0, scale: 0 }"
