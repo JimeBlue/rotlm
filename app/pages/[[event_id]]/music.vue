@@ -1,5 +1,5 @@
 <template>
-  <section id="music" class="relative">
+  <section id="music" class="relative pb-16 md:pb-24 lg:mb-32">
     <BaseHeroPhrase />
     <div class="container">
       <article>
@@ -44,12 +44,40 @@
           </div>
         </div>
       </div>
+      <!-- NOTE: music page footer -->
+      <footer class="relative mt-16 lg:mt-36">
+        <!-- Cassette decoration -->
+        <img
+          v-motion
+          :initial="{ rotate: 0, opacity: 0 }"
+          :visible="{ rotate: -12, opacity: 1, transition: { duration: 800, ease: 'easeOut' } }"
+          src="/images/cassette_green.png"
+          alt=""
+          class="absolute top-6 sm:top-24 -left-28 sm:-left-36 md:-left-48 lg:-left-52 xl:-left-56 w-[200px] sm:w-[250px] md:w-[310px] lg:w-[380px] -translate-y-1/2 pointer-events-none"
+        >
+        <motion.img
+          :initial="{ opacity: 0, scale: 0 }"
+          :in-view="{ opacity: 1, scale: 1 }"
+          :transition="{
+            delay: 0.1,
+            duration: 0.4,
+            scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 },
+          }"
+          src="/images/Logo_ROTLM_with_guitar_white.png"
+          alt="ROTLM Logo"
+          class="w-3/6 mx-auto mt-24"
+        />
+        <BrandmarkDown
+          class="absolute bottom-0 right-0 sm:-right-6 md:-right-16 lg:-right-16 translate-x-1/2 translate-y-1/4 text-blue-neon w-[150px] md:w-[220px] lg:w-[520px]"
+        />
+      </footer>
     </div>
   </section>
 </template>
 
 <script setup>
-import RaySvg from '~/assets/svg/ray.svg?component'
+import { motion } from 'motion-v'
+import BrandmarkDown from '~/assets/svg/neon-lightning.svg?component'
 
 const { albums } = useAlbums()
 const { music } = useMusic()
