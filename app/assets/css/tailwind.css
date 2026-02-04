@@ -40,6 +40,9 @@ body {
 }
 
 @theme {
+  /* Custom breakpoint */
+  --breakpoint-3xl: 1784px;
+
   --color-primary-50: #ffeff1;
   --color-primary-100: #ffe0e5;
   --color-primary-200: #ffc6d2;

@@ -97,14 +97,14 @@
                 <li v-for="{ to, label } in pages" :key="to">
                   <NuxtLink
                     :to="localePath(to)"
-                    class="block text-center text-2xl font-extrabold uppercase transition-all hover:text-yellow-neon text-black aria-[current=page]:text-green-neon"
+                    class="block text-center text-2xl font-extrabold uppercase transition-all hover:text-white text-yellow-neon aria-[current=page]:text-green-neon"
                     @click="menuOpen = false"
                   >
                     {{ label }}
                   </NuxtLink>
                 </li>
               </ul>
-              <RotlmLogo class="mt-6 mx-auto w-40 text-green-neon" />
+              <RotlmLogo class="mt-6 mx-auto w-40 text-white" />
             </div>
           </template>
         </USlideover>
