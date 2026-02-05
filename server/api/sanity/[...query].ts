@@ -49,7 +49,13 @@ const queries: Record<string, string> = {
     title
   }`,
   gigs: `*[_type == "gigs"][0] {
-    title
+    title,
+    "gigsList": gigsList[] | order(sortDate desc) {
+      sortDate,
+      displayDate,
+      venue,
+      city
+    }
   }`,
 }
 

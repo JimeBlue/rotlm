@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import "@nuxt/ui";
+@import 'tw-animate-css';
 
 @layer base {
   html {
