@@ -48,6 +48,9 @@ const queries: Record<string, string> = {
   music: `*[_type == "music"][0] {
     title
   }`,
+  gigs: `*[_type == "gigs"][0] {
+    title
+  }`,
 }
 
 export default defineEventHandler(async (event) => {

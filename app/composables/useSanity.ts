@@ -115,3 +115,21 @@ export function useMusic() {
 
   return { music }
 }
+
+export function useGigs() {
+  const { locale } = useI18n()
+
+  const { data: rawGigs } = useFetch('/api/sanity/gigs', {
+    key: 'gigs',
+  })
+
+  const gigs = computed(() => {
+    if (!rawGigs.value) return null
+    const data = rawGigs.value as any
+    return {
+      title: data.title?.[locale.value] || data.title?.en || '',
+    }
+  })
+
+  return { gigs }
+}

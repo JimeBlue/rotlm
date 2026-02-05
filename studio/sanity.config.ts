@@ -59,6 +59,13 @@ export default defineConfig({
                   ])
               ),
             S.listItem()
+              .title('Gigs Section')
+              .child(
+                S.documentList()
+                  .title('Gigs Section')
+                  .filter('_type == "gigs"')
+              ),
+            S.listItem()
               .title('Footer')
               .child(
                 S.documentList()
