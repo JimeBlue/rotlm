@@ -128,11 +128,13 @@ export function useGigs() {
     const data = rawGigs.value as any
     return {
       title: data.title?.[locale.value] || data.title?.en || '',
+      buttonText: data.buttonText?.[locale.value] || data.buttonText?.en || '',
       gigsList: (data.gigsList || []).map((gig: any) => ({
         sortDate: gig.sortDate,
         displayDate: gig.displayDate?.[locale.value] || gig.displayDate?.en || '',
         venue: gig.venue || '',
         city: gig.city?.[locale.value] || gig.city?.en || '',
+        venueLink: gig.venueLink || '',
       })),
     }
   })

@@ -18,6 +18,18 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'buttonText',
+      title: 'Info Button Text',
+      type: 'object',
+      description: 'Text displayed on the info button for all gigs (e.g., "All information here")',
+      fields: [
+        {name: 'en', type: 'string', title: 'English'},
+        {name: 'de', type: 'string', title: 'Deutsch'},
+        {name: 'it', type: 'string', title: 'Italiano'},
+        {name: 'es', type: 'string', title: 'Español'},
+      ],
+    }),
+    defineField({
       name: 'gigsList',
       title: 'Gigs',
       type: 'array',
@@ -88,28 +100,10 @@ export default defineType({
               title: 'Google Maps Link',
             },
             {
-              name: 'infoButton',
-              type: 'object',
-              title: 'Info Button',
-              fields: [
-                {
-                  name: 'text',
-                  type: 'object',
-                  title: 'Button Text',
-                  fields: [
-                    {name: 'en', type: 'string', title: 'English'},
-                    {name: 'de', type: 'string', title: 'Deutsch'},
-                    {name: 'it', type: 'string', title: 'Italiano'},
-                    {name: 'es', type: 'string', title: 'Español'},
-                  ],
-                },
-                {
-                  name: 'link',
-                  type: 'url',
-                  title: 'Venue Link',
-                  description: 'Link to the venue website or event page',
-                },
-              ],
+              name: 'venueLink',
+              type: 'url',
+              title: 'Venue Link',
+              description: 'Link to the venue website or event page',
             },
           ],
           preview: {
