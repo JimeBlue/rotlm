@@ -19,8 +19,9 @@
           <BaseAnimatedList v-if="gigs?.gigsList?.length" :delay="1000">
             <template #default>
               <BaseGigItem
-                v-for="gig in gigs.gigsList"
+                v-for="(gig, index) in gigs.gigsList"
                 :key="gig.sortDate + gig.venue"
+                :index="index"
                 :display-date="gig.displayDate"
                 :venue="gig.venue"
                 :city="gig.city"
@@ -55,7 +56,7 @@ const neonTitle = computed(() => {
 
 const listHeight = computed(() => {
   const count = gigs.value?.gigsList?.length || 0
-  return count ? `${count * 200}px` : '400px'
+  return count ? `${count * 230}px` : '400px'
 })
 
 definePageMeta({
