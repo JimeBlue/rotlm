@@ -1,12 +1,17 @@
 <template>
   <section id="gigs" class="relative pb-16 md:pb-24 lg:mb-32">
-    <BaseHeroPhrase />
     <div class="container">
-      <article>
-        <h2 class="text-3xl lg:text-5xl font-bold text-white text-center uppercase mt-16 lg:mt-24">
-          {{ gigs?.title || 'Gigs' }}
-        </h2>
-        <div class="mx-auto mt-4 h-1 w-20 bg-primary-500" />
+      <article class="mt-28 lg:mt-32 flex justify-center">
+        <div class="neon-wrapper">
+          <div class="neon-glow" />
+          <h2 class="neon-text text-5xl lg:text-7xl text-center uppercase">
+            <span
+              v-for="(letter, i) in neonTitle"
+              :key="i"
+              :class="letter.flicker"
+            >{{ letter.char }}</span>
+          </h2>
+        </div>
       </article>
 
       <ClientOnly>
@@ -35,6 +40,18 @@
 
 <script setup>
 const { gigs } = useGigs()
+
+const neonTitle = computed(() => {
+  const title = gigs.value?.title || 'Gigs'
+  return title.split('').map((char, i) => {
+    const lastIndex = title.length - 1
+    let flicker = ''
+    if (i === 0) { flicker = 'neon-flicker-1' }
+    else if (i === 2) { flicker = 'neon-flicker-2' }
+    else if (i === lastIndex) { flicker = 'neon-flicker-3' }
+    return { char, flicker }
+  })
+})
 
 const listHeight = computed(() => {
   const count = gigs.value?.gigsList?.length || 0
