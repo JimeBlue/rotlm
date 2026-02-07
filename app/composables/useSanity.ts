@@ -134,6 +134,9 @@ export function useGigs() {
         displayDate: gig.displayDate?.[locale.value] || gig.displayDate?.en || '',
         venue: gig.venue || '',
         city: gig.city?.[locale.value] || gig.city?.en || '',
+        time: gig.time?.[locale.value] || gig.time?.en || '',
+        address: gig.address || '',
+        googleMapsLink: gig.googleMapsLink || '',
         venueLink: gig.venueLink || '',
       })),
     }

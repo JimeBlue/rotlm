@@ -56,6 +56,9 @@ const queries: Record<string, string> = {
       displayDate,
       venue,
       city,
+      time,
+      address,
+      googleMapsLink,
       venueLink
     }
   }`,
