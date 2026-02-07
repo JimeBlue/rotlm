@@ -15,7 +15,7 @@
       </article>
 
       <ClientOnly>
-        <div class="relative mt-12 flex w-full max-w-[900px] mx-auto flex-col overflow-hidden lg:mt-16" :style="{ height: listHeight }">
+        <div class="relative mt-12 flex w-full max-w-[900px] mx-auto flex-col lg:mt-16">
           <BaseAnimatedList v-if="gigs?.gigsList?.length" :delay="1000">
             <template #default>
               <BaseGigItem
@@ -52,11 +52,6 @@ const neonTitle = computed(() => {
     else if (i === lastIndex) { flicker = 'neon-flicker-3' }
     return { char, flicker }
   })
-})
-
-const listHeight = computed(() => {
-  const count = gigs.value?.gigsList?.length || 0
-  return count ? `${count * 230}px` : '400px'
 })
 
 definePageMeta({
