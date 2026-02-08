@@ -42,6 +42,23 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'backgroundVideo',
+      title: 'Background Video',
+      type: 'file',
+      description:
+        'Short looping video displayed in the background of the video section. Upload an MP4, max 8 MB, 720p recommended. No audio needed.',
+      options: {
+        accept: 'video/mp4',
+      },
+    }),
+    defineField({
+      name: 'videoUrl',
+      title: 'Video URL',
+      type: 'url',
+      description:
+        'Full video URL (e.g. YouTube). Shown when the user clicks the play button.',
+    }),
+    defineField({
       name: 'gigsList',
       title: 'Gigs',
       type: 'array',

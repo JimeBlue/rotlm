@@ -1,7 +1,7 @@
 <template>
   <section id="gigs" class="relative pb-16 md:pb-24 lg:mb-32">
-    <div class="container">
-      <article class="mt-28 lg:mt-32 flex justify-center">
+    <div>
+      <article class="mt-28 lg:mt-32 flex justify-center container">
         <div class="neon-wrapper">
           <div class="neon-glow" />
           <h2 class="neon-text text-5xl lg:text-7xl text-center uppercase">
@@ -15,7 +15,7 @@
       </article>
 
       <ClientOnly>
-        <div class="relative mt-12 flex w-full max-w-[900px] mx-auto flex-col lg:mt-16">
+        <div class="relative mt-12 flex w-full max-w-[900px] mx-auto flex-col lg:mt-16 container">
           <BaseAnimatedList v-if="upcomingGigs.length" :delay="1000" @complete="gigsListComplete = true">
             <template #default>
               <BaseGigItem
@@ -36,7 +36,7 @@
         </div>
       </ClientOnly>
       <!-- past gigs -->
-      <article v-if="gigs?.pastGigsButtonText && pastGigs.length && gigsListComplete" class="mt-12 flex justify-center">
+      <article v-if="gigs?.pastGigsButtonText && pastGigs.length && gigsListComplete" class="mt-12 flex justify-center container">
         <BaseAnimatedModal v-slot="{ openModal }">
           <UButton
             variant="outline"
@@ -68,6 +68,13 @@
           </BaseAnimatedModalBody>
         </BaseAnimatedModal>
       </article>
+      <!-- video -->
+      <article v-if="gigs?.backgroundVideoUrl" class="mt-12 lg:mt-16">
+        <BaseVideoPlayer
+          :background-video-url="gigs.backgroundVideoUrl"
+          :video-url="gigs.videoUrl || undefined"
+        />
+      </article>
     </div>
   </section>
 </template>
@@ -80,13 +87,13 @@ const gigsListComplete = ref(false)
 const today = new Date().toISOString().split('T')[0]
 
 const upcomingGigs = computed(() => {
-  if (!gigs.value?.gigsList) return []
-  return gigs.value.gigsList.filter((gig) => gig.sortDate >= today)
+  if (!gigs.value?.gigsList) { return [] }
+  return gigs.value.gigsList.filter(gig => gig.sortDate >= today)
 })
 
 const pastGigs = computed(() => {
-  if (!gigs.value?.gigsList) return []
-  return gigs.value.gigsList.filter((gig) => gig.sortDate < today)
+  if (!gigs.value?.gigsList) { return [] }
+  return gigs.value.gigsList.filter(gig => gig.sortDate < today)
 })
 
 function formatPastGigDate(sortDate: string) {
