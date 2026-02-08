@@ -565,6 +565,9 @@
     "title_1": "DAS GROSSE",
     "title_2": "ARCHITEKTEN QUIZ."
   },
+  "gigs": {
+    "more_info_soon": "Weitere Infos folgen"
+  },
   "dashboard": {
     "buttons": {
       "upload": "Hochladen und Gäste erstellen",

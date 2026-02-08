@@ -510,6 +510,9 @@
     "text_1": "EN Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt odio reprehenderit asperiores vero deserunt laborum voluptatum possimus quam totam sit? Esse necessitatibus cum voluptatem eligendi nemo. Ea distinctio deleniti error. 123",
     "title": "EN Welcome"
   },
+  "gigs": {
+    "more_info_soon": "More info soon"
+  },
   "dashboard": {
     "buttons": {
       "upload": "Upload and Create Guests",

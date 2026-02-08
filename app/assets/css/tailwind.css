@@ -131,6 +131,27 @@ body {
   padding: 0.5em 1.5em;
 }
 
+/* Two horizontal lines behind the text */
+.neon-wrapper::before,
+.neon-wrapper::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: var(--color-green-neon);
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.neon-wrapper::before {
+  top: calc(50% - 8px);
+}
+
+.neon-wrapper::after {
+  top: calc(50% + 8px);
+}
+
 /* Radial glow behind text */
 .neon-glow {
   position: absolute;
@@ -151,6 +172,10 @@ body {
   font-family: var(--font-body);
   font-weight: 700;
   color: var(--color-green-neon);
+  text-shadow:
+    0 0 7px rgba(139, 252, 43, 0.7),
+    0 0 20px rgba(139, 252, 43, 0.4),
+    0 0 40px rgba(139, 252, 43, 0.2);
 }
 
 .neon-flicker-1 {

@@ -2,6 +2,9 @@
   "buttons": {
     "skip_content": "Ir al contenido principal"
   },
+  "gigs": {
+    "more_info_soon": "Más info próximamente"
+  },
   "navigation": {
     "home": "Inicio"
   }
