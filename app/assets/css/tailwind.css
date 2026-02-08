@@ -15,7 +15,8 @@ body {
   overflow: visible !important;
 
   /* Re-enable scroll lock when modal/dialog is open */
-  &:has([data-state="open"][role="dialog"]) {
+  &:has([data-state="open"][role="dialog"]),
+  &:has([aria-modal="true"][role="dialog"]) {
     overflow: hidden !important;
   }
 }

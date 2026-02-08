@@ -3,7 +3,8 @@
     "skip_content": "Ir al contenido principal"
   },
   "gigs": {
-    "more_info_soon": "Más info próximamente"
+    "more_info_soon": "Más info próximamente",
+    "past_gigs_title": "Gigs pasados"
   },
   "navigation": {
     "home": "Inicio"

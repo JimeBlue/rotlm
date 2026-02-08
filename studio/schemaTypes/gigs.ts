@@ -30,6 +30,18 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'pastGigsButtonText',
+      title: 'Past Gigs Button Text',
+      type: 'object',
+      description: 'Text displayed on the button to show past gigs',
+      fields: [
+        {name: 'en', type: 'string', title: 'English'},
+        {name: 'de', type: 'string', title: 'Deutsch'},
+        {name: 'it', type: 'string', title: 'Italiano'},
+        {name: 'es', type: 'string', title: 'Español'},
+      ],
+    }),
+    defineField({
       name: 'gigsList',
       title: 'Gigs',
       type: 'array',

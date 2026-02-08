@@ -11,6 +11,10 @@ const props = withDefaults(defineProps<Props>(), {
   delay: 1000,
 })
 
+const emit = defineEmits<{
+  (e: 'complete'): void
+}>()
+
 const slots = useSlots()
 const displayedItems = ref<{ node: unknown, id: string }[]>([])
 const nextIndex = ref(0)
@@ -33,6 +37,7 @@ async function startLoop() {
     await wait(props.delay)
   }
 
+  emit('complete')
 }
 
 const itemsToShow = computed(() => displayedItems.value)

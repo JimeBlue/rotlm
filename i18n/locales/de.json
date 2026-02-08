@@ -566,7 +566,8 @@
     "title_2": "ARCHITEKTEN QUIZ."
   },
   "gigs": {
-    "more_info_soon": "Weitere Infos folgen"
+    "more_info_soon": "Weitere Infos folgen",
+    "past_gigs_title": "Vergangene Gigs"
   },
   "dashboard": {
     "buttons": {

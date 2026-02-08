@@ -511,7 +511,8 @@
     "title": "EN Welcome"
   },
   "gigs": {
-    "more_info_soon": "More info soon"
+    "more_info_soon": "More info soon",
+    "past_gigs_title": "Past Gigs"
   },
   "dashboard": {
     "buttons": {

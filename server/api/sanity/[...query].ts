@@ -51,6 +51,7 @@ const queries: Record<string, string> = {
   gigs: `*[_type == "gigs"][0] {
     title,
     buttonText,
+    pastGigsButtonText,
     "gigsList": gigsList[] | order(sortDate desc) {
       sortDate,
       displayDate,

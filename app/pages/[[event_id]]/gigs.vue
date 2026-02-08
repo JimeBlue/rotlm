@@ -16,10 +16,10 @@
 
       <ClientOnly>
         <div class="relative mt-12 flex w-full max-w-[900px] mx-auto flex-col lg:mt-16">
-          <BaseAnimatedList v-if="gigs?.gigsList?.length" :delay="1000">
+          <BaseAnimatedList v-if="upcomingGigs.length" :delay="1000" @complete="gigsListComplete = true">
             <template #default>
               <BaseGigItem
-                v-for="(gig, index) in gigs.gigsList"
+                v-for="(gig, index) in upcomingGigs"
                 :key="gig.sortDate + gig.venue"
                 :index="index"
                 :display-date="gig.displayDate"
@@ -35,12 +35,68 @@
           </BaseAnimatedList>
         </div>
       </ClientOnly>
+      <!-- past gigs -->
+      <article v-if="gigs?.pastGigsButtonText && pastGigs.length && gigsListComplete" class="mt-12 flex justify-center">
+        <BaseAnimatedModal v-slot="{ openModal }">
+          <UButton
+            variant="outline"
+            size="lg"
+            color="yellow-neon"
+            class="transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(253,227,4,0.4)] hover:shadow-[0_0_30px_rgba(253,227,4,0.8),inset_0_0_20px_rgba(253,227,4,0.2)]"
+            @click="openModal"
+          >
+            {{ gigs.pastGigsButtonText }}
+          </UButton>
+
+          <BaseAnimatedModalBody
+            class="!bg-[#0d0a12] !border-green-neon shadow-[0_0_30px_rgba(139,252,43,0.5),0_0_60px_rgba(139,252,43,0.2)]"
+          >
+            <BaseAnimatedModalContent>
+              <h3 class="text-green-neon text-xl font-semibold">
+                {{ t('gigs.past_gigs_title') }}
+              </h3>
+              <ul class="mt-6 space-y-3">
+                <li
+                  v-for="gig in pastGigs"
+                  :key="gig.sortDate + gig.venue"
+                  class="text-white text-sm px-4 py-4"
+                >
+                  <span class="font-bold">{{ formatPastGigDate(gig.sortDate) }}</span> - <span class="font-bold">{{ gig.venue }}</span> - {{ gig.city }}
+                </li>
+              </ul>
+            </BaseAnimatedModalContent>
+          </BaseAnimatedModalBody>
+        </BaseAnimatedModal>
+      </article>
     </div>
   </section>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+const { locale, t } = useI18n()
 const { gigs } = useGigs()
+
+const gigsListComplete = ref(false)
+const today = new Date().toISOString().split('T')[0]
+
+const upcomingGigs = computed(() => {
+  if (!gigs.value?.gigsList) return []
+  return gigs.value.gigsList.filter((gig) => gig.sortDate >= today)
+})
+
+const pastGigs = computed(() => {
+  if (!gigs.value?.gigsList) return []
+  return gigs.value.gigsList.filter((gig) => gig.sortDate < today)
+})
+
+function formatPastGigDate(sortDate: string) {
+  const [year, month, day] = sortDate.split('-')
+  const shortYear = year.slice(2)
+  if (locale.value === 'de') {
+    return `${day}.${month}.${shortYear}`
+  }
+  return `${day}/${month}/${shortYear}`
+}
 
 const neonTitle = computed(() => {
   const title = gigs.value?.title || 'Gigs'
