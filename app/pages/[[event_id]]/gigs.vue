@@ -75,6 +75,10 @@
           :video-url="gigs.videoUrl || undefined"
         />
       </article>
+      <!-- grid -->
+      <article class="mt-12 lg:mt-28">
+        <BaseSkewedGrid v-if="gigs?.gigsImages?.length" :images="gigs.gigsImages" />
+      </article>
     </div>
   </section>
 </template>

@@ -132,6 +132,7 @@ export function useGigs() {
       pastGigsButtonText: data.pastGigsButtonText?.[locale.value] || data.pastGigsButtonText?.en || '',
       backgroundVideoUrl: data.backgroundVideoUrl || '',
       videoUrl: data.videoUrl || '',
+      gigsImages: data.gigsImages || [],
       gigsList: (data.gigsList || []).map((gig: any) => ({
         sortDate: gig.sortDate,
         displayDate: gig.displayDate?.[locale.value] || gig.displayDate?.en || '',

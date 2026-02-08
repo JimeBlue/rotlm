@@ -59,6 +59,18 @@ export default defineType({
         'Full video URL (e.g. YouTube). Shown when the user clicks the play button.',
     }),
     defineField({
+      name: 'gigsImages',
+      title: 'Gigs Images',
+      type: 'array',
+      description: 'Images displayed in the skewed grid gallery below the video.',
+      of: [
+        {
+          type: 'image',
+          options: { hotspot: true },
+        },
+      ],
+    }),
+    defineField({
       name: 'gigsList',
       title: 'Gigs',
       type: 'array',
