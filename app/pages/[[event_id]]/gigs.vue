@@ -69,7 +69,20 @@
         </BaseAnimatedModal>
       </article>
       <!-- video -->
-      <article v-if="gigs?.backgroundVideoUrl" class="mt-12 lg:mt-16">
+      <article v-if="gigs?.backgroundVideoUrl" class="mt-12 lg:mt-32">
+        <div v-if="gigs.videoSectionTitle || gigs.videoSectionDescription" class="container mb-8 lg:mb-12 text-center">
+          <h3
+            v-if="gigs.videoSectionTitle"
+            ref="videoTitleEl"
+            class="text-3xl lg:text-5xl font-bold text-white text-center uppercase origin-center"
+          >
+            {{ gigs.videoSectionTitle }}
+          </h3>
+          <div class="mx-auto mt-4 h-1 w-20 bg-green-neon" />
+          <p v-if="gigs.videoSectionDescription" class="text-lg leading-relaxed text-white max-w-3xl mx-auto whitespace-pre-line mt-8">
+            {{ gigs.videoSectionDescription }}
+          </p>
+        </div>
         <BaseVideoPlayer
           :background-video-url="gigs.backgroundVideoUrl"
           :video-url="gigs.videoUrl || undefined"
@@ -77,7 +90,20 @@
         />
       </article>
       <!-- grid -->
-      <article class="mt-12 lg:mt-28">
+      <article class="mt-12 lg:mt-32">
+        <div v-if="gigs?.gridSectionTitle || gigs?.gridSectionDescription" class="container mb-8 lg:mb-12 text-center">
+          <h3
+            v-if="gigs.gridSectionTitle"
+            ref="gridTitleEl"
+            class="text-3xl lg:text-5xl font-bold text-white text-center uppercase origin-center"
+          >
+            {{ gigs.gridSectionTitle }}
+          </h3>
+          <div class="mx-auto mt-4 h-1 w-20 bg-green-neon" />
+          <p v-if="gigs.gridSectionDescription" class="text-lg leading-relaxed text-white max-w-3xl mx-auto whitespace-pre-line mt-8">
+            {{ gigs.gridSectionDescription }}
+          </p>
+        </div>
         <BaseSkewedGrid v-if="gigs?.gigsImages?.length" :images="gigs.gigsImages" />
       </article>
     </div>
@@ -89,6 +115,25 @@ const { locale, t } = useI18n()
 const { gigs } = useGigs()
 
 const gigsListComplete = ref(false)
+const videoTitleEl = ref<HTMLElement>()
+const gridTitleEl = ref<HTMLElement>()
+
+function setupScrollScale(target: Ref<HTMLElement | undefined>) {
+  const { apply } = useMotion(target, { initial: { scale: 1 } })
+  let hasLeft = false
+  useIntersectionObserver(target, ([{ isIntersecting }]) => {
+    if (!isIntersecting) {
+      hasLeft = true
+      apply({ scale: 0.85, transition: { duration: 0 } })
+    }
+    else if (hasLeft) {
+      apply({ scale: 1, transition: { type: 'spring', stiffness: 350, damping: 8 } })
+    }
+  }, { threshold: 0.3 })
+}
+
+setupScrollScale(videoTitleEl)
+setupScrollScale(gridTitleEl)
 const today = new Date().toISOString().split('T')[0]
 
 const upcomingGigs = computed(() => {

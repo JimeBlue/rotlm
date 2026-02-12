@@ -42,6 +42,30 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'videoSectionTitle',
+      title: 'Video Section Title',
+      type: 'object',
+      description: 'Title displayed above the background video section.',
+      fields: [
+        {name: 'en', type: 'string', title: 'English'},
+        {name: 'de', type: 'string', title: 'Deutsch'},
+        {name: 'it', type: 'string', title: 'Italiano'},
+        {name: 'es', type: 'string', title: 'Español'},
+      ],
+    }),
+    defineField({
+      name: 'videoSectionDescription',
+      title: 'Video Section Description',
+      type: 'object',
+      description: 'Description text displayed above the background video section.',
+      fields: [
+        {name: 'en', type: 'text', title: 'English'},
+        {name: 'de', type: 'text', title: 'Deutsch'},
+        {name: 'it', type: 'text', title: 'Italiano'},
+        {name: 'es', type: 'text', title: 'Español'},
+      ],
+    }),
+    defineField({
       name: 'backgroundVideo',
       title: 'Background Video',
       type: 'file',
@@ -67,6 +91,30 @@ export default defineType({
       type: 'url',
       description:
         'Full video URL (e.g. YouTube). Shown when the user clicks the play button.',
+    }),
+    defineField({
+      name: 'gridSectionTitle',
+      title: 'Grid Section Title',
+      type: 'object',
+      description: 'Title displayed above the skewed grid gallery.',
+      fields: [
+        {name: 'en', type: 'string', title: 'English'},
+        {name: 'de', type: 'string', title: 'Deutsch'},
+        {name: 'it', type: 'string', title: 'Italiano'},
+        {name: 'es', type: 'string', title: 'Español'},
+      ],
+    }),
+    defineField({
+      name: 'gridSectionDescription',
+      title: 'Grid Section Description',
+      type: 'object',
+      description: 'Description text displayed above the skewed grid gallery.',
+      fields: [
+        {name: 'en', type: 'text', title: 'English'},
+        {name: 'de', type: 'text', title: 'Deutsch'},
+        {name: 'it', type: 'text', title: 'Italiano'},
+        {name: 'es', type: 'text', title: 'Español'},
+      ],
     }),
     defineField({
       name: 'gigsImages',
