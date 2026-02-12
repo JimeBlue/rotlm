@@ -131,6 +131,7 @@ export function useGigs() {
       buttonText: data.buttonText?.[locale.value] || data.buttonText?.en || '',
       pastGigsButtonText: data.pastGigsButtonText?.[locale.value] || data.pastGigsButtonText?.en || '',
       backgroundVideoUrl: data.backgroundVideoUrl || '',
+      videoPosterUrl: data.videoPosterUrl || '',
       videoUrl: data.videoUrl || '',
       gigsImages: data.gigsImages || [],
       gigsList: (data.gigsList || []).map((gig: any) => ({

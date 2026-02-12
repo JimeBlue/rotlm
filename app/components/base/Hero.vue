@@ -16,7 +16,7 @@
       >
         <img
           v-if="phraseImage"
-          :src="phraseImage.url"
+          :src="sanityImageUrl(phraseImage.url)"
           :alt="phraseImage.alt || 'Raiders of the Lost Missile'"
           class="w-full"
         >

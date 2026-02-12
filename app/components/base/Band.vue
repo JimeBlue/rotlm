@@ -102,7 +102,7 @@
               class="flex items-center justify-center"
             >
               <img
-                :src="genre.logo"
+                :src="sanityImageUrl(genre.logo, 200)"
                 :alt="genre.name"
                 :class="getLogoClass(genre.name)"
               >
@@ -111,13 +111,13 @@
           <div class="mt-6 lg:mt-28 flex flex-col lg:flex-row gap-4">
             <img
               v-if="band?.imageOne"
-              :src="band.imageOne"
+              :src="sanityImageUrl(band.imageOne)"
               alt=""
               class="max-w-full lg:max-w-[50%] order-2 lg:order-1"
             >
             <motion.img
               v-if="band?.imageTwo"
-              :src="band.imageTwo"
+              :src="sanityImageUrl(band.imageTwo)"
               alt=""
               class="max-w-full lg:max-w-[50%] order-1 lg:order-2"
               :initial="{ rotate: 0 }"

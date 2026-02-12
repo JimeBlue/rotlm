@@ -24,7 +24,7 @@
           <!-- Album Cover Image -->
           <div class="relative z-10">
             <img
-              :src="album.coverImage"
+              :src="sanityImageUrl(album.coverImage)"
               :alt="album.title"
               class="w-full h-auto rounded-lg shadow-2xl"
             >

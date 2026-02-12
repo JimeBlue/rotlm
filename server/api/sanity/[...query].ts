@@ -53,6 +53,7 @@ const queries: Record<string, string> = {
     buttonText,
     pastGigsButtonText,
     "backgroundVideoUrl": backgroundVideo.asset->url,
+    "videoPosterUrl": videoPoster.asset->url,
     videoUrl,
     "gigsImages": gigsImages[].asset->url,
     "gigsList": gigsList[] | order(sortDate desc) {

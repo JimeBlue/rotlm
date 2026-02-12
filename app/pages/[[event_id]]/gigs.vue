@@ -73,6 +73,7 @@
         <BaseVideoPlayer
           :background-video-url="gigs.backgroundVideoUrl"
           :video-url="gigs.videoUrl || undefined"
+          :poster-url="gigs.videoPosterUrl || undefined"
         />
       </article>
       <!-- grid -->

@@ -46,9 +46,19 @@ export default defineType({
       title: 'Background Video',
       type: 'file',
       description:
-        'Short looping video displayed in the background of the video section. Upload an MP4, max 8 MB, 720p recommended. No audio needed.',
+        'Short looping video displayed in the background of the video section. Upload an MP4, max 5 MB, 720p recommended. No audio needed.',
       options: {
         accept: 'video/mp4',
+      },
+    }),
+    defineField({
+      name: 'videoPoster',
+      title: 'Video Poster Image',
+      type: 'image',
+      description:
+        'Thumbnail shown while the video loads. Use a frame from the video or a representative image.',
+      options: {
+        hotspot: true,
       },
     }),
     defineField({
