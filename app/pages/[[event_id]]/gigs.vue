@@ -49,19 +49,19 @@
           </UButton>
 
           <BaseAnimatedModalBody
-            class="!bg-[#0d0a12] !border-green-neon shadow-[0_0_30px_rgba(139,252,43,0.5),0_0_60px_rgba(139,252,43,0.2)]"
+            class="!bg-white/5 !backdrop-blur-xl !border-white/15"
           >
             <BaseAnimatedModalContent>
-              <h3 class="text-green-neon text-xl font-semibold">
+              <h3 class="text-white text-xl font-semibold pb-4 border-b border-white/10">
                 {{ t('gigs.past_gigs_title') }}
               </h3>
-              <ul class="mt-6 space-y-3">
+              <ul class="mt-4 space-y-3">
                 <li
                   v-for="gig in pastGigs"
                   :key="gig.sortDate + gig.venue"
                   class="text-white text-sm px-4 py-4"
                 >
-                  <span class="font-bold">{{ formatPastGigDate(gig.sortDate) }}</span> - <span class="font-bold">{{ gig.venue }}</span> - {{ gig.city }}
+                  <span class="font-bold text-green-neon">{{ formatPastGigDate(gig.sortDate) }}</span> - <span class="font-bold">{{ gig.venue }}</span> - <span class="opacity-60">{{ gig.city }}</span>
                 </li>
               </ul>
             </BaseAnimatedModalContent>
