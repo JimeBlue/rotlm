@@ -1,5 +1,5 @@
 <template>
-  <section id="gigs" class="relative pb-16 md:pb-24 lg:mb-32">
+  <section id="gigs" class="relative pb-16 md:pb-24">
     <div>
       <article class="mt-28 lg:mt-32 flex justify-center container">
         <div class="neon-wrapper">
@@ -106,6 +106,14 @@
         </div>
         <BaseSkewedGrid v-if="gigs?.gigsImages?.length" :images="gigs.gigsImages" />
       </article>
+      <article class="mt-12 lg:mt-32 px-28">
+        <img
+          v-if="footer?.image2"
+          :src="footer.image2"
+          alt=""
+          class="mx-auto lg:w-1/2"
+        >
+      </article>
     </div>
   </section>
 </template>
@@ -113,6 +121,7 @@
 <script lang="ts" setup>
 const { locale, t } = useI18n()
 const { gigs } = useGigs()
+const { footer } = useFooter()
 
 const gigsListComplete = ref(false)
 const videoTitleEl = ref<HTMLElement>()

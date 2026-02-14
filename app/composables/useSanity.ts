@@ -74,6 +74,8 @@ export function useFooter() {
     const data = rawFooter.value as any
     return {
       copyright: data.copyright?.[locale.value] || data.copyright?.en || '',
+      image1: data.image1 || null,
+      image2: data.image2 || null,
       socialLinks: data.socialLinks || [],
     }
   })

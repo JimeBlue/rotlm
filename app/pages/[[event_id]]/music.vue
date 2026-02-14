@@ -1,7 +1,21 @@
 <template>
   <section id="music" class="relative pb-16 md:pb-24 lg:mb-32">
     <BaseHeroPhrase />
-    <div class="container">
+    <div class="container" style="clip-path: inset(0 -100vw)">
+      <!-- Decorative fixed pink lines (clipped to container section) -->
+      <div class="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
+        <img
+          src="/images/blue-dotted-line.png"
+          alt=""
+          class="absolute w-[250vw] top-[35%] -left-[5%]"
+        >
+        <img
+          src="/images/blue-dotted-line.png"
+          alt=""
+          class="absolute w-[250vw] top-[70%] -left-[5%]"
+        >
+      </div>
+
       <article>
         <h2
           v-motion
@@ -19,10 +33,10 @@
         <div
           v-for="(album) in albums"
           :key="album.title"
-          class="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto"
+          class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto"
         >
           <!-- Album Cover Image -->
-          <div class="relative z-10">
+          <div>
             <img
               :src="sanityImageUrl(album.coverImage)"
               :alt="album.title"
@@ -31,7 +45,7 @@
           </div>
 
           <!-- Spotify Embed -->
-          <div class="relative z-10 flex min-h-[500px] lg:min-h-0">
+          <div class="flex min-h-[500px] lg:min-h-0">
             <iframe
               class="rounded-xl w-full"
               :src="album.spotifyEmbedUrl"

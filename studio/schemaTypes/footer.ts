@@ -18,6 +18,24 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'image1',
+      title: 'Footer Image 1',
+      type: 'image',
+      description: 'First image displayed in the footer',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'image2',
+      title: 'Footer Image 2',
+      type: 'image',
+      description: 'Second image displayed in the footer',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'socialLinks',
       title: 'Social Links',
       type: 'array',

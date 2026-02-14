@@ -27,6 +27,8 @@ const queries: Record<string, string> = {
   }`,
   footer: `*[_type == "footer"][0] {
     copyright,
+    "image1": image1.asset->url,
+    "image2": image2.asset->url,
     "socialLinks": socialLinks[] | order(order asc) {
       name,
       url,
