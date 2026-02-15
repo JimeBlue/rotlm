@@ -107,18 +107,27 @@
         <BaseSkewedGrid v-if="gigs?.gigsImages?.length" :images="gigs.gigsImages" />
       </article>
       <article class="mt-12 lg:mt-32 px-28">
-        <img
+        <motion.img
           v-if="footer?.image2"
+          :initial="{ opacity: 0, scale: 0 }"
+          :in-view="{ opacity: 1, scale: 1 }"
+          :transition="{
+            delay: 0.1,
+            duration: 0.4,
+            scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 },
+          }"
           :src="footer.image2"
-          alt=""
+          alt="ROTLM Logo"
           class="mx-auto lg:w-1/2"
-        >
+        />
       </article>
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
+import { motion } from 'motion-v'
+
 const { locale, t } = useI18n()
 const { gigs } = useGigs()
 const { footer } = useFooter()

@@ -82,6 +82,12 @@ body {
   /* Blue Neon */
   --color-blue-neon: #065dd5;
 
+  /* Cyan Neon */
+  --color-cyan-neon: #06b6d4;
+
+  /* Pink Neon */
+  --color-pink-neon: #ec4899;
+
   /* Fonts */
   --text-xxs: 0.625rem;
   --text-xxs--line-height: calc(1 / 0.625);

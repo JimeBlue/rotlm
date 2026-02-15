@@ -23,7 +23,7 @@
       class="w-60 sm:w-72 md:w-80 lg:w-[500px] xl:w-[600px] 2xl:w-[650px] 3xl:w-[800px] mx-auto mt-24 md:mt-16"
     />
     <NeonLightning
-      class="absolute bottom-0 -right-2 lg:-right-10 text-blue-neon w-20 md:w-[130px] lg:w-[250px] 2xl:w-[350px]"
+      class="absolute bottom-0 -right-2 lg:-right-10 text-yellow-neon w-20 md:w-[130px] lg:w-[250px] 2xl:w-[350px]"
     />
   </section>
 </template>
