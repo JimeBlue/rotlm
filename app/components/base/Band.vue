@@ -1,5 +1,5 @@
 <template>
-  <section id="band">
+  <section id="band" class="mt-16 lg:mt-24">
     <!-- Black background section -->
     <div class="bg-black pt-6 pb-6">
       <div class="container mx-auto px-4">

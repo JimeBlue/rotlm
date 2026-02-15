@@ -4,6 +4,13 @@ export default defineType({
   name: 'hero',
   title: 'Hero',
   type: 'document',
+  fieldsets: [
+    {
+      name: 'carouselImages',
+      title: 'Carousel Images',
+      options: {collapsible: true, collapsed: false},
+    },
+  ],
   fields: [
     defineField({
       name: 'images',
@@ -27,6 +34,29 @@ export default defineType({
         },
       ],
       validation: (rule) => rule.required().min(1),
+    }),
+    defineField({
+      name: 'carouselImages',
+      title: 'Carousel Images',
+      type: 'array',
+      fieldset: 'carouselImages',
+      description: 'Add images for the hero carousel. You can add as many as you want.',
+      of: [
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative Text',
+              description: 'Description for accessibility',
+            },
+          ],
+        },
+      ],
     }),
   ],
   preview: {

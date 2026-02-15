@@ -45,6 +45,10 @@ const queries: Record<string, string> = {
     "images": images[] {
       "url": asset->url,
       alt
+    },
+    "carouselImages": carouselImages[] {
+      "url": asset->url,
+      alt
     }
   }`,
   music: `*[_type == "music"][0] {

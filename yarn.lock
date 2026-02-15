@@ -8223,6 +8223,11 @@ text-decoder@^1.1.0:
   dependencies:
     b4a "^1.6.4"
 
+three@^0.182.0:
+  version "0.182.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.182.0.tgz#535b71b4335529d0eacdb1d30eba72bada3d0b54"
+  integrity sha512-GbHabT+Irv+ihI1/f5kIIsZ+Ef9Sl5A1Y7imvS5RQjWgtTPfPnZ43JmlYI7NtCRDK9zir20lQpfg8/9Yd02OvQ==
+
 through2@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/through2/-/through2-4.0.2.tgz#a7ce3ac2a7a8b0b966c80e7c49f0484c3b239764"

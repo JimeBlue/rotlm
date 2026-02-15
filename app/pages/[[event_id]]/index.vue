@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BaseHero />
+    <BaseHeroCarousel />
     <BaseBand />
   </div>
 </template>

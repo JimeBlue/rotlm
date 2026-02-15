@@ -93,7 +93,10 @@ export function useAlbums() {
 }
 
 export function useHero() {
-  const { data: hero } = useFetch<{ images: { url: string; alt?: string }[] }>('/api/sanity/hero', {
+  const { data: hero } = useFetch<{
+    images: { url: string; alt?: string }[]
+    carouselImages: { url: string; alt?: string }[]
+  }>('/api/sanity/hero', {
     key: 'hero',
   })
 
