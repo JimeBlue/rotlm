@@ -54,6 +54,12 @@ const queries: Record<string, string> = {
   music: `*[_type == "music"][0] {
     title
   }`,
+  merch: `*[_type == "merch"][0] {
+    "image": image {
+      "url": asset->url,
+      alt
+    }
+  }`,
   gigs: `*[_type == "gigs"][0] {
     title,
     buttonText,

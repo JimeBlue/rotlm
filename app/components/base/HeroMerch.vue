@@ -1,5 +1,5 @@
 <template>
-  <section id="hero-phrase" class="relative pt-20 lg:pt-16 overflow-hidden bg-black">
+  <section id="hero-merch" class="relative pt-20 lg:pt-16 overflow-hidden bg-black">
     <div class="container mx-auto">
       <motion.div
         :initial="{ opacity: 0, scale: 0 }"
@@ -12,9 +12,9 @@
         class="mx-auto w-full max-w-4xl mt-4 lg:mt-10"
       >
         <img
-          v-if="phraseImage"
-          :src="sanityImageUrl(phraseImage.url)"
-          :alt="phraseImage.alt || 'Raiders of the Lost Missile'"
+          v-if="merchImage"
+          :src="sanityImageUrl(merchImage.url)"
+          :alt="merchImage.alt || 'Raiders of the Lost Missile'"
           class="w-full"
         >
       </motion.div>
@@ -25,7 +25,7 @@
 <script setup>
 import { motion } from 'motion-v'
 
-const { hero } = useHero()
+const { merch } = useMerch()
 
-const phraseImage = computed(() => hero.value?.images?.[0])
+const merchImage = computed(() => merch.value?.image)
 </script>

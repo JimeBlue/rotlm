@@ -3,8 +3,8 @@
     class="rounded-lg py-6 px-8 bg-[#0d0a12] relative mb-6 border"
     :class="[
       isOdd
-        ? 'border-cyan-neon shadow-[0_0_15px_rgba(6,182,212,0.4),0_0_40px_rgba(6,182,212,0.15)]'
-        : 'border-pink-neon shadow-[0_0_15px_rgba(236,72,153,0.4),0_0_40px_rgba(236,72,153,0.15)]',
+        ? 'border-blue-neon shadow-[0_0_15px_rgba(6,93,213,0.4),0_0_40px_rgba(6,93,213,0.15)]'
+        : 'border-yellow-neon shadow-[0_0_15px_rgba(253,227,4,0.4),0_0_40px_rgba(253,227,4,0.15)]',
     ]"
   >
     <div class="flex flex-col md:flex-row items-center md:items-center gap-6 md:gap-8">
@@ -14,7 +14,7 @@
           <p class="text-sm font-medium text-white">
             {{ dateParts[0] }}
           </p>
-          <p class="text-4xl font-bold" :class="[isOdd ? 'text-cyan-neon' : 'text-pink-neon']">
+          <p class="text-4xl font-bold" :class="[isOdd ? 'text-blue-neon' : 'text-yellow-neon']">
             {{ dateParts[1] }}
           </p>
           <p class="text-sm text-white">
@@ -112,8 +112,8 @@ interface Props {
 
 const isOdd = computed(() => props.index % 2 === 0)
 
-const neonColor = computed(() => isOdd.value ? '#06b6d4' : '#ec4899')
-const neonRgba = computed(() => isOdd.value ? '6, 182, 212' : '236, 72, 153')
+const neonColor = computed(() => isOdd.value ? '#065dd5' : '#FDE304')
+const neonRgba = computed(() => isOdd.value ? '6, 93, 213' : '253, 227, 4')
 
 const dividerColor = computed(() => neonColor.value)
 const dividerGlow = computed(() => `rgba(${neonRgba.value}, 0.8)`)

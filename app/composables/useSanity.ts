@@ -103,6 +103,16 @@ export function useHero() {
   return { hero }
 }
 
+export function useMerch() {
+  const { data: merch } = useFetch<{
+    image: { url: string; alt?: string }
+  }>('/api/sanity/merch', {
+    key: 'merch',
+  })
+
+  return { merch }
+}
+
 export function useMusic() {
   const { locale } = useI18n()
 

@@ -1,5 +1,5 @@
 <template>
-  <section class="relative w-full h-[60vh] md:h-[90vh] overflow-hidden bg-black mt-16">
+  <section id="hero-carousel" class="relative w-full h-[60vh] md:h-[90vh] overflow-hidden bg-black mt-16">
     <div ref="sliderRef" class="w-full h-full pointer-events-none" />
     <!-- Navigation dots -->
     <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10">

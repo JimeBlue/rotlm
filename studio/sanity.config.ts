@@ -1,5 +1,5 @@
 import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
+import {structureTool, StructureBuilder} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 
@@ -10,7 +10,7 @@ export default defineConfig({
   dataset: 'production',
   plugins: [
     structureTool({
-      structure: (S) =>
+      structure: (S: StructureBuilder) =>
         S.list()
           .title('Content')
           .items([
@@ -64,6 +64,13 @@ export default defineConfig({
                 S.documentList()
                   .title('Gigs Section')
                   .filter('_type == "gigs"')
+              ),
+            S.listItem()
+              .title('Merch Section')
+              .child(
+                S.documentList()
+                  .title('Merch Section')
+                  .filter('_type == "merch"')
               ),
             S.listItem()
               .title('Footer')
