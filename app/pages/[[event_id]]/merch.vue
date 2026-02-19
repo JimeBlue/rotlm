@@ -2,6 +2,7 @@
   <div>
     <BaseHeroMerch />
     <BaseMerchGrid />
+    <BaseMerchFooter />
   </div>
 </template>
 
