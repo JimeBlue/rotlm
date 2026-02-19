@@ -11,7 +11,8 @@
       <!-- Badge -->
       <span
         v-if="badge?.show && badgeLabel"
-        class="absolute top-3 left-0 bg-yellow-neon text-black text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-r-sm badge-bounce"
+        class="absolute top-3 left-0 text-black text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-r-sm badge-bounce"
+        :class="badge.type === 'limited' ? 'bg-primary-300' : badge.type === 'new' ? 'bg-green-neon' : 'bg-yellow-neon'"
       >
         {{ badgeLabel }}
       </span>

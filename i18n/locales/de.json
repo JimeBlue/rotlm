@@ -571,9 +571,9 @@
   },
   "merch": {
     "badge": {
-      "deal": "Angebot",
+      "deal": "Deal",
       "new": "Neu",
-      "limited": "Limitiert"
+      "limited": "Limited"
     }
   },
   "dashboard": {
