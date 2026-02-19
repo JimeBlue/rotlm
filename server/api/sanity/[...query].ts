@@ -58,6 +58,10 @@ const queries: Record<string, string> = {
     "image": image {
       "url": asset->url,
       alt
+    },
+    "image2": image2 {
+      "url": asset->url,
+      alt
     }
   }`,
   merchProducts: `*[_type == "merchProduct" && available == true] | order(order asc, _createdAt asc) {

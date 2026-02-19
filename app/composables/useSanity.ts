@@ -106,6 +106,7 @@ export function useHero() {
 export function useMerch() {
   const { data: merch } = useFetch<{
     image: { url: string; alt?: string }
+    image2: { url: string; alt?: string }
   }>('/api/sanity/merch', {
     key: 'merch',
   })

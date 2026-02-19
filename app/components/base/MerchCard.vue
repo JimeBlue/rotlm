@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col transition-transform duration-300 ease-out hover:scale-105 cursor-pointer">
     <!-- Image area -->
     <div class="relative bg-blue-neon aspect-square overflow-hidden">
       <img
