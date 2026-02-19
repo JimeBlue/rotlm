@@ -113,6 +113,35 @@ export function useMerch() {
   return { merch }
 }
 
+export function useMerchProducts() {
+  const { locale } = useI18n()
+
+  const { data: rawProducts } = useFetch<any[]>('/api/sanity/merchProducts', {
+    key: 'merchProducts',
+    default: () => [],
+  })
+
+  const products = computed(() => {
+    if (!rawProducts.value) return []
+    return (rawProducts.value as any[]).map((p: any) => ({
+      image: p.image || null,
+      badge: p.badge
+        ? {
+            show: p.badge.show,
+            type: p.badge.type,
+            customLabel: p.badge.customLabel?.[locale.value] || p.badge.customLabel?.en || '',
+          }
+        : null,
+      name: p.name?.[locale.value] || p.name?.en || '',
+      description: p.description?.[locale.value] || p.description?.en || '',
+      price: p.price,
+      originalPrice: p.originalPrice ?? null,
+    }))
+  })
+
+  return { products }
+}
+
 export function useMusic() {
   const { locale } = useI18n()
 

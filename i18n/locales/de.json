@@ -569,6 +569,13 @@
     "more_info_soon": "Weitere Infos folgen",
     "past_gigs_title": "Vergangene Gigs"
   },
+  "merch": {
+    "badge": {
+      "deal": "Angebot",
+      "new": "Neu",
+      "limited": "Limitiert"
+    }
+  },
   "dashboard": {
     "buttons": {
       "upload": "Hochladen und Gäste erstellen",

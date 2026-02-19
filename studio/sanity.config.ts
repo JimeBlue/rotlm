@@ -68,9 +68,25 @@ export default defineConfig({
             S.listItem()
               .title('Merch Section')
               .child(
-                S.documentList()
+                S.list()
                   .title('Merch Section')
-                  .filter('_type == "merch"')
+                  .items([
+                    S.listItem()
+                      .title('Merch Settings')
+                      .child(
+                        S.documentList()
+                          .title('Merch Settings')
+                          .filter('_type == "merch"')
+                      ),
+                    S.listItem()
+                      .title('Products')
+                      .child(
+                        S.documentList()
+                          .title('Products')
+                          .filter('_type == "merchProduct"')
+                          .defaultOrdering([{field: 'order', direction: 'asc'}])
+                      ),
+                  ])
               ),
             S.listItem()
               .title('Footer')

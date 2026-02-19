@@ -224,6 +224,21 @@ body {
   }
 }
 
+@keyframes badge-bounce {
+  0%  { transform: translateY(0) scaleY(1) scaleX(1); }
+  10% { transform: translateY(0) scaleY(0.9) scaleX(1.05); }
+  20% { transform: translateY(-25%) scaleY(1.05) scaleX(0.97); }
+  40% { transform: translateY(0) scaleY(0.95) scaleX(1.03); }
+  50% { transform: translateY(-12%) scaleY(1.02) scaleX(0.99); }
+  60% { transform: translateY(0) scaleY(1) scaleX(1); }
+  100% { transform: translateY(0) scaleY(1) scaleX(1); }
+}
+
+.badge-bounce {
+  animation: badge-bounce 3s ease-in-out 3;
+  transform-origin: bottom center;
+}
+
 
 .swal2-container {
   .swal2-popup {

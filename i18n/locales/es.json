@@ -6,6 +6,13 @@
     "more_info_soon": "Más info próximamente",
     "past_gigs_title": "Gigs pasados"
   },
+  "merch": {
+    "badge": {
+      "deal": "Oferta",
+      "new": "Nuevo",
+      "limited": "Limitado"
+    }
+  },
   "navigation": {
     "home": "Inicio"
   }

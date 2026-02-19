@@ -60,6 +60,17 @@ const queries: Record<string, string> = {
       alt
     }
   }`,
+  merchProducts: `*[_type == "merchProduct" && available == true] | order(order asc, _createdAt asc) {
+    "image": image {
+      "url": asset->url,
+      alt
+    },
+    badge,
+    name,
+    description,
+    price,
+    originalPrice
+  }`,
   gigs: `*[_type == "gigs"][0] {
     title,
     buttonText,

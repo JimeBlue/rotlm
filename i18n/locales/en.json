@@ -514,6 +514,13 @@
     "more_info_soon": "More info soon",
     "past_gigs_title": "Past Gigs"
   },
+  "merch": {
+    "badge": {
+      "deal": "Deal",
+      "new": "New",
+      "limited": "Limited"
+    }
+  },
   "dashboard": {
     "buttons": {
       "upload": "Upload and Create Guests",
