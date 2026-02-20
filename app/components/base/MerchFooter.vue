@@ -1,77 +1,82 @@
 <template>
-  <section class="bg-primary-500 py-16">
-    <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center justify-center gap-10">
-      <img src="/images/get-ready-to-merch-yellow.png" alt="Get ready to merch" class="h-64 object-contain">
-      <div class="flip-card flip-card--sm">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="/images/album-front.jpg" alt="Album front" class="w-full h-full object-cover">
-          </div>
-          <div class="flip-card-back">
-            <img src="/images/album-back.png" alt="Album back" class="w-full h-full object-cover">
-          </div>
-        </div>
-      </div>
-      <div class="flip-card flip-card--sm">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="/images/circle_logo_red.png" alt="Logo" class="w-full h-full object-contain">
-          </div>
-          <div class="flip-card-back">
-            <img src="/images/circle_logo_red.png" alt="Logo" class="w-full h-full object-contain">
-          </div>
-        </div>
-      </div>
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="/images/t-shirt-cover-with-print-transparent.png" alt="T-shirt front" class="w-full h-full object-contain">
-          </div>
-          <div class="flip-card-back">
-            <img src="/images/t-shirt-back-transparent.png" alt="T-shirt back" class="w-full h-full object-contain">
-          </div>
-        </div>
-      </div>
+  <section class="relative overflow-hidden h-72 lg:h-[400px] flex items-center justify-center">
+    <!-- Background image (image3 from Sanity) -->
+    <img
+      v-if="bgImage"
+      :src="bgImage"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover object-center"
+    >
+
+    <!-- Dark overlay -->
+    <div class="absolute inset-0 bg-black/55" />
+
+    <!-- Animated images — pop in one after another, hard-cut exit -->
+    <div class="relative z-10 flex items-center justify-center w-56 lg:w-80">
+      <img
+        v-if="current === 0 && animImages[0]"
+        key="img-0"
+        v-motion
+        :initial="{ scale: 0.5, opacity: 1 }"
+        :enter="{
+          scale: 1,
+          opacity: 1,
+          transition: { duration: 180, ease: 'easeOut' },
+        }"
+        :src="animImages[0]"
+        alt="ROTLM"
+        class="w-full object-contain"
+      >
+      <img
+        v-else-if="current === 1 && animImages[1]"
+        key="img-1"
+        v-motion
+        :initial="{ scale: 0.5, opacity: 1 }"
+        :enter="{
+          scale: 1,
+          opacity: 1,
+          transition: { duration: 180, ease: 'easeOut' },
+        }"
+        :src="animImages[1]"
+        alt="Cap"
+        class="w-full object-contain"
+      >
+      <img
+        v-else-if="current === 2 && animImages[2]"
+        key="img-2"
+        v-motion
+        :initial="{ scale: 0.5, opacity: 1 }"
+        :enter="{
+          scale: 1,
+          opacity: 1,
+          transition: { duration: 180, ease: 'easeOut' },
+        }"
+        :src="animImages[2]"
+        alt="T-Shirt"
+        class="w-full object-contain"
+      >
     </div>
   </section>
 </template>
 
-<style scoped>
-.flip-card {
-  perspective: 1000px;
-  width: 320px;
-  height: 320px;
-  cursor: pointer;
-}
+<script setup>
+const { merch } = useMerch()
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.7s ease;
-  transform-style: preserve-3d;
-}
+const bgImage = computed(() => merch.value?.image3?.url || null)
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
+const animImages = computed(() => [
+  merch.value?.image4?.url || null,
+  merch.value?.image5?.url || null,
+  merch.value?.image6?.url || null,
+])
 
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  overflow: hidden;
-}
+const current = ref(0)
 
-.flip-card-back {
-  transform: rotateY(180deg);
-}
+onMounted(() => {
+  const interval = setInterval(() => {
+    current.value = (current.value + 1) % 3
+  }, 900)
 
-.flip-card--sm {
-  width: 260px;
-  height: 260px;
-}
-</style>
+  onUnmounted(() => clearInterval(interval))
+})
+</script>

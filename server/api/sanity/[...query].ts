@@ -55,14 +55,13 @@ const queries: Record<string, string> = {
     title
   }`,
   merch: `*[_type == "merch"][0] {
-    "image": image {
-      "url": asset->url,
-      alt
-    },
-    "image2": image2 {
-      "url": asset->url,
-      alt
-    }
+    title,
+    "image": image { "url": asset->url, alt },
+    "image2": image2 { "url": asset->url, alt },
+    "image3": image3 { "url": asset->url, alt },
+    "image4": image4 { "url": asset->url, alt },
+    "image5": image5 { "url": asset->url, alt },
+    "image6": image6 { "url": asset->url, alt }
   }`,
   merchProducts: `*[_type == "merchProduct" && available == true] | order(order asc, _createdAt asc) {
     "image": image {

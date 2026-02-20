@@ -1,44 +1,45 @@
 import {defineField, defineType} from 'sanity'
 
+const imageField = (name: string, title: string, description: string) =>
+  defineField({
+    name,
+    title,
+    type: 'image',
+    description,
+    options: {hotspot: true},
+    fields: [
+      {
+        name: 'alt',
+        type: 'string',
+        title: 'Alternative Text',
+        description: 'Description for accessibility',
+      },
+    ],
+  })
+
 export default defineType({
   name: 'merch',
-  title: 'Merch Section',
+  title: 'Merch Assets',
   type: 'document',
   fields: [
     defineField({
-      name: 'image',
-      title: 'Merch Image 1',
-      type: 'image',
-      description: 'Image for the merch section',
-      options: {
-        hotspot: true,
-      },
+      name: 'title',
+      title: 'Section Title',
+      type: 'object',
+      description: 'Title displayed in the merch section',
       fields: [
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative Text',
-          description: 'Description for accessibility',
-        },
+        {name: 'en', type: 'string', title: 'English'},
+        {name: 'de', type: 'string', title: 'Deutsch'},
+        {name: 'it', type: 'string', title: 'Italiano'},
+        {name: 'es', type: 'string', title: 'Español'},
       ],
     }),
-    defineField({
-      name: 'image2',
-      title: 'Merch Image 2',
-      type: 'image',
-      description: 'Background image for the merch hero section',
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative Text',
-          description: 'Description for accessibility',
-        },
-      ],
-    }),
+    imageField('image', 'Merch Image 1', 'Image for the merch section'),
+    imageField('image2', 'Merch Image 2', 'Background image for the merch hero section'),
+    imageField('image3', 'Merch Image 3', 'Concert / footer background image'),
+    imageField('image4', 'Merch Image 4', 'First animated image in the merch footer'),
+    imageField('image5', 'Merch Image 5', 'Second animated image in the merch footer'),
+    imageField('image6', 'Merch Image 6', 'Third animated image in the merch footer'),
   ],
   preview: {
     select: {
@@ -46,7 +47,7 @@ export default defineType({
     },
     prepare({media}) {
       return {
-        title: 'Merch Section',
+        title: 'Merch Assets',
         media,
       }
     },
