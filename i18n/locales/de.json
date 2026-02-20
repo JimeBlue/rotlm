@@ -571,6 +571,11 @@
   },
   "merch": {
     "backToShop": "← Zurück zum Shop",
+    "order": {
+      "title": "Bestellung aufgeben",
+      "message": "Nachricht",
+      "submit": "Senden"
+    },
     "badge": {
       "deal": "Deal",
       "new": "Neu",

@@ -1,7 +1,10 @@
 <template>
   <div class="bg-black min-h-screen py-24">
-    <div class="container mx-auto px-6 max-w-2xl">
-      <NuxtLink :to="backLink" class="text-green-neon hover:text-white text-sm uppercase tracking-wide mb-12 inline-block">
+    <div class="container mx-auto px-6 max-w-xl">
+      <NuxtLink
+        :to="backLink"
+        class="text-green-neon hover:text-white text-sm uppercase tracking-wide mb-12 inline-block"
+      >
         {{ t('merch.backToShop') }}
       </NuxtLink>
 
@@ -72,6 +75,40 @@
         </div>
       </div>
 
+      <!-- Order form -->
+      <div v-if="product" class="mt-12 border-t border-gray-800 pt-12">
+        <h2 class="font-bold text-white text-xl uppercase tracking-wide mb-8">
+          {{ t('merch.order.title') }}
+        </h2>
+        <UForm
+          :state="orderForm"
+          :schema="orderSchema"
+          class="space-y-6"
+          @submit="onSubmit"
+        >
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <UFormField name="first_name" :label="t('form.contact.first_name')" required>
+              <UInput v-model="orderForm.first_name" class="w-full" />
+            </UFormField>
+            <UFormField name="last_name" :label="t('form.contact.last_name')" required>
+              <UInput v-model="orderForm.last_name" class="w-full" />
+            </UFormField>
+          </div>
+          <UFormField name="email" :label="t('form.contact.email')" required>
+            <UInput v-model="orderForm.email" type="email" class="w-full" />
+          </UFormField>
+          <UFormField name="message" :label="t('merch.order.message')" required>
+            <UTextarea v-model="orderForm.message" :rows="5" class="w-full" />
+          </UFormField>
+          <UButton
+            type="submit"
+            class="w-full justify-center uppercase tracking-widest font-bold"
+          >
+            {{ t('merch.order.submit') }}
+          </UButton>
+        </UForm>
+      </div>
+
       <div v-else class="text-gray-400 text-center">
         Product not found.
       </div>
@@ -80,6 +117,8 @@
 </template>
 
 <script setup>
+import * as yup from 'yup'
+
 definePageMeta({
   layout: 'public',
 })
@@ -92,8 +131,8 @@ const { products } = useMerchProducts()
 const product = computed(() => products.value.find(p => p.productId === route.params.id))
 
 const badgeLabel = computed(() => {
-  if (!product.value?.badge?.show) return ''
-  if (product.value.badge.type === 'custom') return product.value.badge.customLabel
+  if (!product.value?.badge?.show) { return '' }
+  if (product.value.badge.type === 'custom') { return product.value.badge.customLabel }
   return t(`merch.badge.${product.value.badge.type}`)
 })
 
@@ -101,4 +140,20 @@ const backLink = computed(() => {
   const eventId = route.params.event_id
   return eventId ? localePath(`/${eventId}/merch`) : localePath('/merch')
 })
+
+const orderForm = reactive({
+  first_name: '',
+  last_name: '',
+  email: '',
+  message: '',
+})
+
+const orderSchema = yup.object({
+  first_name: yup.string().required(t('validations.required')),
+  last_name: yup.string().required(t('validations.required')),
+  email: yup.string().email(t('validations.email_invalid')).required(t('validations.email_required')),
+  message: yup.string().required(t('validations.required')),
+})
+
+function onSubmit() {}
 </script>

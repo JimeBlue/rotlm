@@ -516,6 +516,11 @@
   },
   "merch": {
     "backToShop": "← Back to shop",
+    "order": {
+      "title": "Place an order",
+      "message": "Message",
+      "submit": "Send"
+    },
     "badge": {
       "deal": "Deal",
       "new": "New",

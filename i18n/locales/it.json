@@ -8,6 +8,11 @@
   },
   "merch": {
     "backToShop": "← Torna al negozio",
+    "order": {
+      "title": "Effettua un ordine",
+      "message": "Messaggio",
+      "submit": "Invia"
+    },
     "badge": {
       "deal": "Promo",
       "new": "Novità",
