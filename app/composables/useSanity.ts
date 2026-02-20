@@ -130,6 +130,7 @@ export function useMerchProducts() {
   const products = computed(() => {
     if (!rawProducts.value) return []
     return (rawProducts.value as any[]).map((p: any) => ({
+      productId: p._id,
       image: p.image || null,
       badge: p.badge
         ? {

@@ -64,6 +64,7 @@ const queries: Record<string, string> = {
     "image6": image6 { "url": asset->url, alt }
   }`,
   merchProducts: `*[_type == "merchProduct" && available == true] | order(order asc, _createdAt asc) {
+    _id,
     "image": image {
       "url": asset->url,
       alt
