@@ -575,6 +575,7 @@
       "title": "Merch bestellen",
       "message": "Nachricht",
       "submit": "Absenden",
+      "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
       "gdpr_consent": "Ich bin damit einverstanden, dass meine Daten zum Zweck der Weiterverarbeitung meiner Nachricht übermittelt und verwendet werden.",
       "confirmed": {
         "title": "Bestellung erhalten!",

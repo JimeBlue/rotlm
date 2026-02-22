@@ -12,6 +12,7 @@
       "title": "Ordina il tuo merch",
       "message": "Messaggio",
       "submit": "Invia",
+      "error": "Qualcosa è andato storto. Per favore riprova.",
       "gdpr_consent": "Acconsento alla trasmissione e all'utilizzo dei miei dati ai fini dell'elaborazione del mio messaggio.",
       "confirmed": {
         "title": "Ordine ricevuto!",

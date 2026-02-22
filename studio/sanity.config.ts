@@ -93,6 +93,14 @@ export default defineConfig({
                           .filter('_type == "merchProduct"')
                           .defaultOrdering([{field: 'order', direction: 'asc'}])
                       ),
+                    S.listItem()
+                      .title('Orders')
+                      .child(
+                        S.documentList()
+                          .title('Orders')
+                          .filter('_type == "merchOrder"')
+                          .defaultOrdering([{field: 'submitted_at', direction: 'desc'}])
+                      ),
                   ])
               ),
             S.listItem()

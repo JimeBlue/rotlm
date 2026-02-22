@@ -30,9 +30,15 @@
             </template>
           </UCheckbox>
         </UFormField>
+
+        <p v-if="submitError" class="text-red-400 text-sm text-center">
+          {{ t('merch.order.error') }}
+        </p>
+
         <div class="flex justify-center">
           <UButton
             type="submit"
+            :loading="submitting"
             class="w-fit uppercase tracking-widest font-bold"
           >
             {{ t('merch.order.submit') }}
@@ -67,11 +73,17 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  product: {
+    type: Object,
+    default: null,
+  },
 })
 
 const { t } = useI18n()
 
 const view = ref('form')
+const submitting = ref(false)
+const submitError = ref(false)
 
 const orderForm = reactive({
   first_name: '',
@@ -89,8 +101,26 @@ const orderSchema = yup.object({
   consent: yup.boolean().oneOf([true], t('validations.required')),
 })
 
-function onSubmit() {
-  // TODO: connect to email service / Sanity
-  view.value = 'confirmed'
+async function onSubmit() {
+  submitting.value = true
+  submitError.value = false
+
+  try {
+    await $fetch('/api/merch/order', {
+      method: 'POST',
+      body: {
+        ...orderForm,
+        product_id: props.product?.productId ?? null,
+        product_name: props.product?.name ?? null,
+      },
+    })
+    view.value = 'confirmed'
+  }
+  catch {
+    submitError.value = true
+  }
+  finally {
+    submitting.value = false
+  }
 }
 </script>

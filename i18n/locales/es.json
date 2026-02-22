@@ -12,6 +12,7 @@
       "title": "Pedí tu merch",
       "message": "Mensaje",
       "submit": "Enviar",
+      "error": "Algo salió mal. Por favor, inténtalo de nuevo.",
       "gdpr_consent": "Acepto que mis datos sean transmitidos y utilizados con el fin de procesar mi mensaje.",
       "confirmed": {
         "title": "¡Pedido recibido!",

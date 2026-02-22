@@ -520,6 +520,7 @@
       "title": "Place an order",
       "message": "Message",
       "submit": "Send",
+      "error": "Something went wrong. Please try again.",
       "gdpr_consent": "I agree that my data may be transmitted and used for the purpose of processing my message.",
       "confirmed": {
         "title": "Order received!",

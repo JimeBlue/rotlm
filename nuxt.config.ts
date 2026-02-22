@@ -4,7 +4,9 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   runtimeConfig: {
-    // No external API keys needed for mock implementation
+    resendApiKey: '',       // NUXT_RESEND_API_KEY
+    resendToEmail: '',      // NUXT_RESEND_TO_EMAIL
+    sanityApiToken: '',     // NUXT_SANITY_API_TOKEN
     public: {
       eventId: 'Raiders of the Lost Missile',
     },
@@ -103,8 +105,8 @@ export default defineNuxtConfig({
   hooks: {
     'pages:extend': function (pages) {
       if (process.env.NODE_ENV === 'production') {
-        // Remove all routes under /dev
-        return pages.filter(page => !page.path.startsWith('/dev'))
+        const filtered = pages.filter(page => !page.path.startsWith('/dev'))
+        pages.splice(0, pages.length, ...filtered)
       }
     },
   },
