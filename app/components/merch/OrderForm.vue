@@ -79,6 +79,8 @@ const props = defineProps({
   },
 })
 
+const emit = defineEmits(['confirmed'])
+
 const { t } = useI18n()
 
 const view = ref('form')
@@ -115,6 +117,7 @@ async function onSubmit() {
       },
     })
     view.value = 'confirmed'
+    emit('confirmed')
   }
   catch {
     submitError.value = true

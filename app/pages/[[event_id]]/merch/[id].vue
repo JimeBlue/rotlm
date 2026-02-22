@@ -81,6 +81,7 @@
       <!-- Order form -->
       <div v-if="product" class="mt-12 border-t border-gray-500 pt-12">
         <motion.h2
+          v-if="!orderConfirmed"
           class="font-bold text-green-neon text-2xl uppercase tracking-wide mb-8 text-center"
           :initial="{ opacity: 0, scale: 0 }"
           :while-in-view="{ opacity: 1, scale: 1 }"
@@ -93,7 +94,7 @@
         >
           {{ t('merch.order.title') }}
         </motion.h2>
-        <MerchOrderForm :back-link="backLink" :product="product" />
+        <MerchOrderForm :back-link="backLink" :product="product" @confirmed="orderConfirmed = true" />
       </div>
 
       <div v-else class="text-gray-400 text-center">
@@ -123,6 +124,8 @@ const badgeLabel = computed(() => {
   if (product.value.badge.type === 'custom') { return product.value.badge.customLabel }
   return t(`merch.badge.${product.value.badge.type}`)
 })
+
+const orderConfirmed = ref(false)
 
 const backLink = computed(() => {
   const eventId = route.params.event_id
