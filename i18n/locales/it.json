@@ -9,15 +9,28 @@
   "merch": {
     "backToShop": "← Torna al negozio",
     "order": {
-      "title": "Effettua un ordine",
+      "title": "Ordina il tuo merch",
       "message": "Messaggio",
-      "submit": "Invia"
+      "submit": "Invia",
+      "gdpr_consent": "Acconsento alla trasmissione e all'utilizzo dei miei dati ai fini dell'elaborazione del mio messaggio."
     },
     "badge": {
       "deal": "Promo",
       "new": "Novità",
       "limited": "Limitato"
     }
+  },
+  "form": {
+    "contact": {
+      "email": "Email",
+      "first_name": "Nome",
+      "last_name": "Cognome"
+    }
+  },
+  "validations": {
+    "email_invalid": "L'indirizzo email non è valido",
+    "email_required": "L'email è obbligatoria",
+    "required": "Campo obbligatorio"
   },
   "navigation": {
     "home": "Home"

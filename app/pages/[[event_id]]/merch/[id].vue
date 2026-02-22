@@ -3,9 +3,9 @@
     <div class="container mx-auto px-6 max-w-xl">
       <NuxtLink
         :to="backLink"
-        class="text-green-neon hover:text-white text-sm uppercase tracking-wide mb-12 inline-block"
+        class="text-green-neon hover:text-white text-sm uppercase tracking-wide mb-6 flex justify-end"
       >
-        {{ t('merch.backToShop') }}
+        <span>{{ t('merch.backToShop') }}</span>
       </NuxtLink>
 
       <div v-if="product" class="flex flex-col items-center">
@@ -32,7 +32,7 @@
           <h1 class="font-bold text-white text-2xl uppercase tracking-wide leading-tight">
             {{ product.name }}
           </h1>
-          <p v-if="product.description" class="text-gray-400 text-base mt-3">
+          <p v-if="product.description" class="text-white text-base mt-3">
             {{ product.description }}
           </p>
           <div class="mt-4 flex items-center justify-center gap-3">
@@ -70,42 +70,66 @@
                 </g>
               </svg>
             </span>
-            <span class="text-white font-bold text-3xl">{{ product.price }} €</span>
+            <span class="text-white font-bold text-lg">{{ product.price }} €</span>
           </div>
+          <p v-if="merchContent?.productOrderText" class="text-white mt-8 mb-8">
+            {{ merchContent.productOrderText }}
+          </p>
         </div>
       </div>
 
       <!-- Order form -->
-      <div v-if="product" class="mt-12 border-t border-gray-800 pt-12">
-        <h2 class="font-bold text-white text-xl uppercase tracking-wide mb-8">
+      <div v-if="product" class="mt-12 border-t border-gray-500 pt-12">
+        <motion.h2
+          class="font-bold text-green-neon text-2xl uppercase tracking-wide mb-8 text-center"
+          :initial="{ opacity: 0, scale: 0 }"
+          :while-in-view="{ opacity: 1, scale: 1 }"
+          :viewport="{ once: true }"
+          :transition="{
+            delay: 0.1,
+            duration: 0.4,
+            scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 },
+          }"
+        >
           {{ t('merch.order.title') }}
-        </h2>
+        </motion.h2>
         <UForm
           :state="orderForm"
           :schema="orderSchema"
           class="space-y-6"
           @submit="onSubmit"
         >
-          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <UFormField name="first_name" :label="t('form.contact.first_name')" required>
-              <UInput v-model="orderForm.first_name" class="w-full" />
-            </UFormField>
-            <UFormField name="last_name" :label="t('form.contact.last_name')" required>
-              <UInput v-model="orderForm.last_name" class="w-full" />
-            </UFormField>
-          </div>
+          <UFormField name="first_name" :label="t('form.contact.first_name')" required>
+            <UInput v-model="orderForm.first_name" class="w-full" />
+          </UFormField>
+          <UFormField name="last_name" :label="t('form.contact.last_name')" required>
+            <UInput v-model="orderForm.last_name" class="w-full" />
+          </UFormField>
+
           <UFormField name="email" :label="t('form.contact.email')" required>
             <UInput v-model="orderForm.email" type="email" class="w-full" />
           </UFormField>
           <UFormField name="message" :label="t('merch.order.message')" required>
             <UTextarea v-model="orderForm.message" :rows="5" class="w-full" />
           </UFormField>
-          <UButton
-            type="submit"
-            class="w-full justify-center uppercase tracking-widest font-bold"
-          >
-            {{ t('merch.order.submit') }}
-          </UButton>
+          <UFormField name="consent">
+            <UCheckbox
+              v-model="orderForm.consent"
+              :ui="{ label: 'after:content-[\'*\'] after:ms-0.5 after:text-error' }"
+            >
+              <template #label>
+                <span>{{ t('merch.order.gdpr_consent') }}</span>
+              </template>
+            </UCheckbox>
+          </UFormField>
+          <div class="flex justify-center">
+            <UButton
+              type="submit"
+              class="w-fit uppercase tracking-widest font-bold"
+            >
+              {{ t('merch.order.submit') }}
+            </UButton>
+          </div>
         </UForm>
       </div>
 
@@ -117,6 +141,7 @@
 </template>
 
 <script setup>
+import { motion } from 'motion-v'
 import * as yup from 'yup'
 
 definePageMeta({
@@ -127,6 +152,7 @@ const route = useRoute()
 const { t } = useI18n()
 const localePath = useLocalePath()
 const { products } = useMerchProducts()
+const { merchContent } = useMerchContent()
 
 const product = computed(() => products.value.find(p => p.productId === route.params.id))
 
@@ -146,6 +172,7 @@ const orderForm = reactive({
   last_name: '',
   email: '',
   message: '',
+  consent: false,
 })
 
 const orderSchema = yup.object({
@@ -153,6 +180,7 @@ const orderSchema = yup.object({
   last_name: yup.string().required(t('validations.required')),
   email: yup.string().email(t('validations.email_invalid')).required(t('validations.email_required')),
   message: yup.string().required(t('validations.required')),
+  consent: yup.boolean().oneOf([true], t('validations.required')),
 })
 
 function onSubmit() {}

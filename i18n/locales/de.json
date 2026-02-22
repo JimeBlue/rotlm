@@ -572,9 +572,10 @@
   "merch": {
     "backToShop": "← Zurück zum Shop",
     "order": {
-      "title": "Bestellung aufgeben",
+      "title": "Merch bestellen",
       "message": "Nachricht",
-      "submit": "Senden"
+      "submit": "Absenden",
+      "gdpr_consent": "Ich bin damit einverstanden, dass meine Daten zum Zweck der Weiterverarbeitung meiner Nachricht übermittelt und verwendet werden."
     },
     "badge": {
       "deal": "Deal",

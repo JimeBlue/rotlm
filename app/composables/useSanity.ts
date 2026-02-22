@@ -103,9 +103,28 @@ export function useHero() {
   return { hero }
 }
 
+export function useMerchContent() {
+  const { locale } = useI18n()
+
+  const { data: rawMerchContent } = useFetch('/api/sanity/merchContent', {
+    key: 'merchContent',
+  })
+
+  const merchContent = computed(() => {
+    if (!rawMerchContent.value) return null
+    const data = rawMerchContent.value as any
+    return {
+      title: data.title?.[locale.value] || data.title?.en || '',
+      description: data.description?.[locale.value] || data.description?.en || '',
+      productOrderText: data.productOrderText?.[locale.value] || data.productOrderText?.en || '',
+    }
+  })
+
+  return { merchContent }
+}
+
 export function useMerch() {
   const { data: merch } = useFetch<{
-    title: { en?: string; de?: string; it?: string; es?: string }
     image: { url: string; alt?: string }
     image2: { url: string; alt?: string }
     image3: { url: string; alt?: string }

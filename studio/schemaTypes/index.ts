@@ -7,5 +7,6 @@ import music from './music'
 import gigs from './gigs'
 import merch from './merch'
 import merchProduct from './merchProduct'
+import merchContent from './merchContent'
 
-export const schemaTypes = [navigation, band, footer, album, hero, music, gigs, merch, merchProduct]
+export const schemaTypes = [navigation, band, footer, album, hero, music, gigs, merch, merchProduct, merchContent]

@@ -519,7 +519,8 @@
     "order": {
       "title": "Place an order",
       "message": "Message",
-      "submit": "Send"
+      "submit": "Send",
+      "gdpr_consent": "I agree that my data may be transmitted and used for the purpose of processing my message."
     },
     "badge": {
       "deal": "Deal",

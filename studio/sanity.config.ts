@@ -72,6 +72,13 @@ export default defineConfig({
                   .title('Merch Section')
                   .items([
                     S.listItem()
+                      .title('Merch Content')
+                      .child(
+                        S.documentList()
+                          .title('Merch Content')
+                          .filter('_type == "merchContent"')
+                      ),
+                    S.listItem()
                       .title('Merch Assets')
                       .child(
                         S.documentList()

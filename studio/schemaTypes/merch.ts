@@ -22,18 +22,6 @@ export default defineType({
   title: 'Merch Assets',
   type: 'document',
   fields: [
-    defineField({
-      name: 'title',
-      title: 'Section Title',
-      type: 'object',
-      description: 'Title displayed in the merch section',
-      fields: [
-        {name: 'en', type: 'string', title: 'English'},
-        {name: 'de', type: 'string', title: 'Deutsch'},
-        {name: 'it', type: 'string', title: 'Italiano'},
-        {name: 'es', type: 'string', title: 'Español'},
-      ],
-    }),
     imageField('image', 'Merch Image 1', 'Image for the merch section'),
     imageField('image2', 'Merch Image 2', 'Background image for the merch hero section'),
     imageField('image3', 'Merch Image 3', 'Concert / footer background image'),
