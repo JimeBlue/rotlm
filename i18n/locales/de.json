@@ -575,7 +575,11 @@
       "title": "Merch bestellen",
       "message": "Nachricht",
       "submit": "Absenden",
-      "gdpr_consent": "Ich bin damit einverstanden, dass meine Daten zum Zweck der Weiterverarbeitung meiner Nachricht übermittelt und verwendet werden."
+      "gdpr_consent": "Ich bin damit einverstanden, dass meine Daten zum Zweck der Weiterverarbeitung meiner Nachricht übermittelt und verwendet werden.",
+      "confirmed": {
+        "title": "Bestellung erhalten!",
+        "text": "Danke für dein Interesse! Wir melden uns in Kürze bei dir."
+      }
     },
     "badge": {
       "deal": "Deal",

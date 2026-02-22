@@ -12,7 +12,11 @@
       "title": "Pedí tu merch",
       "message": "Mensaje",
       "submit": "Enviar",
-      "gdpr_consent": "Acepto que mis datos sean transmitidos y utilizados con el fin de procesar mi mensaje."
+      "gdpr_consent": "Acepto que mis datos sean transmitidos y utilizados con el fin de procesar mi mensaje.",
+      "confirmed": {
+        "title": "¡Pedido recibido!",
+        "text": "¡Gracias por tu interés! Nos pondremos en contacto contigo pronto."
+      }
     },
     "badge": {
       "deal": "Promo",

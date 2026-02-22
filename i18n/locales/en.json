@@ -520,7 +520,11 @@
       "title": "Place an order",
       "message": "Message",
       "submit": "Send",
-      "gdpr_consent": "I agree that my data may be transmitted and used for the purpose of processing my message."
+      "gdpr_consent": "I agree that my data may be transmitted and used for the purpose of processing my message.",
+      "confirmed": {
+        "title": "Order received!",
+        "text": "Thanks for your interest! We'll get back to you shortly."
+      }
     },
     "badge": {
       "deal": "Deal",
