@@ -7,7 +7,6 @@
           <slot />
         </main>
         <AppFooter />
-        <Debug />
       </div>
     </Body>
   </Html>
