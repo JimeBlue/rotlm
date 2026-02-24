@@ -1,5 +1,5 @@
 <template>
-  <div class="relative overflow-hidden py-12 md:py-24">
+  <div class="relative overflow-hidden py-12 md:py-24 lg:py-40 xl:py-56">
     <!-- Neon lightning background streaks -->
     <div
       class="absolute inset-0 pointer-events-none"
