@@ -49,6 +49,7 @@ export function useBand() {
       paragraph3: data.paragraph3?.[locale.value] || data.paragraph3?.en || '',
       imageOne: data.imageOne || null,
       imageTwo: data.imageTwo || null,
+      bandImage: data.bandImage || null,
       // Transform members to include translated instrument
       members: (data.members || []).map((member: any) => ({
         name: member.name,

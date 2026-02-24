@@ -63,7 +63,8 @@
             />
             <!-- Band image -->
             <motion.img
-              src="/images/ROTLM_Band.jpg"
+              v-if="band?.bandImage"
+              :src="band.bandImage"
               alt="ROTLM Band performing"
               class="relative w-full max-w-[680px] rounded-xl z-[1]"
               :initial="{ rotate: 0 }"

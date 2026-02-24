@@ -90,6 +90,15 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'bandImage',
+      title: 'Band Image',
+      type: 'image',
+      description: 'Main band photo displayed in the black section',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'genres',
       title: 'Music Genres/Keywords',
       type: 'array',

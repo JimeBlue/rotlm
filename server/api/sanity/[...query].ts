@@ -19,6 +19,7 @@ const queries: Record<string, string> = {
     paragraph3,
     "imageOne": imageOne.asset->url,
     "imageTwo": imageTwo.asset->url,
+    "bandImage": bandImage.asset->url,
     members,
     "genres": genres[] {
       name,
