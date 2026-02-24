@@ -186,6 +186,27 @@ export function useMusic() {
   return { music }
 }
 
+export function useLegal() {
+  const { locale } = useI18n()
+
+  const { data: rawLegal } = useFetch('/api/sanity/legal', {
+    key: 'legal',
+  })
+
+  // de → de, everything else (en, es, it) → en
+  const legal = computed(() => {
+    if (!rawLegal.value) return null
+    const data = rawLegal.value as any
+    const lang = locale.value === 'de' ? 'de' : 'en'
+    return {
+      impressum: data.impressum?.[lang] || data.impressum?.de || [],
+      datenschutz: data.datenschutz?.[lang] || data.datenschutz?.de || [],
+    }
+  })
+
+  return { legal }
+}
+
 export function useGigs() {
   const { locale } = useI18n()
 

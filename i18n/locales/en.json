@@ -123,8 +123,11 @@
   "footer": {
     "cookies": "Cookies",
     "data_privacy": "Data Protection",
+    "datenschutz_content": "This is placeholder text for the privacy policy. This section will contain information about the collection, processing, and use of personal data.",
     "imprint": "Imprint",
-    "legal": "Legal"
+    "imprint_content": "This is placeholder text for the legal notice. This section will contain the name, address, and contact details of the responsible party.",
+    "legal": "Legal",
+    "built_by": "Built by"
   },
   "form": {
     "booking": {

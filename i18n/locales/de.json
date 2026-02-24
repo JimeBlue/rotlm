@@ -122,8 +122,11 @@
     "contact": "Kontakt",
     "cookies": "Cookies",
     "data_privacy": "Datenschutz",
+    "datenschutz_content": "Dies ist ein Platzhaltertext für die Datenschutzerklärung. Hier werden Informationen über die Erhebung, Verarbeitung und Nutzung personenbezogener Daten bereitgestellt.",
     "imprint": "Impressum",
-    "legal": "Rechtliche"
+    "imprint_content": "Dies ist ein Platzhaltertext für das Impressum. Hier stehen Name, Anschrift und Kontaktdaten des Verantwortlichen gemäß § 5 TMG.",
+    "legal": "Rechtliche",
+    "built_by": "Entwickelt von"
   },
   "form": {
     "booking": {

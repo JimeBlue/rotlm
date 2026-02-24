@@ -37,6 +37,15 @@
     "email_required": "El email es obligatorio",
     "required": "Campo obligatorio"
   },
+  "footer": {
+    "cookies": "Cookies",
+    "data_privacy": "Política de privacidad",
+    "datenschutz_content": "Este es un texto de marcador de posición para la política de privacidad. Esta sección contendrá información sobre la recopilación, el tratamiento y el uso de datos personales.",
+    "imprint": "Aviso legal",
+    "imprint_content": "Este es un texto de marcador de posición para el aviso legal. Esta sección contendrá el nombre, la dirección y los datos de contacto del responsable.",
+    "legal": "Legal",
+    "built_by": "Creado por"
+  },
   "navigation": {
     "home": "Inicio"
   }

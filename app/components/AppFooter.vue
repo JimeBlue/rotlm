@@ -16,9 +16,26 @@
           />
         </a>
       </div>
-      <p v-if="footer?.copyright" class="text-white text-sm md:order-1">
-        {{ footer.copyright }}
-      </p>
+
+      <div class="md:order-1 flex flex-col items-center sm:items-start gap-1">
+        <div class="flex gap-4">
+          <NuxtLink
+            to="/impressum"
+            class="text-white text-xs underline hover:opacity-70"
+          >
+            {{ $t('footer.imprint') }}
+          </NuxtLink>
+          <NuxtLink
+            to="/datenschutz"
+            class="text-white text-xs underline hover:opacity-70"
+          >
+            {{ $t('footer.data_privacy') }}
+          </NuxtLink>
+        </div>
+        <p v-if="footer?.copyright" class="text-white text-xxs lg:mt-2">
+          {{ footer.copyright }} <span class="text-white mx-1">|</span> <span class="text-white">{{ $t('footer.built_by') }} JimeBlue</span>
+        </p>
+      </div>
     </div>
   </footer>
 </template>

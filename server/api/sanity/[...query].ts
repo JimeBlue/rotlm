@@ -79,6 +79,10 @@ const queries: Record<string, string> = {
     price,
     originalPrice
   }`,
+  legal: `*[_type == "legal"][0] {
+    impressum,
+    datenschutz
+  }`,
   gigs: `*[_type == "gigs"][0] {
     title,
     buttonText,

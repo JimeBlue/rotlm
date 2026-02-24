@@ -110,6 +110,13 @@ export default defineConfig({
                   .title('Footer')
                   .filter('_type == "footer"')
               ),
+            S.listItem()
+              .title('Legal')
+              .child(
+                S.documentList()
+                  .title('Legal')
+                  .filter('_type == "legal"')
+              ),
           ]),
     }),
     visionTool(),
