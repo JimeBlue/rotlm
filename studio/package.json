@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
+  "author": "Jimena Miguez <jimeblau@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
     "dev": "sanity dev",
