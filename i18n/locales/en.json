@@ -513,6 +513,22 @@
     "text_1": "EN Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt odio reprehenderit asperiores vero deserunt laborum voluptatum possimus quam totam sit? Esse necessitatibus cum voluptatem eligendi nemo. Ea distinctio deleniti error. 123",
     "title": "EN Welcome"
   },
+  "contact": {
+    "hero": {
+      "line1": "GET",
+      "line2_before": "IN",
+      "line2_after": "TOUCH",
+      "line3_before": "WITH",
+      "line3_after": "",
+      "subtitle": "Do you want to book us for your next event, have a question, or just want to say hello? We're happy to hear from you and look forward to every message!"
+    },
+    "form": {
+      "confirmed": {
+        "title": "Message received!",
+        "text": "Thanks for your message! We'll get back to you shortly."
+      }
+    }
+  },
   "gigs": {
     "more_info_soon": "More info soon",
     "past_gigs_title": "Past Gigs"

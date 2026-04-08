@@ -50,12 +50,13 @@
     <!-- Confirmed -->
     <div v-else class="text-center py-8 space-y-4">
       <h3 class="text-green-neon font-bold text-xl uppercase tracking-wide">
-        {{ t('merch.order.confirmed.title') }}
+        {{ confirmedTitle }}
       </h3>
       <p class="text-white">
-        {{ t('merch.order.confirmed.text') }}
+        {{ confirmedText }}
       </p>
       <NuxtLink
+        v-if="mode === 'order' && backLink"
         :to="backLink"
         class="inline-block mt-6 text-green-neon hover:text-white text-sm uppercase tracking-wide"
       >
@@ -69,9 +70,13 @@
 import * as yup from 'yup'
 
 const props = defineProps({
+  mode: {
+    type: String,
+    default: 'order', // 'order' | 'contact'
+  },
   backLink: {
     type: String,
-    required: true,
+    default: null,
   },
   product: {
     type: Object,
@@ -103,6 +108,13 @@ const orderSchema = yup.object({
   consent: yup.boolean().oneOf([true], t('validations.required')),
 })
 
+const confirmedTitle = computed(() =>
+  props.mode === 'contact' ? t('contact.form.confirmed.title') : t('merch.order.confirmed.title'),
+)
+const confirmedText = computed(() =>
+  props.mode === 'contact' ? t('contact.form.confirmed.text') : t('merch.order.confirmed.text'),
+)
+
 async function onSubmit() {
   submitting.value = true
   submitError.value = false
@@ -112,8 +124,11 @@ async function onSubmit() {
       method: 'POST',
       body: {
         ...orderForm,
-        product_id: props.product?.productId ?? null,
-        product_name: props.product?.name ?? null,
+        mode: props.mode,
+        ...(props.mode === 'order' && {
+          product_id: props.product?.productId ?? null,
+          product_name: props.product?.name ?? null,
+        }),
       },
     })
     view.value = 'confirmed'

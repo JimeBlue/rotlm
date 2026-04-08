@@ -94,7 +94,12 @@
         >
           {{ t('merch.order.title') }}
         </motion.h2>
-        <MerchOrderForm :back-link="backLink" :product="product" @confirmed="orderConfirmed = true" />
+        <ContactForm
+          mode="order"
+          :back-link="backLink"
+          :product="product"
+          @confirmed="orderConfirmed = true"
+        />
       </div>
 
       <div v-else class="text-gray-400 text-center">

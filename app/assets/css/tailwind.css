@@ -239,6 +239,19 @@ body {
   transform-origin: bottom center;
 }
 
+@keyframes ken-burns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+.ken-burns {
+  animation: ken-burns 8s ease-out forwards;
+}
+
 
 .swal2-container {
   .swal2-popup {

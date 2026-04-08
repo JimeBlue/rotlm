@@ -48,5 +48,21 @@
   },
   "navigation": {
     "home": "Inicio"
+  },
+  "contact": {
+    "hero": {
+      "line1": "CONTACTATE",
+      "line2_before": "CON",
+      "line2_after": "",
+      "line3_before": "",
+      "line3_after": "",
+      "subtitle": "¿Querés contratarnos para tu próximo evento, tenés alguna pregunta o simplemente querés decir hola? ¡Nos encanta recibir mensajes tuyos!"
+    },
+    "form": {
+      "confirmed": {
+        "title": "¡Mensaje recibido!",
+        "text": "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto."
+      }
+    }
   }
 }

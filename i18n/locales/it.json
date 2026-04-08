@@ -48,5 +48,21 @@
   },
   "navigation": {
     "home": "Home"
+  },
+  "contact": {
+    "hero": {
+      "line1": "METTITI",
+      "line2_before": "IN",
+      "line2_after": "CONTATTO",
+      "line3_before": "CON",
+      "line3_after": "",
+      "subtitle": "Vuoi prenotarci per il tuo prossimo evento, hai una domanda oppure vuoi semplicemente dire ciao? Saremo felici di ricevere il tuo messaggio!"
+    },
+    "form": {
+      "confirmed": {
+        "title": "Messaggio ricevuto!",
+        "text": "Grazie per il tuo messaggio! Ti ricontatteremo a breve."
+      }
+    }
   }
 }

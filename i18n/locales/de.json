@@ -568,6 +568,22 @@
     "title_1": "DAS GROSSE",
     "title_2": "ARCHITEKTEN QUIZ."
   },
+  "contact": {
+    "hero": {
+      "line1": "MELDE",
+      "line2_before": "DICH",
+      "line2_after": "BEI",
+      "line3_before": "",
+      "line3_after": "",
+      "subtitle": "Du willst uns für dein nächstes Event buchen, hast eine Frage oder möchtest einfach Hallo sagen? Wir freuen uns über jede Nachricht!"
+    },
+    "form": {
+      "confirmed": {
+        "title": "Nachricht erhalten!",
+        "text": "Danke für deine Nachricht! Wir melden uns in Kürze bei dir."
+      }
+    }
+  },
   "gigs": {
     "more_info_soon": "Weitere Infos folgen",
     "past_gigs_title": "Vergangene Gigs"
