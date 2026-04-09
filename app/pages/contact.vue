@@ -62,6 +62,6 @@ import { motion } from 'motion-v'
 import RotlmLogo from '~/assets/svg/Logo_ROTLM_Initials.svg?component'
 
 definePageMeta({
-  layout: 'public',
+  layout: 'contact',
 })
 </script>
