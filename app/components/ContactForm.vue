@@ -17,6 +17,9 @@
         <UFormField name="email" :label="t('form.contact.email')" required>
           <UInput v-model="orderForm.email" type="email" class="w-full" />
         </UFormField>
+        <UFormField name="phone" :label="t('form.contact.phone')">
+          <UInput v-model="orderForm.phone" type="tel" :placeholder="t('form.contact.phone_placeholder')" class="w-full" />
+        </UFormField>
         <UFormField name="message" :label="t('merch.order.message')" required>
           <UTextarea v-model="orderForm.message" :rows="5" class="w-full" />
         </UFormField>
@@ -96,6 +99,7 @@ const orderForm = reactive({
   first_name: '',
   last_name: '',
   email: '',
+  phone: '',
   message: '',
   consent: false,
 })
@@ -124,6 +128,7 @@ async function onSubmit() {
       method: 'POST',
       body: {
         ...orderForm,
+        phone: orderForm.phone || null,
         mode: props.mode,
         ...(props.mode === 'order' && {
           product_id: props.product?.productId ?? null,

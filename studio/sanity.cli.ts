@@ -6,5 +6,5 @@ export default defineCliConfig({
     dataset: 'production'
   },
   studioHost: 'rotlm',
-  autoUpdates: true,
+  deployment: {autoUpdates: true},
 })

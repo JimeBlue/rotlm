@@ -23,6 +23,7 @@ export default defineType({
         {name: 'first_name', title: 'First Name', type: 'string'},
         {name: 'last_name', title: 'Last Name', type: 'string'},
         {name: 'email', title: 'Email', type: 'string'},
+        {name: 'phone', title: 'Phone', type: 'string'},
       ],
     }),
     defineField({

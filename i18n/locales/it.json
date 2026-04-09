@@ -29,7 +29,9 @@
     "contact": {
       "email": "Email",
       "first_name": "Nome",
-      "last_name": "Cognome"
+      "last_name": "Cognome",
+      "phone": "Telefono (opzionale)",
+      "phone_placeholder": "es. +49 176 22334456"
     }
   },
   "validations": {

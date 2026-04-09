@@ -29,7 +29,9 @@
     "contact": {
       "email": "Email",
       "first_name": "Nombre",
-      "last_name": "Apellido"
+      "last_name": "Apellido",
+      "phone": "Teléfono (opcional)",
+      "phone_placeholder": "ej. +49 176 22334456"
     }
   },
   "validations": {
