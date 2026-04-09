@@ -187,6 +187,27 @@ export function useMusic() {
   return { music }
 }
 
+export function useContact() {
+  const { locale } = useI18n()
+
+  const { data: rawContact } = useFetch('/api/sanity/contact', {
+    key: 'contact',
+  })
+
+  const contact = computed(() => {
+    if (!rawContact.value) return null
+    const data = rawContact.value as any
+    return {
+      title: data.title?.[locale.value] || data.title?.en || '',
+      text: data.text?.[locale.value] || data.text?.en || '',
+      posterMobile: data.posterMobile || null,
+      posterDesktop: data.posterDesktop || null,
+    }
+  })
+
+  return { contact }
+}
+
 export function useLegal() {
   const { locale } = useI18n()
 

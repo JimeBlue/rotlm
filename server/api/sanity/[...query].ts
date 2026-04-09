@@ -80,6 +80,12 @@ const queries: Record<string, string> = {
     price,
     originalPrice
   }`,
+  contact: `*[_type == "contact"][0] {
+    title,
+    text,
+    "posterMobile": posterMobile.asset->url,
+    "posterDesktop": posterDesktop.asset->url
+  }`,
   legal: `*[_type == "legal"][0] {
     impressum,
     datenschutz

@@ -104,6 +104,13 @@ export default defineConfig({
                   ])
               ),
             S.listItem()
+              .title('Contact Section')
+              .child(
+                S.documentList()
+                  .title('Contact Section')
+                  .filter('_type == "contact"')
+              ),
+            S.listItem()
               .title('Footer')
               .child(
                 S.documentList()

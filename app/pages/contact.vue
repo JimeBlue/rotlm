@@ -3,8 +3,8 @@
     <!-- Fixed right panel (desktop only) -->
     <div class="hidden xl:flex fixed top-20 right-0 w-1/2 h-[calc(100vh-5rem)] overflow-hidden">
       <img
-        src="/images/contact-poster-desktop.png"
-        alt="ROTLM"
+        :src="contact?.posterDesktop"
+        alt=""
         class="w-full h-full object-contain ken-burns"
       >
     </div>
@@ -13,15 +13,9 @@
     <div class="xl:w-1/2 pt-28 xl:pt-32 pb-24 px-8 space-y-16 flex flex-col items-center">
       <div class="space-y-8">
         <!-- Poster-style title -->
-        <div class="font-black uppercase leading-none text-white font-body w-fit mx-auto">
+        <div class="font-black uppercase leading-none text-white font-body max-w-xs mx-auto">
           <div class="text-6xl tracking-wide text-center">
-            {{ $t('contact.hero.line1') }}
-          </div>
-          <div class="text-6xl tracking-wide text-center">
-            {{ $t('contact.hero.line2_before') }} {{ $t('contact.hero.line2_after') }}
-          </div>
-          <div class="text-6xl tracking-wide text-center">
-            {{ $t('contact.hero.line3_before') }}{{ $t('contact.hero.line3_after') }}
+            {{ contact?.title }}
           </div>
           <motion.div
             :initial="{ opacity: 0, scale: 0 }"
@@ -40,7 +34,7 @@
 
         <div class="space-y-6 max-w-lg text-center">
           <p class="text-lg leading-relaxed">
-            {{ $t('contact.hero.subtitle') }}
+            {{ contact?.text }}
           </p>
         </div>
       </div>
@@ -51,7 +45,7 @@
 
       <!-- Mobile image -->
       <div class="xl:hidden">
-        <img src="/images/contact-poster.png" alt="ROTLM" class="w-full">
+        <img :src="contact?.posterMobile" alt="" class="w-full">
       </div>
     </div>
   </div>
@@ -64,4 +58,6 @@ import RotlmLogo from '~/assets/svg/Logo_ROTLM_Initials.svg?component'
 definePageMeta({
   layout: 'contact',
 })
+
+const { contact } = useContact()
 </script>

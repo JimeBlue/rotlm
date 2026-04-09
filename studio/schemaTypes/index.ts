@@ -10,5 +10,6 @@ import merchProduct from './merchProduct'
 import merchContent from './merchContent'
 import merchOrder from './merchOrder'
 import legal from './legal'
+import contact from './contact'
 
-export const schemaTypes = [navigation, band, footer, album, hero, music, gigs, merch, merchProduct, merchContent, merchOrder, legal]
+export const schemaTypes = [navigation, band, footer, album, hero, music, gigs, merch, merchProduct, merchContent, merchOrder, legal, contact]
