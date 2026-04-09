@@ -1,16 +1,16 @@
 <template>
   <div id="contact" class="bg-black text-white min-h-screen">
     <!-- Fixed right panel (desktop only) -->
-    <div class="hidden lg:flex fixed top-20 right-0 w-1/2 h-[calc(100vh-5rem)] items-center justify-end overflow-hidden py-8">
+    <div class="hidden xl:flex fixed top-20 right-0 w-1/2 h-[calc(100vh-5rem)] overflow-hidden">
       <img
-        src="/images/contact-poster.png"
+        src="/images/contact-poster-desktop.png"
         alt="ROTLM"
-        class="max-w-full max-h-full object-cover ken-burns"
+        class="w-full h-full object-contain ken-burns"
       >
     </div>
 
     <!-- Scrollable left content -->
-    <div class="lg:w-1/2 pt-28 lg:pt-32 pb-24 px-8 space-y-16 flex flex-col items-center">
+    <div class="xl:w-1/2 pt-28 xl:pt-32 pb-24 px-8 space-y-16 flex flex-col items-center">
       <div class="space-y-8">
         <!-- Poster-style title -->
         <div class="font-black uppercase leading-none text-white font-body w-fit mx-auto">
@@ -50,7 +50,7 @@
       </div>
 
       <!-- Mobile image -->
-      <div class="lg:hidden">
+      <div class="xl:hidden">
         <img src="/images/contact-poster.png" alt="ROTLM" class="w-full">
       </div>
     </div>
