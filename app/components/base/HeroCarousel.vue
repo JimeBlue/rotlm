@@ -22,6 +22,7 @@
       <img
         :src="item.src"
         :alt="item.alt"
+        :loading="item.loading"
         class="w-full h-full object-cover object-top"
       >
     </UCarousel>
@@ -34,9 +35,10 @@ const { hero } = useHero()
 const images = computed(() =>
   (hero.value?.carouselImages || [])
     .filter(img => img.url)
-    .map(img => ({
+    .map((img, index) => ({
       src: `/api/sanity/image-proxy?url=${encodeURIComponent(sanityImageUrl(img.url, 1920, 80))}`,
       alt: img.alt || '',
+      loading: index === 0 ? 'eager' : 'lazy',
     })),
 )
 </script>

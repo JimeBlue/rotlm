@@ -40,6 +40,7 @@
             <img
               :src="sanityImageUrl(album.coverImage)"
               :alt="album.title"
+              loading="lazy"
               class="w-full h-auto rounded-lg shadow-2xl"
             >
           </div>

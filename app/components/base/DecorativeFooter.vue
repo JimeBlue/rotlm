@@ -7,6 +7,7 @@
       :visible="{ rotate: -12, opacity: 1, transition: { duration: 800, ease: 'easeOut' } }"
       src="/images/cassette_green.png"
       alt=""
+      loading="lazy"
       class="absolute top-6 sm:top-24 md:top-16 -left-6 w-[130px] md:w-[170px] lg:w-[300px] 2xl:w-[400px] pointer-events-none"
     >
     <motion.img

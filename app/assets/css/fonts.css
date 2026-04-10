@@ -2,127 +2,58 @@
 @font-face {
   font-family: 'Rubik';
   font-style: normal;
-  font-weight: 300;
-  src:
-    url('/fonts/Rubik-Light.woff2') format('woff2'),
-    url('/fonts/Rubik-Light.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Rubik';
-  font-style: italic;
-  font-weight: 300;
-  src:
-    url('/fonts/Rubik-LightItalic.woff2') format('woff2'),
-    url('/fonts/Rubik-LightItalic.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Rubik';
-  font-style: normal;
   font-weight: 400;
-  src:
-    url('/fonts/Rubik-Regular.woff2') format('woff2'),
-    url('/fonts/Rubik-Regular.woff') format('woff');
+  font-display: swap;
+  src: url('/fonts/Rubik-Regular.woff2') format('woff2');
 }
 
+/* Kept for <em> elements in legal pages (Datenschutz/Impressum) */
 @font-face {
   font-family: 'Rubik';
   font-style: italic;
   font-weight: 400;
-  src:
-    url('/fonts/Rubik-Italic.woff2') format('woff2'),
-    url('/fonts/Rubik-Italic.woff') format('woff');
+  font-display: swap;
+  src: url('/fonts/Rubik-Italic.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;
-  src:
-    url('/fonts/Rubik-Medium.woff2') format('woff2'),
-    url('/fonts/Rubik-Medium.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Rubik';
-  font-style: italic;
-  font-weight: 500;
-  src:
-    url('/fonts/Rubik-MediumItalic.woff2') format('woff2'),
-    url('/fonts/Rubik-MediumItalic.woff') format('woff');
+  font-display: swap;
+  src: url('/fonts/Rubik-Medium.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 600;
-  src:
-    url('/fonts/Rubik-SemiBold.woff2') format('woff2'),
-    url('/fonts/Rubik-SemiBold.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Rubik';
-  font-style: italic;
-  font-weight: 600;
-  src:
-    url('/fonts/Rubik-SemiBoldItalic.woff2') format('woff2'),
-    url('/fonts/Rubik-SemiBoldItalic.woff') format('woff');
+  font-display: swap;
+  src: url('/fonts/Rubik-SemiBold.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 700;
-  src:
-    url('/fonts/Rubik-Bold.woff2') format('woff2'),
-    url('/fonts/Rubik-Bold.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Rubik';
-  font-style: italic;
-  font-weight: 700;
-  src:
-    url('/fonts/Rubik-BoldItalic.woff2') format('woff2'),
-    url('/fonts/Rubik-BoldItalic.woff') format('woff');
+  font-display: swap;
+  src: url('/fonts/Rubik-Bold.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 800;
-  src:
-    url('/fonts/Rubik-ExtraBold.woff2') format('woff2'),
-    url('/fonts/Rubik-ExtraBold.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Rubik';
-  font-style: italic;
-  font-weight: 800;
-  src:
-    url('/fonts/Rubik-ExtraBoldItalic.woff2') format('woff2'),
-    url('/fonts/Rubik-ExtraBoldItalic.woff') format('woff');
+  font-display: swap;
+  src: url('/fonts/Rubik-ExtraBold.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 900;
-  src:
-    url('/fonts/Rubik-Black.woff2') format('woff2'),
-    url('/fonts/Rubik-Black.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Rubik';
-  font-style: italic;
-  font-weight: 900;
-  src:
-    url('/fonts/Rubik-BlackItalic.woff2') format('woff2'),
-    url('/fonts/Rubik-BlackItalic.woff') format('woff');
+  font-display: swap;
+  src: url('/fonts/Rubik-Black.woff2') format('woff2');
 }
 
 /* Syne */
@@ -130,45 +61,16 @@
   font-family: 'Syne';
   font-style: normal;
   font-weight: 400;
-  src:
-    url('/fonts/Syne-Regular.woff2') format('woff2'),
-    url('/fonts/Syne-Regular.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Syne';
-  font-style: normal;
-  font-weight: 500;
-  src:
-    url('/fonts/Syne-Medium.woff2') format('woff2'),
-    url('/fonts/Syne-Medium.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Syne';
-  font-style: normal;
-  font-weight: 600;
-  src:
-    url('/fonts/Syne-SemiBold.woff2') format('woff2'),
-    url('/fonts/Syne-SemiBold.woff') format('woff');
+  font-display: swap;
+  src: url('/fonts/Syne-Regular.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Syne';
   font-style: normal;
   font-weight: 700;
-  src:
-    url('/fonts/Syne-Bold.woff2') format('woff2'),
-    url('/fonts/Syne-Bold.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Syne';
-  font-style: normal;
-  font-weight: 800;
-  src:
-    url('/fonts/Syne-ExtraBold.woff2') format('woff2'),
-    url('/fonts/Syne-ExtraBold.woff') format('woff');
+  font-display: swap;
+  src: url('/fonts/Syne-Bold.woff2') format('woff2');
 }
 
 /* Monoton */
@@ -176,9 +78,8 @@
   font-family: 'Monoton';
   font-style: normal;
   font-weight: 400;
-  src:
-    url('/fonts/Monoton-Regular.woff2') format('woff2'),
-    url('/fonts/Monoton-Regular.woff') format('woff');
+  font-display: swap;
+  src: url('/fonts/Monoton-Regular.woff2') format('woff2');
 }
 
 /* Oswald */
@@ -186,25 +87,22 @@
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 500;
-  src:
-    url('/fonts/Oswald-Medium.woff2') format('woff2'),
-    url('/fonts/Oswald-Medium.woff') format('woff');
+  font-display: swap;
+  src: url('/fonts/Oswald-Medium.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 600;
-  src:
-    url('/fonts/Oswald-SemiBold.woff2') format('woff2'),
-    url('/fonts/Oswald-SemiBold.woff') format('woff');
+  font-display: swap;
+  src: url('/fonts/Oswald-SemiBold.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 700;
-  src:
-    url('/fonts/Oswald-Bold.woff2') format('woff2'),
-    url('/fonts/Oswald-Bold.woff') format('woff');
+  font-display: swap;
+  src: url('/fonts/Oswald-Bold.woff2') format('woff2');
 }

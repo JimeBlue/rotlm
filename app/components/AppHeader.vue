@@ -7,7 +7,7 @@
     <div class="container relative flex h-20 items-center">
       <div class="flex flex-1 items-center gap-x-6 lg:justify-between lg:gap-x-1">
         <NuxtLink :to="localePath(root)" :aria-label="t('navigation.home')">
-          <img :src="logoSrc" alt="ROTLM Logo" class="mx-auto h-20">
+          <img :src="logoSrc" alt="ROTLM Logo" width="80" height="80" fetchpriority="high" class="mx-auto h-20 w-auto">
         </NuxtLink>
         <!-- <BaseCountdown class="hidden lg:flex" :eventdate="eventStartDate" /> -->
         <!-- <UNavigationMenu :items="pages" /> -->

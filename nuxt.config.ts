@@ -45,6 +45,28 @@ export default defineNuxtConfig({
           type: 'image/x-png',
           href: '/favicon.jpg',
         },
+        // Preload critical fonts to avoid render-blocking
+        {
+          rel: 'preload',
+          as: 'font',
+          type: 'font/woff2',
+          href: '/fonts/Rubik-Regular.woff2',
+          crossorigin: 'anonymous',
+        },
+        {
+          rel: 'preload',
+          as: 'font',
+          type: 'font/woff2',
+          href: '/fonts/Rubik-Bold.woff2',
+          crossorigin: 'anonymous',
+        },
+        {
+          rel: 'preload',
+          as: 'font',
+          type: 'font/woff2',
+          href: '/fonts/Syne-Bold.woff2',
+          crossorigin: 'anonymous',
+        },
       ],
     },
     baseURL: '/',
