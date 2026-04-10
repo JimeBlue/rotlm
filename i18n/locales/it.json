@@ -66,5 +66,35 @@
         "text": "Grazie per il tuo messaggio! Ti ricontatteremo a breve."
       }
     }
+  },
+  "seo": {
+    "home": {
+      "title": "Raiders of the Lost Missile",
+      "description": "Raiders of the Lost Missile — musica dal vivo, prossimi concerti, merch e altro ancora. Trovaci sul palco."
+    },
+    "music": {
+      "title": "Musica",
+      "description": "Ascolta la musica dei Raiders of the Lost Missile — album, brani e Spotify direttamente sul sito."
+    },
+    "gigs": {
+      "title": "Concerti",
+      "description": "Concerti imminenti e passati dei Raiders of the Lost Missile. Date, luoghi e tutte le informazioni."
+    },
+    "merch": {
+      "title": "Merch",
+      "description": "Merchandise ufficiale dei Raiders of the Lost Missile. Prendi il tuo gear ROTLM."
+    },
+    "contact": {
+      "title": "Contatti",
+      "description": "Contatta i Raiders of the Lost Missile — per prenotazioni, domande o semplicemente per salutare."
+    },
+    "impressum": {
+      "title": "Note Legali",
+      "description": "Note legali e informazioni di contatto dei Raiders of the Lost Missile."
+    },
+    "datenschutz": {
+      "title": "Privacy",
+      "description": "Informativa sulla privacy dei Raiders of the Lost Missile — come gestiamo i tuoi dati."
+    }
   }
 }

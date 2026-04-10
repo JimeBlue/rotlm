@@ -21,6 +21,17 @@ definePageMeta({
   layout: 'public',
 })
 
+const { t } = useI18n()
+useSeoCanonical()
+
+useSeoMeta({
+  title: () => t('seo.impressum.title'),
+  description: () => t('seo.impressum.description'),
+  ogTitle: () => `${t('seo.impressum.title')} | Raiders of the Lost Missile`,
+  ogDescription: () => t('seo.impressum.description'),
+  robots: 'noindex, follow',
+})
+
 function slugify(text) {
   return text
     .toLowerCase()

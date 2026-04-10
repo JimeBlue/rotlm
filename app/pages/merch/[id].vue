@@ -124,6 +124,24 @@ const { merchContent } = useMerchContent()
 
 const product = computed(() => products.value.find(p => p.productId === route.params.id))
 
+useSeoCanonical()
+
+useSeoMeta({
+  title: () => product.value?.name ? `${product.value.name} — Merch` : t('seo.merch.title'),
+  description: () => product.value?.description || t('seo.merch.description'),
+  ogTitle: () => product.value?.name
+    ? `${product.value.name} | Raiders of the Lost Missile`
+    : `${t('seo.merch.title')} | Raiders of the Lost Missile`,
+  ogDescription: () => product.value?.description || t('seo.merch.description'),
+  ogImage: 'https://rotlm.com/images/OG-image.jpg',
+  ogUrl: () => `https://rotlm.com${route.path}`,
+  twitterTitle: () => product.value?.name
+    ? `${product.value.name} | Raiders of the Lost Missile`
+    : `${t('seo.merch.title')} | Raiders of the Lost Missile`,
+  twitterDescription: () => product.value?.description || t('seo.merch.description'),
+  twitterImage: 'https://rotlm.com/images/OG-image.jpg',
+})
+
 const badgeLabel = computed(() => {
   if (!product.value?.badge?.show) { return '' }
   if (product.value.badge.type === 'custom') { return product.value.badge.customLabel }

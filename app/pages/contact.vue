@@ -60,4 +60,19 @@ definePageMeta({
 })
 
 const { contact } = useContact()
+const { t } = useI18n()
+const route = useRoute()
+useSeoCanonical()
+
+useSeoMeta({
+  title: () => t('seo.contact.title'),
+  description: () => t('seo.contact.description'),
+  ogTitle: () => `${t('seo.contact.title')} | Raiders of the Lost Missile`,
+  ogDescription: () => t('seo.contact.description'),
+  ogImage: 'https://rotlm.com/images/OG-image.jpg',
+  ogUrl: () => `https://rotlm.com${route.path}`,
+  twitterTitle: () => `${t('seo.contact.title')} | Raiders of the Lost Missile`,
+  twitterDescription: () => t('seo.contact.description'),
+  twitterImage: 'https://rotlm.com/images/OG-image.jpg',
+})
 </script>

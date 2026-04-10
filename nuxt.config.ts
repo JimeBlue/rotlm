@@ -14,12 +14,29 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      titleTemplate: '%s | Raiders of the Lost Missile',
       title: 'Raiders of the Lost Missile',
       meta: [
         { charset: 'utf-8' },
         {
           name: 'viewport',
           content: 'width=device-width, initial-scale=1',
+        },
+        {
+          name: 'theme-color',
+          content: '#000000',
+        },
+        {
+          property: 'og:site_name',
+          content: 'Raiders of the Lost Missile',
+        },
+        {
+          property: 'og:type',
+          content: 'website',
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image',
         },
       ],
       link: [
@@ -78,6 +95,7 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'de',
     strategy: 'prefix_except_default',
+    baseUrl: 'https://rotlm.com',
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
