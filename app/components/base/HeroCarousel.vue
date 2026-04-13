@@ -1,5 +1,5 @@
 <template>
-  <section id="hero-carousel" class="relative w-full h-[60vh] md:h-screen overflow-hidden bg-black mt-16">
+  <section id="hero-carousel" class="relative w-full md:h-screen overflow-hidden bg-black mt-16">
     <UCarousel
       v-slot="{ item }"
       :items="images"
@@ -11,10 +11,10 @@
       :prev="{ variant: 'link', color: 'neutral', size: 'xl', ui: { leadingIcon: 'size-10 shrink-0' }, class: 'text-white hover:text-white/70 active:text-white/70 focus-visible:ring-0' }"
       :next="{ variant: 'link', color: 'neutral', size: 'xl', ui: { leadingIcon: 'size-10 shrink-0' }, class: 'text-white hover:text-white/70 active:text-white/70 focus-visible:ring-0' }"
       :ui="{
-        root: 'w-full h-full',
-        viewport: 'w-full h-full overflow-hidden',
-        container: 'h-full',
-        item: 'basis-full h-full',
+        root: 'w-full md:h-full',
+        viewport: 'w-full md:h-full overflow-hidden',
+        container: 'md:h-full',
+        item: 'basis-full md:h-full',
         prev: 'absolute rounded-full z-10 !start-4 top-1/2 -translate-y-1/2',
         next: 'absolute rounded-full z-10 !end-4 top-1/2 -translate-y-1/2',
       }"
@@ -23,7 +23,7 @@
         :src="item.src"
         :alt="item.alt"
         :loading="item.loading"
-        class="w-full h-full object-cover object-top"
+        class="w-full h-auto md:h-full md:object-cover md:object-center"
       >
     </UCarousel>
   </section>
