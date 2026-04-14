@@ -159,7 +159,12 @@ const upcomingGigs = computed(() => {
 
 const pastGigs = computed(() => {
   if (!gigs.value?.gigsList) { return [] }
-  return gigs.value.gigsList.filter(gig => gig.sortDate < today)
+  const currentYear = new Date().getFullYear()
+  const lastYear = currentYear - 1
+  return gigs.value.gigsList.filter((gig) => {
+    const gigYear = Number(gig.sortDate.slice(0, 4))
+    return gig.sortDate < today && (gigYear === currentYear || gigYear === lastYear)
+  })
 })
 
 function formatPastGigDate(sortDate: string) {
