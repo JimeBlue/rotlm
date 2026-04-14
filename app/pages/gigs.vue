@@ -16,23 +16,21 @@
 
       <ClientOnly>
         <div class="relative mt-12 flex w-full max-w-[900px] mx-auto flex-col lg:mt-16 container">
-          <BaseAnimatedList v-if="upcomingGigs.length" :delay="1000" @complete="gigsListComplete = true">
-            <template #default>
-              <BaseGigItem
-                v-for="(gig, index) in upcomingGigs"
-                :key="gig.sortDate + gig.venue"
-                :index="index"
-                :display-date="gig.displayDate"
-                :venue="gig.venue"
-                :city="gig.city"
-                :time="gig.time || undefined"
-                :address="gig.address || undefined"
-                :google-maps-link="gig.googleMapsLink || undefined"
-                :venue-link="gig.venueLink || undefined"
-                :button-text="gigs.buttonText || undefined"
-              />
-            </template>
-          </BaseAnimatedList>
+          <div v-if="upcomingGigs.length">
+            <BaseGigItem
+              v-for="(gig, index) in upcomingGigs"
+              :key="gig.sortDate + gig.venue"
+              :index="index"
+              :display-date="gig.displayDate"
+              :venue="gig.venue"
+              :city="gig.city"
+              :time="gig.time || undefined"
+              :address="gig.address || undefined"
+              :google-maps-link="gig.googleMapsLink || undefined"
+              :venue-link="gig.venueLink || undefined"
+              :button-text="gigs.buttonText || undefined"
+            />
+          </div>
         </div>
       </ClientOnly>
       <!-- past gigs -->
@@ -132,7 +130,7 @@ const { locale, t } = useI18n()
 const { gigs } = useGigs()
 const { footer } = useFooter()
 
-const gigsListComplete = ref(false)
+const gigsListComplete = ref(true)
 const videoTitleEl = ref<HTMLElement>()
 const gridTitleEl = ref<HTMLElement>()
 
