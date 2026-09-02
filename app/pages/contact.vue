@@ -40,7 +40,7 @@
       </div>
       <!-- Contact form -->
       <div class="w-full max-w-lg">
-        <ContactForm mode="contact" />
+        <ContactForm />
       </div>
 
       <!-- Mobile image -->

@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="productLink" class="flex flex-col transition-transform duration-300 ease-out hover:scale-105 cursor-pointer">
+  <div class="flex flex-col">
     <!-- Image area -->
     <div class="relative bg-blue-neon aspect-square overflow-hidden">
       <img
@@ -26,7 +26,7 @@
       <p v-if="description" class="text-gray-400 text-sm mt-1">
         {{ description }}
       </p>
-      <div class="mt-3 flex items-center justify-center gap-2">
+      <div v-if="price != null" class="mt-3 flex items-center justify-center gap-2">
         <span v-if="originalPrice" class="relative inline-block text-gray-500 text-sm">
           {{ originalPrice }} €
           <svg
@@ -64,7 +64,7 @@
         <span class="text-white font-bold text-lg">{{ price }} €</span>
       </div>
     </div>
-  </NuxtLink>
+  </div>
 </template>
 
 <script setup>
@@ -74,20 +74,11 @@ const props = defineProps({
   badge: { type: Object, default: null },
   name: { type: String, required: true },
   description: { type: String, default: '' },
-  price: { type: Number, required: true },
+  price: { type: Number, default: null },
   originalPrice: { type: Number, default: null },
 })
 const { t } = useI18n()
-const route = useRoute()
-const localePath = useLocalePath()
 const maskId = `strike-${Math.random().toString(36).slice(2, 9)}`
-
-const productLink = computed(() => {
-  const eventId = route.params.event_id
-  return eventId
-    ? localePath(`/${eventId}/merch/${props.productId}`)
-    : localePath(`/merch/${props.productId}`)
-})
 
 const badgeLabel = computed(() => {
   if (!props.badge?.show) { return '' }
