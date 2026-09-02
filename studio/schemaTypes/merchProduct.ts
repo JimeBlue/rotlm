@@ -81,9 +81,9 @@ export default defineType({
 
     defineField({
       name: 'price',
-      title: 'Current Price (€)',
+      title: 'Current Price (€) — leave empty to hide the price',
       type: 'number',
-      validation: (r) => r.required().min(0),
+      validation: (r) => r.min(0),
     }),
 
     defineField({

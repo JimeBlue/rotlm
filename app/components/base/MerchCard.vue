@@ -26,7 +26,7 @@
       <p v-if="description" class="text-gray-400 text-sm mt-1">
         {{ description }}
       </p>
-      <div class="mt-3 flex items-center justify-center gap-2">
+      <div v-if="price != null" class="mt-3 flex items-center justify-center gap-2">
         <span v-if="originalPrice" class="relative inline-block text-gray-500 text-sm">
           {{ originalPrice }} €
           <svg
@@ -74,7 +74,7 @@ const props = defineProps({
   badge: { type: Object, default: null },
   name: { type: String, required: true },
   description: { type: String, default: '' },
-  price: { type: Number, required: true },
+  price: { type: Number, default: null },
   originalPrice: { type: Number, default: null },
 })
 const { t } = useI18n()
