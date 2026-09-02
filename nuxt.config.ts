@@ -73,6 +73,14 @@ export default defineNuxtConfig({
     buildAssetsDir: '/_nuxt/',
   },
 
+  // Old product detail URLs (online ordering was removed) redirect to the merch overview
+  routeRules: {
+    '/merch/*': { redirect: '/merch' },
+    '/en/merch/*': { redirect: '/en/merch' },
+    '/it/merch/*': { redirect: '/it/merch' },
+    '/es/merch/*': { redirect: '/es/merch' },
+  },
+
   css: ['assets/css/fonts.css', 'assets/css/tailwind.css'],
 
   ui: {

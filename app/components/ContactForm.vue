@@ -53,39 +53,17 @@
     <!-- Confirmed -->
     <div v-else class="text-center py-8 space-y-4">
       <h3 class="text-green-neon font-bold text-xl uppercase tracking-wide">
-        {{ confirmedTitle }}
+        {{ t('contact.form.confirmed.title') }}
       </h3>
       <p class="text-white">
-        {{ confirmedText }}
+        {{ t('contact.form.confirmed.text') }}
       </p>
-      <NuxtLink
-        v-if="mode === 'order' && backLink"
-        :to="backLink"
-        class="inline-block mt-6 text-green-neon hover:text-white text-sm uppercase tracking-wide"
-      >
-        {{ t('merch.backToShop') }}
-      </NuxtLink>
     </div>
   </div>
 </template>
 
 <script setup>
 import * as yup from 'yup'
-
-const props = defineProps({
-  mode: {
-    type: String,
-    default: 'order', // 'order' | 'contact'
-  },
-  backLink: {
-    type: String,
-    default: null,
-  },
-  product: {
-    type: Object,
-    default: null,
-  },
-})
 
 const emit = defineEmits(['confirmed'])
 
@@ -112,28 +90,16 @@ const orderSchema = yup.object({
   consent: yup.boolean().oneOf([true], t('validations.required')),
 })
 
-const confirmedTitle = computed(() =>
-  props.mode === 'contact' ? t('contact.form.confirmed.title') : t('merch.order.confirmed.title'),
-)
-const confirmedText = computed(() =>
-  props.mode === 'contact' ? t('contact.form.confirmed.text') : t('merch.order.confirmed.text'),
-)
-
 async function onSubmit() {
   submitting.value = true
   submitError.value = false
 
   try {
-    await $fetch('/api/merch/order', {
+    await $fetch('/api/contact', {
       method: 'POST',
       body: {
         ...orderForm,
         phone: orderForm.phone || null,
-        mode: props.mode,
-        ...(props.mode === 'order' && {
-          product_id: props.product?.productId ?? null,
-          product_name: props.product?.name ?? null,
-        }),
       },
     })
     view.value = 'confirmed'

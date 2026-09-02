@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="productLink" class="flex flex-col transition-transform duration-300 ease-out hover:scale-105 cursor-pointer">
+  <div class="flex flex-col">
     <!-- Image area -->
     <div class="relative bg-blue-neon aspect-square overflow-hidden">
       <img
@@ -64,7 +64,7 @@
         <span class="text-white font-bold text-lg">{{ price }} €</span>
       </div>
     </div>
-  </NuxtLink>
+  </div>
 </template>
 
 <script setup>
@@ -78,16 +78,7 @@ const props = defineProps({
   originalPrice: { type: Number, default: null },
 })
 const { t } = useI18n()
-const route = useRoute()
-const localePath = useLocalePath()
 const maskId = `strike-${Math.random().toString(36).slice(2, 9)}`
-
-const productLink = computed(() => {
-  const eventId = route.params.event_id
-  return eventId
-    ? localePath(`/${eventId}/merch/${props.productId}`)
-    : localePath(`/merch/${props.productId}`)
-})
 
 const badgeLabel = computed(() => {
   if (!props.badge?.show) { return '' }
