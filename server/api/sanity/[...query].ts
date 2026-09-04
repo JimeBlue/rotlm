@@ -53,6 +53,10 @@ const queries: Record<string, string> = {
       alt
     }
   }`,
+  home: `*[_type == "home"][0] {
+    albumsTitle,
+    gigsTitle
+  }`,
   music: `*[_type == "music"][0] {
     title
   }`,

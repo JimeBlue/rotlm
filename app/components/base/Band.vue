@@ -77,13 +77,13 @@
       </div>
     </div>
 
-    <!-- Red band the photo hangs into (140px/200px overlap plus some red below it) -->
-    <div class="bg-primary-500 h-52 lg:h-72" aria-hidden="true" />
+    <!-- Red band the photo hangs into (140px/200px overlap plus generous red below it) -->
+    <div class="bg-primary-500 h-64 md:h-80 lg:h-[420px]" aria-hidden="true" />
 
     <!-- Music: albums with Spotify embeds -->
     <div class="bg-black pb-16 lg:pb-24">
       <div class="container mx-auto px-4">
-        <BaseMusicAlbums />
+        <BaseMusicAlbums :title="home?.albumsTitle" cta />
       </div>
     </div>
 
@@ -95,7 +95,7 @@
             v-motion
             :initial="{ opacity: 0, y: 60 }"
             :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
-            class="text-3xl font-semibold text-black text-center uppercase tracking-tight"
+            class="text-3xl font-semibold text-cream text-center uppercase tracking-tight"
           >
             {{ band?.paragraph3 }}
           </h3>
@@ -124,8 +124,8 @@
     </div>
 
     <!-- Gigs: neon title and upcoming gigs -->
-    <div class="bg-black py-16 lg:py-24">
-      <BaseGigsUpcoming />
+    <div class="bg-black py-16 md:py-24">
+      <BaseGigsUpcoming :title="home?.gigsTitle" cta />
     </div>
 
     <!-- Primary-500 background section: band images -->
@@ -161,6 +161,7 @@ import { PortableText } from '@portabletext/vue'
 import { motion } from 'motion-v'
 
 const { band } = useBand()
+const { home } = useHome()
 
 // Logo sizing - adjust each logo individually for visual balance
 function getLogoClass(name) {

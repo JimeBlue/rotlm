@@ -105,6 +105,25 @@ export function useHero() {
   return { hero }
 }
 
+export function useHome() {
+  const { locale } = useI18n()
+
+  const { data: rawHome } = useFetch('/api/sanity/home', {
+    key: 'home',
+  })
+
+  const home = computed(() => {
+    if (!rawHome.value) { return null }
+    const data = rawHome.value as any
+    return {
+      albumsTitle: data.albumsTitle?.[locale.value] || data.albumsTitle?.en || '',
+      gigsTitle: data.gigsTitle?.[locale.value] || data.gigsTitle?.en || '',
+    }
+  })
+
+  return { home }
+}
+
 export function useMerchContent() {
   const { locale } = useI18n()
 

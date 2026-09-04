@@ -1,6 +1,14 @@
 <template>
   <div>
-    <article class="flex justify-center container">
+    <!-- Home page: sticker-style call to action -->
+    <article v-if="cta" class="container">
+      <BaseCtaTitle>
+        {{ title || gigs?.title || 'Gigs' }}
+      </BaseCtaTitle>
+    </article>
+
+    <!-- Gigs page: neon title -->
+    <article v-else class="flex justify-center container">
       <div class="neon-wrapper">
         <div class="neon-glow" />
         <h2 class="neon-text text-5xl lg:text-7xl text-center uppercase">
@@ -36,6 +44,10 @@
 </template>
 
 <script lang="ts" setup>
+// Optional title override (used on the home page); falls back to the Gigs section title
+// cta: call-to-action style (plain heading with spring pop) instead of the neon title
+const props = defineProps<{ title?: string, cta?: boolean }>()
+
 const { gigs } = useGigs()
 
 const today = new Date().toISOString().split('T')[0]
@@ -46,7 +58,7 @@ const upcomingGigs = computed(() => {
 })
 
 const neonTitle = computed(() => {
-  const title = gigs.value?.title || 'Gigs'
+  const title = props.title || gigs.value?.title || 'Gigs'
   return title.split('').map((char, i) => {
     const lastIndex = title.length - 1
     let flicker = ''
