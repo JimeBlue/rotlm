@@ -4,14 +4,9 @@
 
       <!-- Col 1: links + copyright — second on mobile/sm, first on md+ -->
       <div class="flex flex-col items-center md:items-start gap-1 order-2 md:order-1">
-        <div class="flex gap-4">
-          <NuxtLink to="/impressum" class="text-white text-xs underline hover:opacity-70">
-            {{ $t('footer.imprint') }}
-          </NuxtLink>
-          <NuxtLink to="/datenschutz" class="text-white text-xs underline hover:opacity-70">
-            {{ $t('footer.data_privacy') }}
-          </NuxtLink>
-        </div>
+        <a href="mailto:info@rotlm.com" class="text-white text-xs underline hover:opacity-70">
+          info@rotlm.com
+        </a>
         <p v-if="footer?.copyright" class="text-white text-xxs">
           {{ footer.copyright }} <span class="mx-1">|</span> <span>{{ $t('footer.built_by') }} JimeBlue</span>
         </p>
