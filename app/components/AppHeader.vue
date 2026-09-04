@@ -1,5 +1,8 @@
 <template>
-  <header class="fixed top-0 z-40 flex w-full flex-col justify-center bg-black">
+  <header
+    class="fixed top-0 z-40 flex w-full flex-col justify-center transition-colors duration-300"
+    :class="scrolled ? 'bg-black/80 backdrop-blur-sm' : 'bg-transparent'"
+  >
     <UButton to="#main-content" class="pointer-events-none absolute z-100 opacity-0 focus:opacity-100">
       {{ t('buttons.skip_content') }}
     </UButton>
@@ -128,6 +131,10 @@ const { locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 
 const menuOpen = ref(false)
+
+// Header is transparent over the hero and gets a dark background once the page is scrolled
+const { y: scrollY } = useWindowScroll()
+const scrolled = computed(() => scrollY.value > 40)
 
 const { navigation } = useNavigation()
 

@@ -13,6 +13,14 @@ export default defineType({
   ],
   fields: [
     defineField({
+      name: 'videoUrl',
+      title: 'Hero Video URL',
+      type: 'url',
+      description:
+        'Cloudinary video URL for the home page hero (e.g. https://res.cloudinary.com/<cloud>/video/upload/v123/clip.mp4). Leave empty to show the image carousel instead.',
+      validation: (rule) => rule.uri({scheme: ['https']}),
+    }),
+    defineField({
       name: 'images',
       title: 'Hero Images',
       type: 'array',

@@ -43,6 +43,7 @@ const queries: Record<string, string> = {
     order
   }`,
   hero: `*[_type == "hero"][0] {
+    videoUrl,
     "images": images[] {
       "url": asset->url,
       alt

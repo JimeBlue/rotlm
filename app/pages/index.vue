@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BaseHeroCarousel />
+    <BaseHeroVideo />
     <BaseBand />
   </div>
 </template>
