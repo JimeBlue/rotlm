@@ -47,7 +47,7 @@
           </p>
         </div>
 
-        <!-- Band photo with neon card - uses negative margin to overlap into pink section -->
+        <!-- Band photo with neon card - uses negative margin to overlap into the red band below -->
         <div
           class="relative flex justify-center items-center mt-24 lg:mt-32 mx-auto max-w-4xl mb-[-140px] lg:mb-[-200px] z-10"
         >
@@ -77,15 +77,25 @@
       </div>
     </div>
 
+    <!-- Red band the photo hangs into (140px/200px overlap plus some red below it) -->
+    <div class="bg-primary-500 h-52 lg:h-72" aria-hidden="true" />
+
+    <!-- Music: albums with Spotify embeds -->
+    <div class="bg-black pb-16 lg:pb-24">
+      <div class="container mx-auto px-4">
+        <BaseMusicAlbums />
+      </div>
+    </div>
+
     <!-- Primary-500 background section -->
-    <div class="bg-primary-500 pt-40 lg:pt-52 pb-0">
+    <div class="bg-primary-500 pt-16 lg:pt-24 pb-0">
       <div class="container">
         <div>
           <h3
             v-motion
             :initial="{ opacity: 0, y: 60 }"
             :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
-            class="text-3xl font-semibold text-black mt-28 text-center uppercase tracking-tight"
+            class="text-3xl font-semibold text-black text-center uppercase tracking-tight"
           >
             {{ band?.paragraph3 }}
           </h3>
