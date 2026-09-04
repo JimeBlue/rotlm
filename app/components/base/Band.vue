@@ -87,8 +87,8 @@
       </div>
     </div>
 
-    <!-- Primary-500 background section -->
-    <div class="bg-primary-500 pt-16 lg:pt-24 pb-0">
+    <!-- Primary-500 background section: phrase and genre logos -->
+    <div class="bg-primary-500 py-16 lg:py-24">
       <div class="container">
         <div>
           <h3
@@ -119,7 +119,20 @@
               >
             </div>
           </div>
-          <div class="mt-6 lg:mt-28 flex flex-col lg:flex-row gap-4">
+        </div>
+      </div>
+    </div>
+
+    <!-- Gigs: neon title and upcoming gigs -->
+    <div class="bg-black py-16 lg:py-24">
+      <BaseGigsUpcoming />
+    </div>
+
+    <!-- Primary-500 background section: band images -->
+    <div class="bg-primary-500 pt-6 lg:pt-16 pb-0">
+      <div class="container">
+        <div>
+          <div class="flex flex-col lg:flex-row gap-4">
             <img
               v-if="band?.imageOne"
               :src="sanityImageUrl(band.imageOne)"
