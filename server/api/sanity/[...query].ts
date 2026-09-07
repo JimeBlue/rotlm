@@ -55,7 +55,15 @@ const queries: Record<string, string> = {
   }`,
   home: `*[_type == "home"][0] {
     albumsTitle,
-    gigsTitle
+    gigsTitle,
+    "carouselImages": carouselImages[] {
+      "url": asset->url,
+      "width": asset->metadata.dimensions.width,
+      "height": asset->metadata.dimensions.height,
+      alt,
+      hotspot,
+      crop
+    }
   }`,
   music: `*[_type == "music"][0] {
     title

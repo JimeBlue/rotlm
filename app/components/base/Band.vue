@@ -87,41 +87,8 @@
       </div>
     </div>
 
-    <!-- Primary-500 background section: phrase and genre logos -->
-    <div class="bg-primary-500 py-16 lg:py-24">
-      <div class="container">
-        <div>
-          <h3
-            v-motion
-            :initial="{ opacity: 0, y: 60 }"
-            :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
-            class="text-3xl font-semibold text-cream text-center uppercase tracking-tight"
-          >
-            {{ band?.paragraph3 }}
-          </h3>
-          <!-- Genre logos -->
-          <div
-            v-if="band?.genres?.length"
-            v-motion
-            :initial="{ opacity: 0, y: 60 }"
-            :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 200 } }"
-            class="grid grid-cols-3 lg:flex lg:justify-between items-center gap-y-6 mt-8"
-          >
-            <div
-              v-for="(genre, index) in band.genres"
-              :key="index"
-              class="flex items-center justify-center"
-            >
-              <img
-                :src="sanityImageUrl(genre.logo, 200)"
-                :alt="genre.name"
-                :class="getLogoClass(genre.name)"
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Live photos carousel, full page width -->
+    <BaseHomeCarousel />
 
     <!-- Gigs: neon title and upcoming gigs -->
     <div class="bg-black py-16 md:py-24">
@@ -162,22 +129,6 @@ import { motion } from 'motion-v'
 
 const { band } = useBand()
 const { home } = useHome()
-
-// Logo sizing - adjust each logo individually for visual balance
-function getLogoClass(name) {
-  const baseName = name?.toLowerCase() || ''
-
-  // Scale adjustments based on visual weight of each logo
-  if (baseName.includes('crossover')) { return 'h-8 lg:h-16 w-24' }
-  if (baseName.includes('funk')) { return 'h-16 w-16 lg:h-24 lg:w-24' }
-  if (baseName.includes('loud')) { return 'h-6 lg:h-8 w-auto' }
-  if (baseName.includes('grunge')) { return 'h-10 w-1o lg:h-16 lg:w-24' }
-  if (baseName.includes('alt') || baseName.includes('rock')) { return 'h-10 lg:h-12 w-auto' }
-  if (baseName.includes('rap')) { return 'h-8 lg:h-10 w-auto' }
-
-  // Default size
-  return 'h-8 lg:h-10 w-auto'
-}
 
 // Custom components for rendering Portable Text
 const portableTextComponents = {

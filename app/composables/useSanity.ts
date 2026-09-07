@@ -1,3 +1,4 @@
+import type { SanityCropImage } from '~/utils/sanityImage'
 import { createClient } from '@sanity/client'
 
 const client = createClient({
@@ -118,6 +119,7 @@ export function useHome() {
     return {
       albumsTitle: data.albumsTitle?.[locale.value] || data.albumsTitle?.en || '',
       gigsTitle: data.gigsTitle?.[locale.value] || data.gigsTitle?.en || '',
+      carouselImages: (data.carouselImages || []) as SanityCropImage[],
     }
   })
 
