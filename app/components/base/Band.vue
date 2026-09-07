@@ -10,9 +10,10 @@
           :initial="{ opacity: 0, y: 80 }"
           :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
         >
-          <h2 class="text-3xl lg:text-5xl font-bold text-white mb-8 text-center uppercase">
+          <h2 class="text-3xl lg:text-5xl font-bold text-white text-center uppercase">
             {{ band.title }}
           </h2>
+          <div class="mx-auto mt-4 mb-8 h-1 w-20 bg-yellow-neon" />
           <div
             v-motion
             :initial="{ scale: 0.85 }"
@@ -139,7 +140,7 @@ const portableTextComponents = {
         href: value?.href,
         target: '_blank',
         rel: 'noopener noreferrer',
-        class: 'text-primary-500 hover:text-yellow-neon underline',
+        class: 'text-yellow-neon hover:text-white underline',
       }, slots.default?.()),
   },
   // Render paragraphs with proper styling
