@@ -54,7 +54,10 @@ const today = new Date().toISOString().split('T')[0]
 
 const upcomingGigs = computed(() => {
   if (!gigs.value?.gigsList) { return [] }
-  return gigs.value.gigsList.filter(gig => gig.sortDate >= today)
+  // The query returns gigs newest first (for the past gigs list); upcoming gigs go nearest first
+  return gigs.value.gigsList
+    .filter(gig => gig.sortDate >= today)
+    .sort((a, b) => a.sortDate.localeCompare(b.sortDate))
 })
 
 const neonTitle = computed(() => {
