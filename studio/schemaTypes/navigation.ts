@@ -9,7 +9,7 @@ export default defineType({
       name: 'key',
       title: 'Key',
       type: 'string',
-      description: 'Unique identifier for this nav item. Use "band" for home page, others become /{key} routes (e.g., "music" → /music)',
+      description: 'Unique identifier for this nav item. Use "home" for the home page, others become /{key} routes (e.g., "music" → /music)',
       validation: (rule) => rule.required(),
     }),
     defineField({

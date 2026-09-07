@@ -141,7 +141,7 @@ const { navigation } = useNavigation()
 const pages = computed(() => {
   return navigation.value.map(item => ({
     label: item.label,
-    to: item.key === 'band' ? '/' : `/${item.key}`,
+    to: item.key === 'home' ? '/' : `/${item.key}`,
     visible: true,
   })).filter(i => i.visible)
 })
