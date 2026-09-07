@@ -16,15 +16,10 @@ const queries: Record<string, string> = {
     title,
     paragraph1,
     paragraph2,
-    paragraph3,
     "imageOne": imageOne.asset->url,
     "imageTwo": imageTwo.asset->url,
     "bandImage": bandImage.asset->url,
-    members,
-    "genres": genres[] {
-      name,
-      "logo": logo.asset->url
-    }
+    members
   }`,
   footer: `*[_type == "footer"][0] {
     copyright,

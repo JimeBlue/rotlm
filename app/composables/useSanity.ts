@@ -47,7 +47,6 @@ export function useBand() {
       paragraph1: data.paragraph1?.[locale.value] || data.paragraph1?.en || '',
       // paragraph2 is Portable Text (array of blocks), fallback to empty array
       paragraph2: data.paragraph2?.[locale.value] || data.paragraph2?.en || [],
-      paragraph3: data.paragraph3?.[locale.value] || data.paragraph3?.en || '',
       imageOne: data.imageOne || null,
       imageTwo: data.imageTwo || null,
       bandImage: data.bandImage || null,
@@ -56,8 +55,6 @@ export function useBand() {
         name: member.name,
         instrument: member.instrument?.[locale.value] || member.instrument?.en || '',
       })),
-      // Genre logos
-      genres: data.genres || [],
     }
   })
 
