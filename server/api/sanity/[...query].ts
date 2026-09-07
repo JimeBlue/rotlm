@@ -102,6 +102,7 @@ const queries: Record<string, string> = {
     title,
     buttonText,
     pastGigsButtonText,
+    noUpcomingGigs,
     videoSectionTitle,
     videoSectionDescription,
     "backgroundVideoUrl": backgroundVideo.asset->url,

@@ -262,6 +262,11 @@ export function useGigs() {
       title: data.title?.[locale.value] || data.title?.en || '',
       buttonText: data.buttonText?.[locale.value] || data.buttonText?.en || '',
       pastGigsButtonText: data.pastGigsButtonText?.[locale.value] || data.pastGigsButtonText?.en || '',
+      noUpcomingGigs: {
+        eyebrow: data.noUpcomingGigs?.eyebrow?.[locale.value] || data.noUpcomingGigs?.eyebrow?.en || '',
+        heading: data.noUpcomingGigs?.heading?.[locale.value] || data.noUpcomingGigs?.heading?.en || '',
+        description: data.noUpcomingGigs?.description?.[locale.value] || data.noUpcomingGigs?.description?.en || '',
+      },
       videoSectionTitle: data.videoSectionTitle?.[locale.value] || data.videoSectionTitle?.en || '',
       videoSectionDescription: data.videoSectionDescription?.[locale.value] || data.videoSectionDescription?.en || '',
       backgroundVideoUrl: data.backgroundVideoUrl || '',

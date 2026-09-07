@@ -38,6 +38,25 @@
             :button-text="gigs?.buttonText || undefined"
           />
         </div>
+
+        <!-- Empty state: shown when there are no upcoming gigs -->
+        <div
+          v-else
+          v-motion
+          :initial="{ opacity: 0, y: 40 }"
+          :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
+          class="text-center text-white"
+        >
+          <p v-if="gigs?.noUpcomingGigs.eyebrow" class="text-sm font-bold uppercase tracking-[0.3em] text-green-neon">
+            {{ gigs.noUpcomingGigs.eyebrow }}
+          </p>
+          <h3 class="mt-4 text-3xl lg:text-5xl font-bold">
+            {{ gigs?.noUpcomingGigs.heading || 'No upcoming gigs' }}
+          </h3>
+          <p v-if="gigs?.noUpcomingGigs.description" class="mx-auto mt-4 max-w-md text-lg text-white/60">
+            {{ gigs.noUpcomingGigs.description }}
+          </p>
+        </div>
       </div>
     </ClientOnly>
   </div>
