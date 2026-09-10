@@ -42,10 +42,6 @@ const queries: Record<string, string> = {
     "images": images[] {
       "url": asset->url,
       alt
-    },
-    "carouselImages": carouselImages[] {
-      "url": asset->url,
-      alt
     }
   }`,
   home: `*[_type == "home"][0] {

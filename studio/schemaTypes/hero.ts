@@ -4,20 +4,13 @@ export default defineType({
   name: 'hero',
   title: 'Hero',
   type: 'document',
-  fieldsets: [
-    {
-      name: 'carouselImages',
-      title: 'Carousel Images',
-      options: {collapsible: true, collapsed: false},
-    },
-  ],
   fields: [
     defineField({
       name: 'videoUrl',
       title: 'Hero Video URL',
       type: 'url',
       description:
-        'Cloudinary video URL for the home page hero (e.g. https://res.cloudinary.com/<cloud>/video/upload/v123/clip.mp4). Leave empty to show the image carousel instead.',
+        'Cloudinary video URL for the home page hero (e.g. https://res.cloudinary.com/<cloud>/video/upload/v123/clip.mp4).',
       validation: (rule) => rule.uri({scheme: ['https']}),
     }),
     defineField({
@@ -42,29 +35,6 @@ export default defineType({
         },
       ],
       validation: (rule) => rule.required().min(1),
-    }),
-    defineField({
-      name: 'carouselImages',
-      title: 'Carousel Images',
-      type: 'array',
-      fieldset: 'carouselImages',
-      description: 'Add images for the hero carousel. You can add as many as you want.',
-      of: [
-        {
-          type: 'image',
-          options: {
-            hotspot: true,
-          },
-          fields: [
-            {
-              name: 'alt',
-              type: 'string',
-              title: 'Alternative Text',
-              description: 'Description for accessibility',
-            },
-          ],
-        },
-      ],
     }),
   ],
   preview: {

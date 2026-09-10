@@ -24,9 +24,6 @@
       </h1>
     </div>
   </section>
-
-  <!-- No video set in Sanity: fall back to the image carousel -->
-  <BaseHeroCarousel v-else />
 </template>
 
 <script setup lang="ts">

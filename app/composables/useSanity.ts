@@ -95,7 +95,6 @@ export function useHero() {
   const { data: hero } = useFetch<{
     videoUrl?: string
     images: { url: string; alt?: string }[]
-    carouselImages: { url: string; alt?: string }[]
   }>('/api/sanity/hero', {
     key: 'hero',
   })
