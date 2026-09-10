@@ -34,7 +34,7 @@
 
         <div class="space-y-6 max-w-lg text-center">
           <p class="text-lg leading-relaxed">
-            {{ contact?.text }}
+            <template v-for="(part, i) in textParts" :key="i"><a v-if="part.email" :href="`mailto:${part.text}`" class="text-yellow-neon underline hover:text-white">{{ part.text }}</a><template v-else>{{ part.text }}</template></template>
           </p>
         </div>
       </div>
@@ -61,6 +61,26 @@ definePageMeta({
 
 const { contact } = useContact()
 const { t } = useI18n()
+
+// Any email address written in the Sanity text is rendered as a mailto link
+const EMAIL_PATTERN = /[\w.+-]+@[\w-]+\.[\w.-]+/g
+
+const textParts = computed(() => {
+  const text = contact.value?.text || ''
+  const parts = []
+  let lastIndex = 0
+  for (const match of text.matchAll(EMAIL_PATTERN)) {
+    if (match.index > lastIndex) {
+      parts.push({ text: text.slice(lastIndex, match.index) })
+    }
+    parts.push({ text: match[0], email: true })
+    lastIndex = match.index + match[0].length
+  }
+  if (lastIndex < text.length) {
+    parts.push({ text: text.slice(lastIndex) })
+  }
+  return parts
+})
 const route = useRoute()
 useSeoCanonical()
 

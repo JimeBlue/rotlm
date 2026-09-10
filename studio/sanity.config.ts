@@ -22,6 +22,13 @@ export default defineConfig({
                   .filter('_type == "hero"')
               ),
             S.listItem()
+              .title('Home')
+              .child(
+                S.documentList()
+                  .title('Home')
+                  .filter('_type == "home"')
+              ),
+            S.listItem()
               .title('Navigation')
               .child(
                 S.documentList()

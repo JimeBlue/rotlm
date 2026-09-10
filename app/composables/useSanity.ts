@@ -1,3 +1,4 @@
+import type { SanityCropImage } from '~/utils/sanityImage'
 import { createClient } from '@sanity/client'
 
 const client = createClient({
@@ -46,7 +47,6 @@ export function useBand() {
       paragraph1: data.paragraph1?.[locale.value] || data.paragraph1?.en || '',
       // paragraph2 is Portable Text (array of blocks), fallback to empty array
       paragraph2: data.paragraph2?.[locale.value] || data.paragraph2?.en || [],
-      paragraph3: data.paragraph3?.[locale.value] || data.paragraph3?.en || '',
       imageOne: data.imageOne || null,
       imageTwo: data.imageTwo || null,
       bandImage: data.bandImage || null,
@@ -55,8 +55,6 @@ export function useBand() {
         name: member.name,
         instrument: member.instrument?.[locale.value] || member.instrument?.en || '',
       })),
-      // Genre logos
-      genres: data.genres || [],
     }
   })
 
@@ -95,13 +93,33 @@ export function useAlbums() {
 
 export function useHero() {
   const { data: hero } = useFetch<{
+    videoUrl?: string
     images: { url: string; alt?: string }[]
-    carouselImages: { url: string; alt?: string }[]
   }>('/api/sanity/hero', {
     key: 'hero',
   })
 
   return { hero }
+}
+
+export function useHome() {
+  const { locale } = useI18n()
+
+  const { data: rawHome } = useFetch('/api/sanity/home', {
+    key: 'home',
+  })
+
+  const home = computed(() => {
+    if (!rawHome.value) { return null }
+    const data = rawHome.value as any
+    return {
+      albumsTitle: data.albumsTitle?.[locale.value] || data.albumsTitle?.en || '',
+      gigsTitle: data.gigsTitle?.[locale.value] || data.gigsTitle?.en || '',
+      carouselImages: (data.carouselImages || []) as SanityCropImage[],
+    }
+  })
+
+  return { home }
 }
 
 export function useMerchContent() {
@@ -243,6 +261,11 @@ export function useGigs() {
       title: data.title?.[locale.value] || data.title?.en || '',
       buttonText: data.buttonText?.[locale.value] || data.buttonText?.en || '',
       pastGigsButtonText: data.pastGigsButtonText?.[locale.value] || data.pastGigsButtonText?.en || '',
+      noUpcomingGigs: {
+        eyebrow: data.noUpcomingGigs?.eyebrow?.[locale.value] || data.noUpcomingGigs?.eyebrow?.en || '',
+        heading: data.noUpcomingGigs?.heading?.[locale.value] || data.noUpcomingGigs?.heading?.en || '',
+        description: data.noUpcomingGigs?.description?.[locale.value] || data.noUpcomingGigs?.description?.en || '',
+      },
       videoSectionTitle: data.videoSectionTitle?.[locale.value] || data.videoSectionTitle?.en || '',
       videoSectionDescription: data.videoSectionDescription?.[locale.value] || data.videoSectionDescription?.en || '',
       backgroundVideoUrl: data.backgroundVideoUrl || '',

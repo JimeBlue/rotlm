@@ -42,6 +42,51 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'noUpcomingGigs',
+      title: 'No Upcoming Gigs Message',
+      type: 'object',
+      description: 'Shown on the home and gigs pages when there are no upcoming gigs',
+      options: {collapsible: true, collapsed: false},
+      fields: [
+        {
+          name: 'eyebrow',
+          title: 'Eyebrow',
+          type: 'object',
+          description: 'Small green label above the heading (e.g. "Stay tuned")',
+          fields: [
+            {name: 'en', type: 'string', title: 'English'},
+            {name: 'de', type: 'string', title: 'Deutsch'},
+            {name: 'it', type: 'string', title: 'Italiano'},
+            {name: 'es', type: 'string', title: 'Español'},
+          ],
+        },
+        {
+          name: 'heading',
+          title: 'Heading',
+          type: 'object',
+          description: 'Large title (e.g. "No upcoming gigs")',
+          fields: [
+            {name: 'en', type: 'string', title: 'English'},
+            {name: 'de', type: 'string', title: 'Deutsch'},
+            {name: 'it', type: 'string', title: 'Italiano'},
+            {name: 'es', type: 'string', title: 'Español'},
+          ],
+        },
+        {
+          name: 'description',
+          title: 'Description',
+          type: 'object',
+          description: 'Short text below the heading (e.g. "We\'re booking new dates. Check back soon or follow along for updates.")',
+          fields: [
+            {name: 'en', type: 'text', rows: 2, title: 'English'},
+            {name: 'de', type: 'text', rows: 2, title: 'Deutsch'},
+            {name: 'it', type: 'text', rows: 2, title: 'Italiano'},
+            {name: 'es', type: 'text', rows: 2, title: 'Español'},
+          ],
+        },
+      ],
+    }),
+    defineField({
       name: 'videoSectionTitle',
       title: 'Video Section Title',
       type: 'object',

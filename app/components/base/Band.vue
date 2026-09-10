@@ -10,9 +10,10 @@
           :initial="{ opacity: 0, y: 80 }"
           :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
         >
-          <h2 class="text-3xl lg:text-5xl font-bold text-white mb-8 text-center uppercase">
+          <h2 class="text-3xl lg:text-5xl font-bold text-white text-center uppercase">
             {{ band.title }}
           </h2>
+          <div class="mx-auto mt-4 mb-8 h-1 w-20 bg-yellow-neon" />
           <div
             v-motion
             :initial="{ scale: 0.85 }"
@@ -47,7 +48,7 @@
           </p>
         </div>
 
-        <!-- Band photo with neon card - uses negative margin to overlap into pink section -->
+        <!-- Band photo with neon card - uses negative margin to overlap into the red band below -->
         <div
           class="relative flex justify-center items-center mt-24 lg:mt-32 mx-auto max-w-4xl mb-[-140px] lg:mb-[-200px] z-10"
         >
@@ -77,39 +78,29 @@
       </div>
     </div>
 
-    <!-- Primary-500 background section -->
-    <div class="bg-primary-500 pt-40 lg:pt-52 pb-0">
+    <!-- Red band the photo hangs into (140px/200px overlap plus generous red below it) -->
+    <div class="bg-primary-500 h-64 md:h-80 lg:h-[420px]" aria-hidden="true" />
+
+    <!-- Music: albums with Spotify embeds -->
+    <div class="bg-black pb-16 lg:pb-24">
+      <div class="container mx-auto px-4">
+        <BaseMusicAlbums :title="home?.albumsTitle" cta />
+      </div>
+    </div>
+
+    <!-- Live photos carousel, full page width -->
+    <BaseHomeCarousel />
+
+    <!-- Gigs: neon title and upcoming gigs -->
+    <div class="bg-black py-16 md:py-24">
+      <BaseGigsUpcoming :title="home?.gigsTitle" cta />
+    </div>
+
+    <!-- Primary-500 background section: band images -->
+    <div class="bg-primary-500 pt-6 lg:pt-16 pb-0">
       <div class="container">
         <div>
-          <h3
-            v-motion
-            :initial="{ opacity: 0, y: 60 }"
-            :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
-            class="text-3xl font-semibold text-black mt-28 text-center uppercase tracking-tight"
-          >
-            {{ band?.paragraph3 }}
-          </h3>
-          <!-- Genre logos -->
-          <div
-            v-if="band?.genres?.length"
-            v-motion
-            :initial="{ opacity: 0, y: 60 }"
-            :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut', delay: 200 } }"
-            class="grid grid-cols-3 lg:flex lg:justify-between items-center gap-y-6 mt-8"
-          >
-            <div
-              v-for="(genre, index) in band.genres"
-              :key="index"
-              class="flex items-center justify-center"
-            >
-              <img
-                :src="sanityImageUrl(genre.logo, 200)"
-                :alt="genre.name"
-                :class="getLogoClass(genre.name)"
-              >
-            </div>
-          </div>
-          <div class="mt-6 lg:mt-28 flex flex-col lg:flex-row gap-4">
+          <div class="flex flex-col lg:flex-row gap-4">
             <img
               v-if="band?.imageOne"
               :src="sanityImageUrl(band.imageOne)"
@@ -138,22 +129,7 @@ import { PortableText } from '@portabletext/vue'
 import { motion } from 'motion-v'
 
 const { band } = useBand()
-
-// Logo sizing - adjust each logo individually for visual balance
-function getLogoClass(name) {
-  const baseName = name?.toLowerCase() || ''
-
-  // Scale adjustments based on visual weight of each logo
-  if (baseName.includes('crossover')) { return 'h-8 lg:h-16 w-24' }
-  if (baseName.includes('funk')) { return 'h-16 w-16 lg:h-24 lg:w-24' }
-  if (baseName.includes('loud')) { return 'h-6 lg:h-8 w-auto' }
-  if (baseName.includes('grunge')) { return 'h-10 w-1o lg:h-16 lg:w-24' }
-  if (baseName.includes('alt') || baseName.includes('rock')) { return 'h-10 lg:h-12 w-auto' }
-  if (baseName.includes('rap')) { return 'h-8 lg:h-10 w-auto' }
-
-  // Default size
-  return 'h-8 lg:h-10 w-auto'
-}
+const { home } = useHome()
 
 // Custom components for rendering Portable Text
 const portableTextComponents = {
@@ -164,7 +140,7 @@ const portableTextComponents = {
         href: value?.href,
         target: '_blank',
         rel: 'noopener noreferrer',
-        class: 'text-primary-500 hover:text-yellow-neon underline',
+        class: 'text-yellow-neon hover:text-white underline',
       }, slots.default?.()),
   },
   // Render paragraphs with proper styling

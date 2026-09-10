@@ -3,6 +3,7 @@ import band from './band'
 import footer from './footer'
 import album from './album'
 import hero from './hero'
+import home from './home'
 import music from './music'
 import gigs from './gigs'
 import merch from './merch'
@@ -12,4 +13,4 @@ import merchOrder from './merchOrder'
 import legal from './legal'
 import contact from './contact'
 
-export const schemaTypes = [navigation, band, footer, album, hero, music, gigs, merch, merchProduct, merchContent, merchOrder, legal, contact]
+export const schemaTypes = [navigation, band, footer, album, hero, home, music, gigs, merch, merchProduct, merchContent, merchOrder, legal, contact]

@@ -4,11 +4,13 @@
     :dismissible="false"
     :close="false"
     :ui="{
-      content: 'divide-none',
+      overlay: 'bg-black/80',
+      content: 'divide-none bg-black border border-white/15 ring-0 shadow-[0_0_40px_rgba(0,0,0,0.8)]',
       header: 'w-full flex-col',
-      title: 'xsr-only w-full',
-      body: 'py-0 sm:py-0 ',
-      description: 'xsr-only' }"
+      title: 'xsr-only w-full text-white',
+      body: 'py-0 sm:py-0 text-white',
+      description: 'xsr-only text-white/70 text-center',
+      footer: 'justify-center' }"
   >
     <template #title>
       <div class="flex place-content-center">
@@ -35,7 +37,7 @@
           v-if="type === 'success'"
           v-motion-pop-visible
           name="i-heroicons:check-circle"
-          class="size-18 text-green-500 animate-pulse"
+          class="size-18 text-green-neon animate-pulse"
         />
         <UIcon
           v-if="type === 'info'"
@@ -64,7 +66,7 @@
           stroke-width="4"
         /><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" /></svg> -->
       </div>
-      <p class="mt-2 text-lg sm:text-xl font-bold text-center font-headline" :class="{ 'sr-only': type === 'loading' }">
+      <p class="mt-2 text-lg sm:text-xl font-bold text-center font-body" :class="{ 'sr-only': type === 'loading' }">
         {{ title }}
       </p>
     </template>

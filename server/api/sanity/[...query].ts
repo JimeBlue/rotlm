@@ -16,15 +16,10 @@ const queries: Record<string, string> = {
     title,
     paragraph1,
     paragraph2,
-    paragraph3,
     "imageOne": imageOne.asset->url,
     "imageTwo": imageTwo.asset->url,
     "bandImage": bandImage.asset->url,
-    members,
-    "genres": genres[] {
-      name,
-      "logo": logo.asset->url
-    }
+    members
   }`,
   footer: `*[_type == "footer"][0] {
     copyright,
@@ -43,13 +38,22 @@ const queries: Record<string, string> = {
     order
   }`,
   hero: `*[_type == "hero"][0] {
+    videoUrl,
     "images": images[] {
       "url": asset->url,
       alt
-    },
+    }
+  }`,
+  home: `*[_type == "home"][0] {
+    albumsTitle,
+    gigsTitle,
     "carouselImages": carouselImages[] {
       "url": asset->url,
-      alt
+      "width": asset->metadata.dimensions.width,
+      "height": asset->metadata.dimensions.height,
+      alt,
+      hotspot,
+      crop
     }
   }`,
   music: `*[_type == "music"][0] {
@@ -94,6 +98,7 @@ const queries: Record<string, string> = {
     title,
     buttonText,
     pastGigsButtonText,
+    noUpcomingGigs,
     videoSectionTitle,
     videoSectionDescription,
     "backgroundVideoUrl": backgroundVideo.asset->url,
