@@ -45,7 +45,8 @@ export default defineNuxtConfig({
           type: 'image/x-png',
           href: '/favicon.jpg',
         },
-        // Preload critical fonts to avoid render-blocking
+        // Preload only the fonts needed above the fold (body text and the
+        // header's font-medium buttons); every extra preload competes with the LCP image
         {
           rel: 'preload',
           as: 'font',
@@ -57,14 +58,7 @@ export default defineNuxtConfig({
           rel: 'preload',
           as: 'font',
           type: 'font/woff2',
-          href: '/fonts/Rubik-Bold.woff2',
-          crossorigin: 'anonymous',
-        },
-        {
-          rel: 'preload',
-          as: 'font',
-          type: 'font/woff2',
-          href: '/fonts/Syne-Bold.woff2',
+          href: '/fonts/Rubik-Medium.woff2',
           crossorigin: 'anonymous',
         },
       ],
