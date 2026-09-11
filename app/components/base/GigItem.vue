@@ -73,6 +73,7 @@
         :href="venueLink"
         target="_blank"
         rel="noopener noreferrer"
+        :aria-label="`${buttonText}: ${venue}`"
         class="flex-shrink-0 px-6 py-3 border-2 transition-all duration-300 hover:scale-105 text-sm font-medium"
         :style="buttonStyle"
         @mouseenter="(e: MouseEvent) => (e.currentTarget as HTMLElement).style.boxShadow = buttonHoverShadow"
