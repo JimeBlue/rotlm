@@ -10,7 +10,14 @@
     <div class="container relative flex h-20 items-center">
       <div class="flex flex-1 items-center gap-x-6 lg:justify-between lg:gap-x-1">
         <NuxtLink :to="localePath(root)" :aria-label="t('navigation.home')">
-          <img :src="logoSrc" alt="ROTLM Logo" width="80" height="80" fetchpriority="high" class="mx-auto h-20 w-auto">
+          <img
+            :src="logoSrc"
+            :srcset="`${logoSrc} 1x, ${logoSrc2x} 2x`"
+            alt="ROTLM Logo"
+            width="80"
+            height="80"
+            class="mx-auto h-20 w-auto"
+          >
         </NuxtLink>
         <!-- <BaseCountdown class="hidden lg:flex" :eventdate="eventStartDate" /> -->
         <!-- <UNavigationMenu :items="pages" /> -->
@@ -119,7 +126,9 @@
 <script setup>
 import RotlmLogo from '~/assets/svg/ROTLM_logo.svg?component'
 
-const logoSrc = '/images/rotlm_logo_white_bg_transparent.png'
+// The header logo renders at 80px; 160px covers retina screens
+const logoSrc = '/images/rotlm_logo_white_bg_transparent-160.png'
+const logoSrc2x = '/images/rotlm_logo_white_bg_transparent-320.png'
 
 const root = '/'
 
