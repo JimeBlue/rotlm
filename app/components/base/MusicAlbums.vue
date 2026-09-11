@@ -21,7 +21,7 @@
     </article>
 
     <!-- Albums from Sanity -->
-    <div class="relative space-y-16 lg:space-y-24 mt-10 lg:mt-20">
+    <div ref="albumsEl" class="relative space-y-16 lg:space-y-24 mt-10 lg:mt-20">
       <div
         v-for="(album) in albums"
         :key="album.title"
@@ -41,9 +41,13 @@
           >
         </div>
 
-        <!-- Spotify Embed -->
+        <!-- Spotify Embed: each iframe boots the whole Spotify player app (~700 KiB),
+             so it is only mounted once the albums scroll near the viewport.
+             loading="lazy" alone is not enough: Chrome starts lazy iframes up to
+             2500px ahead on slow connections, which is the whole home page. -->
         <div class="flex min-h-[500px] lg:min-h-0">
           <iframe
+            v-if="albumsVisible"
             class="rounded-xl w-full"
             :src="album.spotifyEmbedUrl"
             :title="`Spotify player: ${album.title}`"
@@ -69,4 +73,15 @@ defineProps({
 
 const { albums } = useAlbums()
 const { music } = useMusic()
+
+const albumsEl = ref()
+const albumsVisible = ref(false)
+
+// Mount the Spotify players once the album list is within 300px of the viewport
+const { stop } = useIntersectionObserver(albumsEl, ([entry]) => {
+  if (entry?.isIntersecting) {
+    albumsVisible.value = true
+    stop()
+  }
+}, { rootMargin: '300px' })
 </script>
