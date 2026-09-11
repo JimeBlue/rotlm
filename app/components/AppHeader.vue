@@ -126,9 +126,9 @@
 <script setup>
 import RotlmLogo from '~/assets/svg/ROTLM_logo.svg?component'
 
-// The header logo renders at 80px; 160px covers retina screens
-const logoSrc = '/images/rotlm_logo_white_bg_transparent-160.png'
-const logoSrc2x = '/images/rotlm_logo_white_bg_transparent-320.png'
+// The header logo renders at 80px, so 80px for 1x and 160px for retina screens
+const logoSrc = '/images/rotlm_logo_white_bg_transparent-80.png'
+const logoSrc2x = '/images/rotlm_logo_white_bg_transparent-160.png'
 
 const root = '/'
 

@@ -15,28 +15,19 @@
     </video>
 
     <div class="absolute inset-0 flex items-center justify-center px-4">
-      <h1 class="w-[70vw] md:w-[45vw] max-w-4xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
-        <img
-          src="/images/rotlm_logo_white_bg_transparent-640.png"
-          srcset="
-            /images/rotlm_logo_white_bg_transparent-320.png  320w,
-            /images/rotlm_logo_white_bg_transparent-480.png  480w,
-            /images/rotlm_logo_white_bg_transparent-640.png  640w,
-            /images/rotlm_logo_white_bg_transparent.png     1024w
-          "
-          sizes="(min-width: 768px) min(45vw, 896px), 70vw"
-          alt="Raiders of the Lost Missile"
-          width="1024"
-          height="1024"
-          fetchpriority="high"
-          class="w-full h-auto"
-        >
+      <!-- Inline SVG: no image request, crisp at any size. The box is sized to match
+           the old PNG, whose artwork filled ~67% of its width. -->
+      <h1 class="w-[47vw] md:w-[30vw] max-w-[600px] drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
+        <RotlmLogo class="w-full h-auto text-white" aria-hidden="true" />
+        <span class="sr-only">Raiders of the Lost Missile</span>
       </h1>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import RotlmLogo from '~/assets/svg/Logo_ROTLM_Initials.svg?component'
+
 const { hero } = useHero()
 
 // Cloudinary delivery URLs look like
