@@ -57,4 +57,13 @@ const posterSrc = computed(() => {
     .replace(UPLOAD_SEGMENT, `${UPLOAD_SEGMENT}so_0,w_1280,c_limit,q_auto,f_auto/`)
     .replace(/\.[a-z0-9]+$/i, '.jpg')
 })
+
+// The poster is the page's LCP image; preload it at high priority so the
+// browser fetches it as soon as the HTML arrives rather than when it reaches
+// the <video> element. <video> itself does not support fetchpriority.
+useHead(() => ({
+  link: posterSrc.value
+    ? [{ rel: 'preload', as: 'image', href: posterSrc.value, fetchpriority: 'high' }]
+    : [],
+}))
 </script>
