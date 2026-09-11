@@ -28,6 +28,19 @@ export function sanityImageSrcset(
 }
 
 /**
+ * Reads the original pixel size from a Sanity asset URL, which always ends in
+ * `-<width>x<height>.<ext>`. Lets <img> carry width/height (for aspect-ratio
+ * space reservation) without an extra GROQ projection.
+ */
+export function sanityImageDimensions(url: string): { width: number, height: number } | undefined {
+  const match = url?.match(/-(\d+)x(\d+)\.[a-z0-9]+(?:\?|$)/i)
+  if (!match) {
+    return undefined
+  }
+  return { width: Number(match[1]), height: Number(match[2]) }
+}
+
+/**
  * A Sanity image with the data needed to honour the editor's hotspot and crop.
  * Matches the GROQ projection used by the home query.
  */

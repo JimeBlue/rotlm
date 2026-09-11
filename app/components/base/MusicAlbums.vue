@@ -33,6 +33,8 @@
             :src="sanityImageUrl(album.coverImage, 640)"
             :srcset="sanityImageSrcset(album.coverImage, [400, 640, 800, 1024])"
             sizes="(min-width: 1024px) min(50vw, 560px), 100vw"
+            :width="sanityImageDimensions(album.coverImage)?.width"
+            :height="sanityImageDimensions(album.coverImage)?.height"
             :alt="album.title"
             loading="lazy"
             class="w-full h-auto rounded-lg shadow-2xl"
