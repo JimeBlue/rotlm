@@ -1,17 +1,32 @@
 <template>
   <section v-if="videoSrc" id="hero-video" class="relative w-full h-[70vh] md:h-screen overflow-hidden bg-black">
-    <video
+    <!-- The poster is a plain <img> (the page's LCP element) rather than the
+         <video poster> so it paints immediately and stays visible underneath
+         while the deferred video fades in on top. -->
+    <img
+      v-if="posterSrc"
+      :src="posterSrc"
+      alt=""
+      fetchpriority="high"
       class="absolute inset-0 w-full h-full object-cover"
-      :poster="posterSrc"
+    >
+    <video
+      ref="videoEl"
+      class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+      :class="playing ? 'opacity-100' : 'opacity-0'"
       autoplay
       muted
       loop
       playsinline
       preload="metadata"
+      @playing="playing = true"
     >
-      <!-- Phones get a 720px rendition, everything else 1280px; the last source is the fallback -->
-      <source :src="videoSrc.mobile" media="(max-width: 767px)">
-      <source :src="videoSrc.desktop">
+      <!-- Sources are only attached after the page has loaded (see below).
+           Phones get a 720px rendition, everything else 1280px; the last source is the fallback -->
+      <template v-if="videoReady">
+        <source :src="videoSrc.mobile" media="(max-width: 767px)">
+        <source :src="videoSrc.desktop">
+      </template>
     </video>
 
     <div class="absolute inset-0 flex items-center justify-center px-4">
@@ -65,10 +80,35 @@ const posterSrc = computed(() => {
 
 // The poster is the page's LCP image; preload it at high priority so the
 // browser fetches it as soon as the HTML arrives rather than when it reaches
-// the <video> element. <video> itself does not support fetchpriority.
+// the <img> element.
 useHead(() => ({
   link: posterSrc.value
     ? [{ rel: 'preload', as: 'image', href: posterSrc.value, fetchpriority: 'high' }]
     : [],
 }))
+
+// The mobile rendition is still ~6.5 MB. Started at parse time it competes with
+// every other request and dominates the load, so the sources are attached only
+// once the page has fully loaded. Users see the poster (the clip's first frame)
+// until then and the video fades in over it.
+const videoEl = ref<HTMLVideoElement>()
+const videoReady = ref(false)
+const playing = ref(false)
+
+onMounted(() => {
+  const start = () => {
+    videoReady.value = true
+    // Sources added after the element was created are only picked up by load()
+    nextTick(() => {
+      videoEl.value?.load()
+      videoEl.value?.play().catch(() => {})
+    })
+  }
+  if (document.readyState === 'complete') {
+    start()
+  }
+  else {
+    window.addEventListener('load', start, { once: true })
+  }
+})
 </script>
