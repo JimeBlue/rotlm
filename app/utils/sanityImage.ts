@@ -10,6 +10,24 @@ export function sanityImageUrl(url: string, width = 1280, quality = 75): string 
 }
 
 /**
+ * Builds a `srcset` of Sanity CDN renditions so the browser can pick the
+ * smallest one that fits the rendered size. Pair it with a `sizes` attribute.
+ * Returns an empty string for non-Sanity URLs (the plain `src` is used then).
+ */
+export function sanityImageSrcset(
+  url: string,
+  widths: number[] = [400, 640, 800, 1024, 1280, 1600],
+  quality = 75,
+): string {
+  if (!url || !url.includes('cdn.sanity.io')) {
+    return ''
+  }
+  return widths
+    .map(w => `${sanityImageUrl(url, w, quality)} ${w}w`)
+    .join(', ')
+}
+
+/**
  * A Sanity image with the data needed to honour the editor's hotspot and crop.
  * Matches the GROQ projection used by the home query.
  */
