@@ -11,8 +11,9 @@
       root: 'w-full bg-black',
       container: 'ms-0',
       item: 'ps-0',
-      dots: 'bottom-4 gap-2.5',
-      dot: 'size-2.5 bg-white/50 data-[state=active]:bg-white',
+      dots: 'bottom-2 gap-0',
+      // 24px hit area for touch targets; the visible 10px dot is drawn by the pseudo-element
+      dot: 'size-6 flex items-center justify-center bg-transparent data-[state=active]:bg-transparent before:size-2.5 before:rounded-full before:bg-white/50 data-[state=active]:before:bg-white before:transition',
     }"
   >
     <picture>
