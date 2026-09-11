@@ -2,14 +2,17 @@
   <section v-if="videoSrc" id="hero-video" class="relative w-full h-[70vh] md:h-screen overflow-hidden bg-black">
     <video
       class="absolute inset-0 w-full h-full object-cover"
-      :src="videoSrc"
       :poster="posterSrc"
       autoplay
       muted
       loop
       playsinline
       preload="metadata"
-    />
+    >
+      <!-- Phones get a 720px rendition, everything else 1280px; the last source is the fallback -->
+      <source :src="videoSrc.mobile" media="(max-width: 767px)">
+      <source :src="videoSrc.desktop">
+    </video>
 
     <div class="absolute inset-0 flex items-center justify-center px-4">
       <h1 class="w-[70vw] md:w-[45vw] max-w-4xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
@@ -38,16 +41,27 @@ const { hero } = useHero()
 
 // Cloudinary delivery URLs look like
 //   https://res.cloudinary.com/<cloud>/video/upload/<version>/<public-id>.mp4
-// Inserting transformations right after "/upload/" lets Cloudinary pick the best
-// quality/format (q_auto,f_auto) and generate a poster from the first frame (so_0).
+// Inserting transformations right after "/upload/" lets Cloudinary scale the clip
+// (w_*,c_limit), pick an economical quality/format (q_auto:eco,f_auto) and generate
+// a poster from the first frame (so_0). The original upload is ~40 MB, so the
+// rendition sizes matter a lot on mobile.
 const UPLOAD_SEGMENT = '/video/upload/'
+const VIDEO_QUALITY = 'q_auto:eco,f_auto'
+
+function videoRendition(url: string, width: number) {
+  return url.replace(UPLOAD_SEGMENT, `${UPLOAD_SEGMENT}w_${width},c_limit,${VIDEO_QUALITY}/`)
+}
 
 const videoSrc = computed(() => {
   const url = hero.value?.videoUrl
   if (!url) { return undefined }
-  return url.includes(UPLOAD_SEGMENT)
-    ? url.replace(UPLOAD_SEGMENT, `${UPLOAD_SEGMENT}q_auto,f_auto/`)
-    : url
+  if (!url.includes(UPLOAD_SEGMENT)) {
+    return { mobile: url, desktop: url }
+  }
+  return {
+    mobile: videoRendition(url, 720),
+    desktop: videoRendition(url, 1280),
+  }
 })
 
 const posterSrc = computed(() => {
