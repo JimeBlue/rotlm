@@ -8,11 +8,13 @@
           :href="link.url"
           target="_blank"
           rel="noopener noreferrer"
+          :aria-label="link.name"
           class="hover:opacity-80 transition-opacity"
         >
           <UIcon
             :name="getIconName(link.name)"
             class="size-8 text-white"
+            aria-hidden="true"
           />
         </a>
       </div>
