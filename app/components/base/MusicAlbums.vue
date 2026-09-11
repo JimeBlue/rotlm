@@ -42,6 +42,7 @@
           <iframe
             class="rounded-xl w-full"
             :src="album.spotifyEmbedUrl"
+            :title="`Spotify player: ${album.title}`"
             height="100%"
             frameBorder="0"
             allowfullscreen
