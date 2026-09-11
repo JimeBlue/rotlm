@@ -27,8 +27,11 @@
       <UTextarea v-model="orderForm.message" :rows="5" class="w-full" />
     </UFormField>
     <UFormField name="consent">
+      <!-- Empty name: the form is submitted via $fetch, so skip the unlabelled hidden
+           native input Reka UI would otherwise render for native form submission -->
       <UCheckbox
         v-model="orderForm.consent"
+        name=""
         :ui="{ label: 'after:content-[\'*\'] after:ms-0.5 after:text-error' }"
       >
         <template #label>

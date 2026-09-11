@@ -518,8 +518,8 @@
     "waitlisted": "Warteliste"
   },
   "validations": {
-    "email_invalid": "Email Address is incorrect",
-    "email_required": "Email Address is required",
+    "email_invalid": "Die E-Mail-Adresse ist ungültig",
+    "email_required": "E-Mail-Adresse ist ein Pflichtfeld",
     "is_required": "ist ein Pflichtfeld",
     "limit_reached": "Das Limit wurde erreicht",
     "required": "Pflichtfeld"
