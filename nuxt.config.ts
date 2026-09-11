@@ -77,6 +77,12 @@ export default defineNuxtConfig({
 
   css: ['assets/css/fonts.css', 'assets/css/tailwind.css'],
 
+  features: {
+    // Inline the global CSS into the HTML so the first paint does not wait on
+    // a separate render-blocking stylesheet request (~300 ms on slow mobile)
+    inlineStyles: true,
+  },
+
   ui: {
     colorMode: false,
   },
