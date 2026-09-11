@@ -22,10 +22,11 @@
       @playing="playing = true"
     >
       <!-- Sources are only attached after the page has loaded (see below).
-           Phones get a 720px rendition, everything else 1280px; the last source is the fallback -->
+           Phones get 720px, tablets/laptops 1280px, big screens 1920px; the last source is the fallback -->
       <template v-if="videoReady">
         <source :src="videoSrc.mobile" media="(max-width: 767px)">
-        <source :src="videoSrc.desktop">
+        <source :src="videoSrc.desktop" media="(max-width: 1535px)">
+        <source :src="videoSrc.large">
       </template>
     </video>
 
@@ -48,25 +49,26 @@ const { hero } = useHero()
 // Cloudinary delivery URLs look like
 //   https://res.cloudinary.com/<cloud>/video/upload/<version>/<public-id>.mp4
 // Inserting transformations right after "/upload/" lets Cloudinary scale the clip
-// (w_*,c_limit), pick an economical quality/format (q_auto:eco,f_auto) and generate
+// (w_*,c_limit), pick a quality tier and format (q_auto:*,f_auto) and generate
 // a poster from the first frame (so_0). The original upload is ~40 MB, so the
-// rendition sizes matter a lot on mobile.
+// rendition sizes matter a lot on mobile; phones get the "eco" tier, larger
+// screens "good" so the clip does not look blocky when it fills a monitor.
 const UPLOAD_SEGMENT = '/video/upload/'
-const VIDEO_QUALITY = 'q_auto:eco,f_auto'
 
-function videoRendition(url: string, width: number) {
-  return url.replace(UPLOAD_SEGMENT, `${UPLOAD_SEGMENT}w_${width},c_limit,${VIDEO_QUALITY}/`)
+function videoRendition(url: string, width: number, quality: 'eco' | 'good') {
+  return url.replace(UPLOAD_SEGMENT, `${UPLOAD_SEGMENT}w_${width},c_limit,q_auto:${quality},f_auto/`)
 }
 
 const videoSrc = computed(() => {
   const url = hero.value?.videoUrl
   if (!url) { return undefined }
   if (!url.includes(UPLOAD_SEGMENT)) {
-    return { mobile: url, desktop: url }
+    return { mobile: url, desktop: url, large: url }
   }
   return {
-    mobile: videoRendition(url, 720),
-    desktop: videoRendition(url, 1280),
+    mobile: videoRendition(url, 720, 'eco'),
+    desktop: videoRendition(url, 1280, 'good'),
+    large: videoRendition(url, 1920, 'good'),
   }
 })
 
