@@ -33,5 +33,5 @@
 import { motion } from 'motion-v'
 import NeonLightning from '~/assets/svg/neon-lightning.svg?component'
 
-const { footer } = await useFooter()
+const { footer } = useFooter()
 </script>

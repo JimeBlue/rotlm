@@ -25,15 +25,20 @@ function useSanityData<T = unknown>(name: string, options: { default?: () => T }
   })
 }
 
-// Every composable below awaits its fetch. Without the await a component
+// The page composables below await their fetch. Without the await a component
 // mounts with empty data on client-side navigation and re-renders when the
 // response arrives (empty states and placeholders flash for a moment); with
 // it Nuxt keeps the current page on screen until the next page's data is in.
+//
+// useNavigation and useFooter are the exception: they are used by the layout
+// (AppHeader, AppFooter), whose components must not have an async setup (see
+// AppHeader). Their data is fetched on the server for every page and kept in
+// the payload, so it is available synchronously anyway.
 
-export async function useNavigation() {
+export function useNavigation() {
   const { locale } = useI18n()
 
-  const { data: rawNavigation } = await useSanityData('navigation')
+  const { data: rawNavigation } = useSanityData('navigation')
 
   const navigation = computed(() => {
     if (!rawNavigation.value) return []
@@ -75,10 +80,10 @@ export async function useBand() {
   return { band }
 }
 
-export async function useFooter() {
+export function useFooter() {
   const { locale } = useI18n()
 
-  const { data: rawFooter } = await useSanityData('footer')
+  const { data: rawFooter } = useSanityData('footer')
 
   const footer = computed(() => {
     if (!rawFooter.value) return null
