@@ -67,8 +67,37 @@ export default defineNuxtConfig({
     buildAssetsDir: '/_nuxt/',
   },
 
-  // Old product detail URLs (online ordering was removed) redirect to the merch overview
+  // Production only: cache the rendered pages and the Sanity API responses on
+  // Vercel's CDN (stale-while-revalidate). Visitors get the stored copy
+  // instantly instead of waiting for a serverless cold start plus Sanity round
+  // trips; a copy older than 60 s is still served and refreshed in the
+  // background, so Sanity edits show up within about a minute.
+  // Not enabled in dev: Vite injects CSS at runtime, so a cached dev page
+  // would render unstyled, and edits would not show up for 60 s.
+  // The root URL is deliberately not listed: it redirects per browser language
+  // (i18n detectBrowserLanguage), so its response differs per visitor and must
+  // not be shared via the CDN. The contact form endpoint is not listed either.
+  $production: {
+    routeRules: {
+      '/gigs': { swr: 60 },
+      '/music': { swr: 60 },
+      '/merch': { swr: 60 },
+      '/contact': { swr: 60 },
+      '/impressum': { swr: 60 },
+      '/datenschutz': { swr: 60 },
+      '/en': { swr: 60 },
+      '/en/**': { swr: 60 },
+      '/it': { swr: 60 },
+      '/it/**': { swr: 60 },
+      '/es': { swr: 60 },
+      '/es/**': { swr: 60 },
+      '/sitemap.xml': { swr: 60 },
+      '/api/sanity/**': { swr: 60 },
+    },
+  },
+
   routeRules: {
+    // Old product detail URLs (online ordering was removed) redirect to the merch overview
     '/merch/*': { redirect: '/merch' },
     '/en/merch/*': { redirect: '/en/merch' },
     '/it/merch/*': { redirect: '/it/merch' },
