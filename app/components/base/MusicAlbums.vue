@@ -9,7 +9,7 @@
 
       <!-- Music page: section title with underline -->
       <template v-else>
-        <h2 class="text-3xl lg:text-5xl font-bold text-white text-center uppercase mt-16 lg:mt-24">
+        <h2 class="text-3xl lg:text-5xl font-bold text-white text-center uppercase">
           {{ title || music?.title || 'Music' }}
         </h2>
         <div class="mx-auto mt-4 h-1 w-20 bg-primary-500" />

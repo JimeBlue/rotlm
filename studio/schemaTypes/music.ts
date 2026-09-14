@@ -18,6 +18,21 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'heroImage',
+      title: 'Hero Image',
+      type: 'image',
+      description: 'Band photo behind the logo at the top of the music page (landscape, full width)',
+      options: {hotspot: true},
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative Text',
+          description: 'Description for accessibility',
+        },
+      ],
+    }),
+    defineField({
       name: 'description',
       title: 'Section Description',
       type: 'object',

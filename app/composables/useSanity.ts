@@ -201,6 +201,7 @@ export async function useMusic() {
     return {
       title: data.title?.[locale.value] || data.title?.en || '',
       description: data.description?.[locale.value] || data.description?.en || '',
+      heroImage: (data.heroImage?.url ? data.heroImage : null) as { url: string, alt?: string } | null,
     }
   })
 

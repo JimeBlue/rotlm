@@ -1,7 +1,10 @@
 <template>
   <section id="music" class="relative pb-16 md:pb-24 lg:mb-32">
     <BaseHeroPhrase />
-    <div class="container" style="clip-path: inset(0 -100vw)">
+    <!-- Spacing under the hero is padding, not a margin on the title: a margin
+         would collapse through this box and shift its top edge down, and the
+         fixed lines are clipped to this box (they would stop short of the hero) -->
+    <div class="container pt-16 lg:pt-24" style="clip-path: inset(0 -100vw)">
       <!-- Decorative fixed pink lines (clipped to container section) -->
       <div class="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
         <img
