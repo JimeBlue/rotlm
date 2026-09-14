@@ -25,19 +25,9 @@
           <div class="text-6xl tracking-wide text-center">
             {{ contact?.title }}
           </div>
-          <motion.div
-            :initial="{ opacity: 0, scale: 0 }"
-            :while-in-view="{ opacity: 1, scale: 1 }"
-            :viewport="{ once: true }"
-            :transition="{
-              delay: 0.1,
-              duration: 0.4,
-              scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 },
-            }"
-            class="flex justify-center pt-2"
-          >
+          <div class="flex justify-center pt-2">
             <RotlmLogo class="w-40 h-auto text-yellow-neon" />
-          </motion.div>
+          </div>
         </div>
 
         <div class="space-y-6 max-w-lg text-center">
@@ -70,7 +60,6 @@
 </template>
 
 <script setup>
-import { motion } from 'motion-v'
 import RotlmLogo from '~/assets/svg/Logo_ROTLM_Initials.svg?component'
 
 definePageMeta({
