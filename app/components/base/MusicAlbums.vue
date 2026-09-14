@@ -1,6 +1,7 @@
 <template>
   <div>
-    <article>
+    <!-- Above the fixed decorative lines on the music page, like the album grid below -->
+    <article class="relative z-10">
       <!-- Home page: sticker-style call to action -->
       <BaseCtaTitle v-if="cta" class="mt-16 md:mt-24">
         {{ title || music?.title || 'Music' }}
@@ -8,16 +9,11 @@
 
       <!-- Music page: section title with underline -->
       <template v-else>
-        <h2
-          v-motion
-          :initial="{ opacity: 0, y: 80 }"
-          :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
-          class="text-3xl lg:text-5xl font-bold text-white text-center uppercase mt-16 lg:mt-24"
-        >
+        <h2 class="text-3xl lg:text-5xl font-bold text-white text-center uppercase mt-16 lg:mt-24">
           {{ title || music?.title || 'Music' }}
         </h2>
         <div class="mx-auto mt-4 h-1 w-20 bg-primary-500" />
-        <p v-if="music?.description" class="text-lg leading-relaxed text-white text-center max-w-3xl mx-auto whitespace-pre-line mt-8">
+        <p v-if="music?.description" class="text-xl lg:text-2xl leading-relaxed text-white text-center max-w-3xl mx-auto whitespace-pre-line mt-8">
           {{ music.description }}
         </p>
       </template>
