@@ -65,7 +65,7 @@
 // cta: call-to-action style (plain heading with spring pop) instead of the neon title
 const props = defineProps<{ title?: string, cta?: boolean }>()
 
-const { gigs } = await useGigs()
+const { gigs } = useGigs()
 
 // Computed once on the server and reused on the client, so the list is part of
 // the SSR HTML and cannot differ between the two (hydration mismatch)

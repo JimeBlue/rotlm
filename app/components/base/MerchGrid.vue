@@ -26,6 +26,6 @@
 </template>
 
 <script setup>
-const { merchContent } = await useMerchContent()
-const { products } = await useMerchProducts()
+const { merchContent } = useMerchContent()
+const { products } = useMerchProducts()
 </script>

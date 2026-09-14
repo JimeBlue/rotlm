@@ -66,7 +66,7 @@ definePageMeta({
   layout: 'contact',
 })
 
-const { contact } = await useContact()
+const { contact } = useContact()
 const { t } = useI18n()
 
 // Any email address written in the Sanity text is rendered as a mailto link
