@@ -71,8 +71,8 @@ defineProps({
   cta: { type: Boolean, default: false },
 })
 
-const { albums } = useAlbums()
-const { music } = useMusic()
+const { albums } = await useAlbums()
+const { music } = await useMusic()
 
 const albumsEl = ref()
 const albumsVisible = ref(false)

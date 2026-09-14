@@ -44,7 +44,7 @@
 <script setup lang="ts">
 import RotlmLogo from '~/assets/svg/Logo_ROTLM_Initials.svg?component'
 
-const { hero } = useHero()
+const { hero } = await useHero()
 
 // Cloudinary delivery URLs look like
 //   https://res.cloudinary.com/<cloud>/video/upload/<version>/<public-id>.mp4

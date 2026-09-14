@@ -43,7 +43,7 @@
 </template>
 
 <script setup>
-const { footer } = useFooter()
+const { footer } = await useFooter()
 
 const iconMap = {
   spotify: 'lineicons:spotify-original',

@@ -145,7 +145,7 @@ const menuOpen = ref(false)
 const { y: scrollY } = useWindowScroll()
 const scrolled = computed(() => scrollY.value > 40)
 
-const { navigation } = useNavigation()
+const { navigation } = await useNavigation()
 
 const pages = computed(() => {
   return navigation.value.map(item => ({

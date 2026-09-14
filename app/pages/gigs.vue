@@ -96,8 +96,8 @@
 import { motion } from 'motion-v'
 
 const { locale, t } = useI18n()
-const { gigs } = useGigs()
-const { footer } = useFooter()
+const { gigs } = await useGigs()
+const { footer } = await useFooter()
 
 const gigsListComplete = ref(true)
 const videoTitleEl = ref<HTMLElement>()
@@ -119,15 +119,16 @@ function setupScrollScale(target: Ref<HTMLElement | undefined>) {
 
 setupScrollScale(videoTitleEl)
 setupScrollScale(gridTitleEl)
-const today = new Date().toISOString().split('T')[0]
+// Shared with BaseGigsUpcoming; see the note there
+const today = useState('today', () => new Date().toISOString().split('T')[0])
 
 const pastGigs = computed(() => {
   if (!gigs.value?.gigsList) { return [] }
-  const currentYear = new Date().getFullYear()
+  const currentYear = Number(today.value.slice(0, 4))
   const lastYear = currentYear - 1
   return gigs.value.gigsList.filter((gig) => {
     const gigYear = Number(gig.sortDate.slice(0, 4))
-    return gig.sortDate < today && (gigYear === currentYear || gigYear === lastYear)
+    return gig.sortDate < today.value && (gigYear === currentYear || gigYear === lastYear)
   })
 })
 

@@ -21,44 +21,42 @@
       </div>
     </article>
 
-    <ClientOnly>
-      <div class="relative mt-12 flex w-full max-w-[900px] mx-auto flex-col lg:mt-16 container">
-        <div v-if="upcomingGigs.length">
-          <BaseGigItem
-            v-for="(gig, index) in upcomingGigs"
-            :key="gig.sortDate + gig.venue"
-            :index="index"
-            :display-date="gig.displayDate"
-            :venue="gig.venue"
-            :city="gig.city"
-            :time="gig.time || undefined"
-            :address="gig.address || undefined"
-            :google-maps-link="gig.googleMapsLink || undefined"
-            :venue-link="gig.venueLink || undefined"
-            :button-text="gigs?.buttonText || undefined"
-          />
-        </div>
-
-        <!-- Empty state: shown when there are no upcoming gigs -->
-        <div
-          v-else
-          v-motion
-          :initial="{ opacity: 0, y: 40 }"
-          :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
-          class="text-center text-white"
-        >
-          <p v-if="gigs?.noUpcomingGigs.eyebrow" class="text-sm font-bold uppercase tracking-[0.3em] text-green-neon">
-            {{ gigs.noUpcomingGigs.eyebrow }}
-          </p>
-          <h3 class="mt-4 text-3xl lg:text-5xl font-bold">
-            {{ gigs?.noUpcomingGigs.heading || 'No upcoming gigs' }}
-          </h3>
-          <p v-if="gigs?.noUpcomingGigs.description" class="mx-auto mt-4 max-w-md text-lg text-white/60">
-            {{ gigs.noUpcomingGigs.description }}
-          </p>
-        </div>
+    <div class="relative mt-12 flex w-full max-w-[900px] mx-auto flex-col lg:mt-16 container">
+      <div v-if="upcomingGigs.length">
+        <BaseGigItem
+          v-for="(gig, index) in upcomingGigs"
+          :key="gig.sortDate + gig.venue"
+          :index="index"
+          :display-date="gig.displayDate"
+          :venue="gig.venue"
+          :city="gig.city"
+          :time="gig.time || undefined"
+          :address="gig.address || undefined"
+          :google-maps-link="gig.googleMapsLink || undefined"
+          :venue-link="gig.venueLink || undefined"
+          :button-text="gigs?.buttonText || undefined"
+        />
       </div>
-    </ClientOnly>
+
+      <!-- Empty state: shown when there are no upcoming gigs -->
+      <div
+        v-else
+        v-motion
+        :initial="{ opacity: 0, y: 40 }"
+        :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: 'easeOut' } }"
+        class="text-center text-white"
+      >
+        <p v-if="gigs?.noUpcomingGigs.eyebrow" class="text-sm font-bold uppercase tracking-[0.3em] text-green-neon">
+          {{ gigs.noUpcomingGigs.eyebrow }}
+        </p>
+        <h3 class="mt-4 text-3xl lg:text-5xl font-bold">
+          {{ gigs?.noUpcomingGigs.heading || 'No upcoming gigs' }}
+        </h3>
+        <p v-if="gigs?.noUpcomingGigs.description" class="mx-auto mt-4 max-w-md text-lg text-white/60">
+          {{ gigs.noUpcomingGigs.description }}
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -67,15 +65,17 @@
 // cta: call-to-action style (plain heading with spring pop) instead of the neon title
 const props = defineProps<{ title?: string, cta?: boolean }>()
 
-const { gigs } = useGigs()
+const { gigs } = await useGigs()
 
-const today = new Date().toISOString().split('T')[0]
+// Computed once on the server and reused on the client, so the list is part of
+// the SSR HTML and cannot differ between the two (hydration mismatch)
+const today = useState('today', () => new Date().toISOString().split('T')[0])
 
 const upcomingGigs = computed(() => {
   if (!gigs.value?.gigsList) { return [] }
   // The query returns gigs newest first (for the past gigs list); upcoming gigs go nearest first
   return gigs.value.gigsList
-    .filter(gig => gig.sortDate >= today)
+    .filter(gig => gig.sortDate >= today.value)
     .sort((a, b) => a.sortDate.localeCompare(b.sortDate))
 })
 

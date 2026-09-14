@@ -39,7 +39,7 @@
 <script setup lang="ts">
 import type { SanityCropImage } from '~/utils/sanityImage'
 
-const { home } = useHome()
+const { home } = await useHome()
 
 // Slides are full-bleed, so offer a few widths per breakpoint (21:9 from md up, square below)
 const DESKTOP_WIDTHS = [1024, 1280, 1600, 1920]
