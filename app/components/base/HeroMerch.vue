@@ -45,7 +45,7 @@
 <script setup>
 import { motion } from 'motion-v'
 
-const { merch } = await useMerch()
+const { merch } = useMerch()
 
 const merchImage = computed(() => merch.value?.image)
 const merchHeroImage = computed(() => merch.value?.image2)

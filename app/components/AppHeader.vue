@@ -163,11 +163,6 @@ onMounted(() => {
   onUnmounted(() => window.removeEventListener('scroll', update))
 })
 
-// Not awaited, on purpose: the header lives in the layout, and a layout
-// component with an async setup loses its render effect when the layout
-// switches (Contact has its own) while it is still awaiting — it then stops
-// re-rendering (transparent header on scroll, stale language links). The
-// navigation is always in the payload from SSR, so the data is there at once.
 const { navigation } = useNavigation()
 
 // Page content is loaded before the user clicks: on hover/focus/touch of a

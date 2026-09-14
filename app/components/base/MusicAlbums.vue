@@ -73,16 +73,14 @@ const props = defineProps({
   cta: { type: Boolean, default: false },
 })
 
-const { albums } = await useAlbums()
-const { music } = await useMusic()
+const { albums } = useAlbums()
+const { music } = useMusic()
 
 const albumsEl = ref()
 const albumsVisible = ref(!props.cta)
 
 // Home page only: mount the Spotify players once the album list is within 300px
-// of the viewport. Native observer rather than useIntersectionObserver: VueUse
-// attaches in a post-flush watcher, which never runs in a component whose
-// setup awaits (see AppHeader).
+// of the viewport.
 onMounted(() => {
   if (!props.cta || !albumsEl.value) {
     return

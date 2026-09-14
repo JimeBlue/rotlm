@@ -29,8 +29,8 @@
 </template>
 
 <script setup>
-const { hero } = await useHero()
-const { music } = await useMusic()
+const { hero } = useHero()
+const { music } = useMusic()
 
 const heroImage = computed(() => music.value?.heroImage)
 const phraseImage = computed(() => hero.value?.images?.[0])

@@ -143,8 +143,8 @@
 import { PortableText } from '@portabletext/vue'
 import { motion } from 'motion-v'
 
-const { band } = await useBand()
-const { home } = await useHome()
+const { band } = useBand()
+const { home } = useHome()
 
 // Custom components for rendering Portable Text
 const portableTextComponents = {

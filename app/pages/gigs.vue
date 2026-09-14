@@ -96,15 +96,14 @@
 import { motion } from 'motion-v'
 
 const { locale, t } = useI18n()
-const { gigs } = await useGigs()
+const { gigs } = useGigs()
 const { footer } = useFooter()
 
 const gigsListComplete = ref(true)
 const videoTitleEl = ref<HTMLElement>()
 const gridTitleEl = ref<HTMLElement>()
 
-// Native observer rather than useIntersectionObserver: VueUse attaches in a
-// post-flush watcher, which never runs in a component whose setup awaits (see AppHeader)
+// Scales the title down while it is off screen and springs it back when it enters
 function setupScrollScale(target: Ref<HTMLElement | undefined>) {
   const { apply } = useMotion(target, { initial: { scale: 1 } })
   let hasLeft = false

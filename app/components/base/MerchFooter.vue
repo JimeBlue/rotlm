@@ -63,7 +63,7 @@
 </template>
 
 <script setup>
-const { merch } = await useMerch()
+const { merch } = useMerch()
 
 const bgImage = computed(() => merch.value?.image3?.url || null)
 

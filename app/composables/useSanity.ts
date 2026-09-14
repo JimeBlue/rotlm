@@ -25,15 +25,19 @@ function useSanityData<T = unknown>(name: string, options: { default?: () => T }
   })
 }
 
-// The page composables below await their fetch. Without the await a component
-// mounts with empty data on client-side navigation and re-renders when the
-// response arrives (empty states and placeholders flash for a moment); with
-// it Nuxt keeps the current page on screen until the next page's data is in.
+// None of the composables below is awaited, so no component has an async
+// setup. The data is nevertheless there when a component renders: on the
+// server every useFetch is awaited before rendering (onServerPrefetch) and
+// lands in the payload; on the client the page-data middleware loads a page's
+// keys into the payload before the router shows the page, and getCachedData
+// above hands them over synchronously.
 //
-// useNavigation and useFooter are the exception: they are used by the layout
-// (AppHeader, AppFooter), whose components must not have an async setup (see
-// AppHeader). Their data is fetched on the server for every page and kept in
-// the payload, so it is available synchronously anyway.
+// Do not add `await` in front of these calls. A component whose setup awaits
+// runs inside Suspense, and when several such components resolve in the same
+// tick Vue leaves one of their effect scopes active in the background; the
+// watchers of anything rendered afterwards (v-motion, VueUse composables)
+// attach to it and die when that component unmounts. This showed up as
+// scroll-in animations that never played after navigating between pages.
 
 export function useNavigation() {
   const { locale } = useI18n()
@@ -51,10 +55,10 @@ export function useNavigation() {
   return { navigation }
 }
 
-export async function useBand() {
+export function useBand() {
   const { locale } = useI18n()
 
-  const { data: rawBand } = await useSanityData('band')
+  const { data: rawBand } = useSanityData('band')
 
   // Computed property that returns content in the current locale
   // Falls back to English if translation is missing
@@ -99,14 +103,14 @@ export function useFooter() {
   return { footer }
 }
 
-export async function useAlbums() {
-  const { data: albums } = await useSanityData<any[]>('albums', { default: () => [] })
+export function useAlbums() {
+  const { data: albums } = useSanityData<any[]>('albums', { default: () => [] })
 
   return { albums }
 }
 
-export async function useHero() {
-  const { data: hero } = await useSanityData<{
+export function useHero() {
+  const { data: hero } = useSanityData<{
     videoUrl?: string
     images: { url: string; alt?: string }[]
   }>('hero')
@@ -114,10 +118,10 @@ export async function useHero() {
   return { hero }
 }
 
-export async function useHome() {
+export function useHome() {
   const { locale } = useI18n()
 
-  const { data: rawHome } = await useSanityData('home')
+  const { data: rawHome } = useSanityData('home')
 
   const home = computed(() => {
     if (!rawHome.value) { return null }
@@ -132,10 +136,10 @@ export async function useHome() {
   return { home }
 }
 
-export async function useMerchContent() {
+export function useMerchContent() {
   const { locale } = useI18n()
 
-  const { data: rawMerchContent } = await useSanityData('merchContent')
+  const { data: rawMerchContent } = useSanityData('merchContent')
 
   const merchContent = computed(() => {
     if (!rawMerchContent.value) return null
@@ -150,8 +154,8 @@ export async function useMerchContent() {
   return { merchContent }
 }
 
-export async function useMerch() {
-  const { data: merch } = await useSanityData<{
+export function useMerch() {
+  const { data: merch } = useSanityData<{
     image: { url: string; alt?: string }
     image2: { url: string; alt?: string }
     image3: { url: string; alt?: string }
@@ -163,10 +167,10 @@ export async function useMerch() {
   return { merch }
 }
 
-export async function useMerchProducts() {
+export function useMerchProducts() {
   const { locale } = useI18n()
 
-  const { data: rawProducts } = await useSanityData<any[]>('merchProducts', { default: () => [] })
+  const { data: rawProducts } = useSanityData<any[]>('merchProducts', { default: () => [] })
 
   const products = computed(() => {
     if (!rawProducts.value) return []
@@ -190,10 +194,10 @@ export async function useMerchProducts() {
   return { products }
 }
 
-export async function useMusic() {
+export function useMusic() {
   const { locale } = useI18n()
 
-  const { data: rawMusic } = await useSanityData('music')
+  const { data: rawMusic } = useSanityData('music')
 
   const music = computed(() => {
     if (!rawMusic.value) return null
@@ -208,10 +212,10 @@ export async function useMusic() {
   return { music }
 }
 
-export async function useContact() {
+export function useContact() {
   const { locale } = useI18n()
 
-  const { data: rawContact } = await useSanityData('contact')
+  const { data: rawContact } = useSanityData('contact')
 
   const contact = computed(() => {
     if (!rawContact.value) return null
@@ -227,10 +231,10 @@ export async function useContact() {
   return { contact }
 }
 
-export async function useLegal() {
+export function useLegal() {
   const { locale } = useI18n()
 
-  const { data: rawLegal } = await useSanityData('legal')
+  const { data: rawLegal } = useSanityData('legal')
 
   // de → de, everything else (en, es, it) → en
   const legal = computed(() => {
@@ -246,10 +250,10 @@ export async function useLegal() {
   return { legal }
 }
 
-export async function useGigs() {
+export function useGigs() {
   const { locale } = useI18n()
 
-  const { data: rawGigs } = await useSanityData('gigs')
+  const { data: rawGigs } = useSanityData('gigs')
 
   const gigs = computed(() => {
     if (!rawGigs.value) return null
