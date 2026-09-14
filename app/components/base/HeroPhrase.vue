@@ -25,7 +25,7 @@
 <script setup>
 import { motion } from 'motion-v'
 
-const { hero } = useHero()
+const { hero } = await useHero()
 
 const phraseImage = computed(() => hero.value?.images?.[0])
 </script>

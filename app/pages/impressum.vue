@@ -15,7 +15,7 @@
 <script setup>
 import { PortableText } from '@portabletext/vue'
 
-const { legal } = useLegal()
+const { legal } = await useLegal()
 
 definePageMeta({
   layout: 'public',

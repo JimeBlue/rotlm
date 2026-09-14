@@ -12,10 +12,15 @@ export function useSanity() {
   return { client }
 }
 
-export function useNavigation() {
+// Every composable below awaits its fetch. Without the await a component
+// mounts with empty data on client-side navigation and re-renders when the
+// response arrives (empty states and placeholders flash for a moment); with
+// it Nuxt keeps the current page on screen until the next page's data is in.
+
+export async function useNavigation() {
   const { locale } = useI18n()
 
-  const { data: rawNavigation } = useFetch('/api/sanity/navigation', {
+  const { data: rawNavigation } = await useFetch('/api/sanity/navigation', {
     key: 'navigation',
   })
 
@@ -30,10 +35,10 @@ export function useNavigation() {
   return { navigation }
 }
 
-export function useBand() {
+export async function useBand() {
   const { locale } = useI18n()
 
-  const { data: rawBand } = useFetch('/api/sanity/band', {
+  const { data: rawBand } = await useFetch('/api/sanity/band', {
     key: 'band',
   })
 
@@ -61,10 +66,10 @@ export function useBand() {
   return { band }
 }
 
-export function useFooter() {
+export async function useFooter() {
   const { locale } = useI18n()
 
-  const { data: rawFooter } = useFetch('/api/sanity/footer', {
+  const { data: rawFooter } = await useFetch('/api/sanity/footer', {
     key: 'footer',
   })
 
@@ -82,8 +87,8 @@ export function useFooter() {
   return { footer }
 }
 
-export function useAlbums() {
-  const { data: albums } = useFetch<any[]>('/api/sanity/albums', {
+export async function useAlbums() {
+  const { data: albums } = await useFetch<any[]>('/api/sanity/albums', {
     key: 'albums',
     default: () => [],
   })
@@ -91,8 +96,8 @@ export function useAlbums() {
   return { albums }
 }
 
-export function useHero() {
-  const { data: hero } = useFetch<{
+export async function useHero() {
+  const { data: hero } = await useFetch<{
     videoUrl?: string
     images: { url: string; alt?: string }[]
   }>('/api/sanity/hero', {
@@ -102,10 +107,10 @@ export function useHero() {
   return { hero }
 }
 
-export function useHome() {
+export async function useHome() {
   const { locale } = useI18n()
 
-  const { data: rawHome } = useFetch('/api/sanity/home', {
+  const { data: rawHome } = await useFetch('/api/sanity/home', {
     key: 'home',
   })
 
@@ -122,10 +127,10 @@ export function useHome() {
   return { home }
 }
 
-export function useMerchContent() {
+export async function useMerchContent() {
   const { locale } = useI18n()
 
-  const { data: rawMerchContent } = useFetch('/api/sanity/merchContent', {
+  const { data: rawMerchContent } = await useFetch('/api/sanity/merchContent', {
     key: 'merchContent',
   })
 
@@ -142,8 +147,8 @@ export function useMerchContent() {
   return { merchContent }
 }
 
-export function useMerch() {
-  const { data: merch } = useFetch<{
+export async function useMerch() {
+  const { data: merch } = await useFetch<{
     image: { url: string; alt?: string }
     image2: { url: string; alt?: string }
     image3: { url: string; alt?: string }
@@ -157,10 +162,10 @@ export function useMerch() {
   return { merch }
 }
 
-export function useMerchProducts() {
+export async function useMerchProducts() {
   const { locale } = useI18n()
 
-  const { data: rawProducts } = useFetch<any[]>('/api/sanity/merchProducts', {
+  const { data: rawProducts } = await useFetch<any[]>('/api/sanity/merchProducts', {
     key: 'merchProducts',
     default: () => [],
   })
@@ -187,10 +192,10 @@ export function useMerchProducts() {
   return { products }
 }
 
-export function useMusic() {
+export async function useMusic() {
   const { locale } = useI18n()
 
-  const { data: rawMusic } = useFetch('/api/sanity/music', {
+  const { data: rawMusic } = await useFetch('/api/sanity/music', {
     key: 'music',
   })
 
@@ -205,10 +210,10 @@ export function useMusic() {
   return { music }
 }
 
-export function useContact() {
+export async function useContact() {
   const { locale } = useI18n()
 
-  const { data: rawContact } = useFetch('/api/sanity/contact', {
+  const { data: rawContact } = await useFetch('/api/sanity/contact', {
     key: 'contact',
   })
 
@@ -226,10 +231,10 @@ export function useContact() {
   return { contact }
 }
 
-export function useLegal() {
+export async function useLegal() {
   const { locale } = useI18n()
 
-  const { data: rawLegal } = useFetch('/api/sanity/legal', {
+  const { data: rawLegal } = await useFetch('/api/sanity/legal', {
     key: 'legal',
   })
 
@@ -247,10 +252,10 @@ export function useLegal() {
   return { legal }
 }
 
-export function useGigs() {
+export async function useGigs() {
   const { locale } = useI18n()
 
-  const { data: rawGigs } = useFetch('/api/sanity/gigs', {
+  const { data: rawGigs } = await useFetch('/api/sanity/gigs', {
     key: 'gigs',
   })
 
