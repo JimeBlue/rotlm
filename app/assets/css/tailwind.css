@@ -3,10 +3,9 @@
 @import 'tw-animate-css';
 
 @layer base {
-  html {
-  scroll-behavior: smooth;
-}
-
+/* No global scroll-behavior: smooth — it would also animate the router's
+   scroll to top on navigation, so a new page would visibly scroll up instead
+   of simply appearing from the top. */
 body {
   @apply antialiased;
     /* Override Reka UI scroll lock styles that cause layout shift */
