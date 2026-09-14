@@ -151,9 +151,7 @@ const switchLocalePath = useSwitchLocalePath()
 const menuOpen = ref(false)
 
 // Header is transparent over the hero and gets a dark background once the page
-// is scrolled. A plain listener rather than useWindowScroll: that one attaches
-// its listener in a post-flush watcher, which never runs for this component
-// since its setup awaits (the header is rendered inside a pending Suspense).
+// is scrolled
 const scrolled = ref(false)
 
 onMounted(() => {
@@ -165,7 +163,12 @@ onMounted(() => {
   onUnmounted(() => window.removeEventListener('scroll', update))
 })
 
-const { navigation } = await useNavigation()
+// Not awaited, on purpose: the header lives in the layout, and a layout
+// component with an async setup loses its render effect when the layout
+// switches (Contact has its own) while it is still awaiting — it then stops
+// re-rendering (transparent header on scroll, stale language links). The
+// navigation is always in the payload from SSR, so the data is there at once.
+const { navigation } = useNavigation()
 
 // Page content is loaded before the user clicks: on hover/focus/touch of a
 // link, and for the whole site once the browser is idle after the first page,

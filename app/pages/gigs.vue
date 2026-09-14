@@ -97,7 +97,7 @@ import { motion } from 'motion-v'
 
 const { locale, t } = useI18n()
 const { gigs } = await useGigs()
-const { footer } = await useFooter()
+const { footer } = useFooter()
 
 const gigsListComplete = ref(true)
 const videoTitleEl = ref<HTMLElement>()

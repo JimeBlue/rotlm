@@ -57,7 +57,9 @@ const queries: Record<string, string> = {
     }
   }`,
   music: `*[_type == "music"][0] {
-    title
+    title,
+    description,
+    "heroImage": heroImage { "url": asset->url, alt }
   }`,
   merchContent: `*[_type == "merchContent"][0] {
     title,
