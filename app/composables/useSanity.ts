@@ -195,6 +195,7 @@ export async function useMusic() {
     const data = rawMusic.value as any
     return {
       title: data.title?.[locale.value] || data.title?.en || '',
+      description: data.description?.[locale.value] || data.description?.en || '',
     }
   })
 

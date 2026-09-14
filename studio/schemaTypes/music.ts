@@ -17,6 +17,18 @@ export default defineType({
       ],
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: 'description',
+      title: 'Section Description',
+      type: 'object',
+      description: 'Paragraph displayed below the section title, above the albums',
+      fields: [
+        {name: 'en', type: 'text', title: 'English'},
+        {name: 'de', type: 'text', title: 'Deutsch'},
+        {name: 'it', type: 'text', title: 'Italiano'},
+        {name: 'es', type: 'text', title: 'Español'},
+      ],
+    }),
   ],
   preview: {
     select: {

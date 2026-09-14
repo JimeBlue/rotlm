@@ -17,6 +17,9 @@
           {{ title || music?.title || 'Music' }}
         </h2>
         <div class="mx-auto mt-4 h-1 w-20 bg-primary-500" />
+        <p v-if="music?.description" class="text-lg leading-relaxed text-white text-center max-w-3xl mx-auto whitespace-pre-line mt-8">
+          {{ music.description }}
+        </p>
       </template>
     </article>
 
