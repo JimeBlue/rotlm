@@ -12,6 +12,19 @@ export function useSanity() {
   return { client }
 }
 
+// Content is fetched from the server route once per visit and kept for the
+// whole visit: Nuxt's default cache only serves a key while a component using
+// it is mounted, so every navigation refetched the page's content. With this
+// cache a key that was fetched (or prefetched, see usePrefetchPageData) is
+// reused instantly.
+function useSanityData<T = unknown>(name: string, options: { default?: () => T } = {}) {
+  return useFetch<T>(`/api/sanity/${name}`, {
+    key: name,
+    getCachedData: (key, nuxtApp) => nuxtApp.payload.data[key],
+    ...options,
+  })
+}
+
 // Every composable below awaits its fetch. Without the await a component
 // mounts with empty data on client-side navigation and re-renders when the
 // response arrives (empty states and placeholders flash for a moment); with
@@ -20,9 +33,7 @@ export function useSanity() {
 export async function useNavigation() {
   const { locale } = useI18n()
 
-  const { data: rawNavigation } = await useFetch('/api/sanity/navigation', {
-    key: 'navigation',
-  })
+  const { data: rawNavigation } = await useSanityData('navigation')
 
   const navigation = computed(() => {
     if (!rawNavigation.value) return []
@@ -38,9 +49,7 @@ export async function useNavigation() {
 export async function useBand() {
   const { locale } = useI18n()
 
-  const { data: rawBand } = await useFetch('/api/sanity/band', {
-    key: 'band',
-  })
+  const { data: rawBand } = await useSanityData('band')
 
   // Computed property that returns content in the current locale
   // Falls back to English if translation is missing
@@ -69,9 +78,7 @@ export async function useBand() {
 export async function useFooter() {
   const { locale } = useI18n()
 
-  const { data: rawFooter } = await useFetch('/api/sanity/footer', {
-    key: 'footer',
-  })
+  const { data: rawFooter } = await useSanityData('footer')
 
   const footer = computed(() => {
     if (!rawFooter.value) return null
@@ -88,21 +95,16 @@ export async function useFooter() {
 }
 
 export async function useAlbums() {
-  const { data: albums } = await useFetch<any[]>('/api/sanity/albums', {
-    key: 'albums',
-    default: () => [],
-  })
+  const { data: albums } = await useSanityData<any[]>('albums', { default: () => [] })
 
   return { albums }
 }
 
 export async function useHero() {
-  const { data: hero } = await useFetch<{
+  const { data: hero } = await useSanityData<{
     videoUrl?: string
     images: { url: string; alt?: string }[]
-  }>('/api/sanity/hero', {
-    key: 'hero',
-  })
+  }>('hero')
 
   return { hero }
 }
@@ -110,9 +112,7 @@ export async function useHero() {
 export async function useHome() {
   const { locale } = useI18n()
 
-  const { data: rawHome } = await useFetch('/api/sanity/home', {
-    key: 'home',
-  })
+  const { data: rawHome } = await useSanityData('home')
 
   const home = computed(() => {
     if (!rawHome.value) { return null }
@@ -130,9 +130,7 @@ export async function useHome() {
 export async function useMerchContent() {
   const { locale } = useI18n()
 
-  const { data: rawMerchContent } = await useFetch('/api/sanity/merchContent', {
-    key: 'merchContent',
-  })
+  const { data: rawMerchContent } = await useSanityData('merchContent')
 
   const merchContent = computed(() => {
     if (!rawMerchContent.value) return null
@@ -148,16 +146,14 @@ export async function useMerchContent() {
 }
 
 export async function useMerch() {
-  const { data: merch } = await useFetch<{
+  const { data: merch } = await useSanityData<{
     image: { url: string; alt?: string }
     image2: { url: string; alt?: string }
     image3: { url: string; alt?: string }
     image4: { url: string; alt?: string }
     image5: { url: string; alt?: string }
     image6: { url: string; alt?: string }
-  }>('/api/sanity/merch', {
-    key: 'merch',
-  })
+  }>('merch')
 
   return { merch }
 }
@@ -165,10 +161,7 @@ export async function useMerch() {
 export async function useMerchProducts() {
   const { locale } = useI18n()
 
-  const { data: rawProducts } = await useFetch<any[]>('/api/sanity/merchProducts', {
-    key: 'merchProducts',
-    default: () => [],
-  })
+  const { data: rawProducts } = await useSanityData<any[]>('merchProducts', { default: () => [] })
 
   const products = computed(() => {
     if (!rawProducts.value) return []
@@ -195,9 +188,7 @@ export async function useMerchProducts() {
 export async function useMusic() {
   const { locale } = useI18n()
 
-  const { data: rawMusic } = await useFetch('/api/sanity/music', {
-    key: 'music',
-  })
+  const { data: rawMusic } = await useSanityData('music')
 
   const music = computed(() => {
     if (!rawMusic.value) return null
@@ -213,9 +204,7 @@ export async function useMusic() {
 export async function useContact() {
   const { locale } = useI18n()
 
-  const { data: rawContact } = await useFetch('/api/sanity/contact', {
-    key: 'contact',
-  })
+  const { data: rawContact } = await useSanityData('contact')
 
   const contact = computed(() => {
     if (!rawContact.value) return null
@@ -234,9 +223,7 @@ export async function useContact() {
 export async function useLegal() {
   const { locale } = useI18n()
 
-  const { data: rawLegal } = await useFetch('/api/sanity/legal', {
-    key: 'legal',
-  })
+  const { data: rawLegal } = await useSanityData('legal')
 
   // de → de, everything else (en, es, it) → en
   const legal = computed(() => {
@@ -255,9 +242,7 @@ export async function useLegal() {
 export async function useGigs() {
   const { locale } = useI18n()
 
-  const { data: rawGigs } = await useFetch('/api/sanity/gigs', {
-    key: 'gigs',
-  })
+  const { data: rawGigs } = await useSanityData('gigs')
 
   const gigs = computed(() => {
     if (!rawGigs.value) return null

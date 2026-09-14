@@ -9,7 +9,13 @@
 
     <div class="container relative flex h-20 items-center">
       <div class="flex flex-1 items-center gap-x-6 lg:justify-between lg:gap-x-1">
-        <NuxtLink :to="localePath(root)" :aria-label="t('navigation.home')">
+        <NuxtLink
+          :to="localePath(root)"
+          :aria-label="t('navigation.home')"
+          @mouseenter="prefetchPage(root)"
+          @focus="prefetchPage(root)"
+          @touchstart.passive="prefetchPage(root)"
+        >
           <img
             :src="logoSrc"
             :srcset="`${logoSrc} 1x, ${logoSrc2x} 2x`"
@@ -28,6 +34,8 @@
               <NuxtLink
                 :to="localePath(to)"
                 class="text-base uppercase px-2 py-2 hover:text-yellow-neon transition-all text-white aria-[current=page]:text-green-neon"
+                @mouseenter="prefetchPage(to)"
+                @focus="prefetchPage(to)"
               >
                 {{ label }}
               </NuxtLink>
@@ -108,6 +116,7 @@
                   <NuxtLink
                     :to="localePath(to)"
                     class="block text-center text-2xl font-extrabold uppercase transition-all hover:text-white text-yellow-neon aria-[current=page]:text-green-neon"
+                    @touchstart.passive="prefetchPage(to)"
                     @click="menuOpen = false"
                   >
                     {{ label }}
@@ -141,11 +150,40 @@ const switchLocalePath = useSwitchLocalePath()
 
 const menuOpen = ref(false)
 
-// Header is transparent over the hero and gets a dark background once the page is scrolled
-const { y: scrollY } = useWindowScroll()
-const scrolled = computed(() => scrollY.value > 40)
+// Header is transparent over the hero and gets a dark background once the page
+// is scrolled. A plain listener rather than useWindowScroll: that one attaches
+// its listener in a post-flush watcher, which never runs for this component
+// since its setup awaits (the header is rendered inside a pending Suspense).
+const scrolled = ref(false)
+
+onMounted(() => {
+  const update = () => {
+    scrolled.value = window.scrollY > 40
+  }
+  update()
+  window.addEventListener('scroll', update, { passive: true })
+  onUnmounted(() => window.removeEventListener('scroll', update))
+})
 
 const { navigation } = await useNavigation()
+
+// Page content is loaded before the user clicks: on hover/focus/touch of a
+// link, and for the whole site once the browser is idle after the first page,
+// so navigation is instant (the pages await their data, see useSanity.ts).
+const { prefetchPage, prefetchAll } = usePrefetchPageData()
+
+onMounted(() => {
+  // At the latest 3 s after load, even if the browser never reports idle (background tab)
+  const start = () => window.requestIdleCallback
+    ? window.requestIdleCallback(prefetchAll, { timeout: 3000 })
+    : setTimeout(prefetchAll, 1500)
+  if (document.readyState === 'complete') {
+    start()
+  }
+  else {
+    window.addEventListener('load', start, { once: true })
+  }
+})
 
 const pages = computed(() => {
   return navigation.value.map(item => ({

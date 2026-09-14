@@ -103,18 +103,27 @@ const gigsListComplete = ref(true)
 const videoTitleEl = ref<HTMLElement>()
 const gridTitleEl = ref<HTMLElement>()
 
+// Native observer rather than useIntersectionObserver: VueUse attaches in a
+// post-flush watcher, which never runs in a component whose setup awaits (see AppHeader)
 function setupScrollScale(target: Ref<HTMLElement | undefined>) {
   const { apply } = useMotion(target, { initial: { scale: 1 } })
   let hasLeft = false
-  useIntersectionObserver(target, ([{ isIntersecting }]) => {
-    if (!isIntersecting) {
-      hasLeft = true
-      apply({ scale: 0.85, transition: { duration: 0 } })
+  onMounted(() => {
+    if (!target.value) {
+      return
     }
-    else if (hasLeft) {
-      apply({ scale: 1, transition: { type: 'spring', stiffness: 350, damping: 8 } })
-    }
-  }, { threshold: 0.3 })
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry?.isIntersecting) {
+        hasLeft = true
+        apply({ scale: 0.85, transition: { duration: 0 } })
+      }
+      else if (hasLeft) {
+        apply({ scale: 1, transition: { type: 'spring', stiffness: 350, damping: 8 } })
+      }
+    }, { threshold: 0.3 })
+    observer.observe(target.value)
+    onUnmounted(() => observer.disconnect())
+  })
 }
 
 setupScrollScale(videoTitleEl)
