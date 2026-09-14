@@ -150,9 +150,20 @@ const switchLocalePath = useSwitchLocalePath()
 
 const menuOpen = ref(false)
 
-// Header is transparent over the hero and gets a dark background once the page is scrolled
-const { y: scrollY } = useWindowScroll()
-const scrolled = computed(() => scrollY.value > 40)
+// Header is transparent over the hero and gets a dark background once the page
+// is scrolled. A plain listener rather than useWindowScroll: that one attaches
+// its listener in a post-flush watcher, which never runs for this component
+// since its setup awaits (the header is rendered inside a pending Suspense).
+const scrolled = ref(false)
+
+onMounted(() => {
+  const update = () => {
+    scrolled.value = window.scrollY > 40
+  }
+  update()
+  window.addEventListener('scroll', update, { passive: true })
+  onUnmounted(() => window.removeEventListener('scroll', update))
+})
 
 const { navigation } = await useNavigation()
 

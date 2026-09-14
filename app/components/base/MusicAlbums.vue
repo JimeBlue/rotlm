@@ -80,15 +80,23 @@ const { music } = await useMusic()
 const albumsEl = ref()
 const albumsVisible = ref(!props.cta)
 
-// Home page only: mount the Spotify players once the album list is within 300px of the viewport
-if (props.cta) {
-  const { stop } = useIntersectionObserver(albumsEl, ([entry]) => {
+// Home page only: mount the Spotify players once the album list is within 300px
+// of the viewport. Native observer rather than useIntersectionObserver: VueUse
+// attaches in a post-flush watcher, which never runs in a component whose
+// setup awaits (see AppHeader).
+onMounted(() => {
+  if (!props.cta || !albumsEl.value) {
+    return
+  }
+  const observer = new IntersectionObserver(([entry]) => {
     if (entry?.isIntersecting) {
       albumsVisible.value = true
-      stop()
+      observer.disconnect()
     }
   }, { rootMargin: '300px' })
-}
+  observer.observe(albumsEl.value)
+  onUnmounted(() => observer.disconnect())
+})
 
 // Spotify's embed page is what every player iframe boots from; warming the
 // connection and the browser cache means the players appear almost at once
