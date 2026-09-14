@@ -3,8 +3,11 @@
     <!-- Background image (image3 from Sanity) -->
     <img
       v-if="bgImage"
-      :src="bgImage"
+      :src="sanityImageUrl(bgImage)"
+      :srcset="sanityImageSrcset(bgImage, [768, 1280, 1920])"
+      sizes="100vw"
       alt=""
+      loading="lazy"
       class="absolute inset-0 w-full h-full object-cover object-center"
     >
 
@@ -23,7 +26,7 @@
           opacity: 1,
           transition: { duration: 180, ease: 'easeOut' },
         }"
-        :src="animImages[0]"
+        :src="sanityImageUrl(animImages[0], 640)"
         alt="ROTLM"
         class="w-full object-contain"
       >
@@ -37,7 +40,7 @@
           opacity: 1,
           transition: { duration: 180, ease: 'easeOut' },
         }"
-        :src="animImages[1]"
+        :src="sanityImageUrl(animImages[1], 640)"
         alt="Cap"
         class="w-full object-contain"
       >
@@ -51,7 +54,7 @@
           opacity: 1,
           transition: { duration: 180, ease: 'easeOut' },
         }"
-        :src="animImages[2]"
+        :src="sanityImageUrl(animImages[2], 640)"
         alt="T-Shirt"
         class="w-full object-contain"
       >
@@ -73,6 +76,14 @@ const animImages = computed(() => [
 const current = ref(0)
 
 onMounted(() => {
+  // Each frame is mounted fresh (v-if) so its pop-in animation runs; warm the
+  // browser cache so the first cycle does not show empty frames while they download
+  animImages.value.forEach((url) => {
+    if (url) {
+      new Image().src = sanityImageUrl(url, 640)
+    }
+  })
+
   const interval = setInterval(() => {
     current.value = (current.value + 1) % 3
   }, 900)
