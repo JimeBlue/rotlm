@@ -41,11 +41,15 @@
           >
         </div>
 
-        <!-- Spotify Embed: each iframe boots the whole Spotify player app (~700 KiB),
-             so it is only mounted once the albums scroll near the viewport.
-             loading="lazy" alone is not enough: Chrome starts lazy iframes up to
-             2500px ahead on slow connections, which is the whole home page. -->
-        <div class="flex min-h-[500px] lg:min-h-0">
+        <!-- Spotify Embed: each iframe boots the whole Spotify player app (~700 KiB).
+             On the home page the albums sit far below the fold, so the iframes are
+             only mounted once the list scrolls near the viewport (loading="lazy"
+             alone is not enough: Chrome starts lazy iframes up to 2500px ahead on
+             slow connections, which is the whole home page). On the music page they
+             are the content and load immediately.
+             The box already has the player's own dark colour and radius, so while
+             Spotify boots nothing visibly changes except the content appearing. -->
+        <div class="flex min-h-[500px] lg:min-h-0 rounded-xl bg-[#282828]">
           <iframe
             v-if="albumsVisible"
             class="rounded-xl w-full"
@@ -55,7 +59,6 @@
             frameBorder="0"
             allowfullscreen
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
           />
         </div>
       </div>
@@ -65,7 +68,7 @@
 
 <script setup>
 // Optional title override (used on the home page); falls back to the Music section title
-defineProps({
+const props = defineProps({
   title: { type: String, default: '' },
   // Call-to-action style: no underline, spring pop animation (home page)
   cta: { type: Boolean, default: false },
@@ -75,13 +78,24 @@ const { albums } = await useAlbums()
 const { music } = await useMusic()
 
 const albumsEl = ref()
-const albumsVisible = ref(false)
+const albumsVisible = ref(!props.cta)
 
-// Mount the Spotify players once the album list is within 300px of the viewport
-const { stop } = useIntersectionObserver(albumsEl, ([entry]) => {
-  if (entry?.isIntersecting) {
-    albumsVisible.value = true
-    stop()
-  }
-}, { rootMargin: '300px' })
+// Home page only: mount the Spotify players once the album list is within 300px of the viewport
+if (props.cta) {
+  const { stop } = useIntersectionObserver(albumsEl, ([entry]) => {
+    if (entry?.isIntersecting) {
+      albumsVisible.value = true
+      stop()
+    }
+  }, { rootMargin: '300px' })
+}
+
+// Spotify's embed page is what every player iframe boots from; warming the
+// connection and the browser cache means the players appear almost at once
+useHead({
+  link: [
+    { rel: 'preconnect', href: 'https://open.spotify.com' },
+    { rel: 'preconnect', href: 'https://embed-cdn.spotifycdn.com' },
+  ],
+})
 </script>

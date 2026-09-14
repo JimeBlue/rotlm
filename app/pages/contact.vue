@@ -1,10 +1,18 @@
 <template>
   <div id="contact" class="bg-black text-white min-h-screen">
     <!-- Fixed right panel (desktop only) -->
+    <!-- The posters are ~1.3 MB PNGs in Sanity; serve sized WebP renditions
+         instead (~140 KB). The desktop one is the page's LCP image. -->
     <div class="hidden xl:flex fixed top-20 right-0 w-1/2 h-[calc(100vh-5rem)] overflow-hidden">
       <img
-        :src="contact?.posterDesktop"
+        v-if="contact?.posterDesktop"
+        :src="sanityImageUrl(contact.posterDesktop, 1080)"
+        :srcset="sanityImageSrcset(contact.posterDesktop, [640, 1080])"
+        sizes="50vw"
+        :width="sanityImageDimensions(contact.posterDesktop)?.width"
+        :height="sanityImageDimensions(contact.posterDesktop)?.height"
         alt=""
+        fetchpriority="high"
         class="w-full h-full object-contain ken-burns"
       >
     </div>
@@ -45,7 +53,17 @@
 
       <!-- Mobile image -->
       <div class="xl:hidden">
-        <img :src="contact?.posterMobile" alt="" class="w-full">
+        <img
+          v-if="contact?.posterMobile"
+          :src="sanityImageUrl(contact.posterMobile, 1080)"
+          :srcset="sanityImageSrcset(contact.posterMobile, [640, 1080])"
+          sizes="100vw"
+          :width="sanityImageDimensions(contact.posterMobile)?.width"
+          :height="sanityImageDimensions(contact.posterMobile)?.height"
+          alt=""
+          loading="lazy"
+          class="w-full"
+        >
       </div>
     </div>
   </div>
