@@ -74,11 +74,10 @@ export default defineNuxtConfig({
   // background, so Sanity edits show up within about a minute.
   // Not enabled in dev: Vite injects CSS at runtime, so a cached dev page
   // would render unstyled, and edits would not show up for 60 s.
-  // The root URL is deliberately not listed: it redirects per browser language
-  // (i18n detectBrowserLanguage), so its response differs per visitor and must
-  // not be shared via the CDN. The contact form endpoint is not listed either.
+  // The contact form endpoint is not listed.
   $production: {
     routeRules: {
+      '/': { swr: 60 },
       '/gigs': { swr: 60 },
       '/music': { swr: 60 },
       '/merch': { swr: 60 },
@@ -155,11 +154,12 @@ export default defineNuxtConfig({
     defaultLocale: 'de',
     strategy: 'prefix_except_default',
     baseUrl: 'https://rotlm.com',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root',
-    },
+    // No browser-language redirect: it made the root URL's response differ per
+    // visitor, so it could not be cached on the CDN and every visit to `/`
+    // waited for a serverless render (2-3 s cold). `/` is simply the German
+    // site; visitors switch via the language menu, search engines follow the
+    // hreflang links.
+    detectBrowserLanguage: false,
     compilation: {
       strictMessage: false,
     },
