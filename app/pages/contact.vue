@@ -22,7 +22,9 @@
       <div class="space-y-8">
         <!-- Poster-style title -->
         <div class="font-black uppercase leading-none text-white font-body max-w-xs mx-auto">
-          <div class="text-6xl tracking-wide text-center">
+          <!-- Smaller on phones: the Spanish/Italian titles (CONTACTÁ, CONTATTACI)
+               are one long word and overflowed the screen at text-6xl -->
+          <div class="text-4xl sm:text-6xl tracking-wide text-center">
             {{ contact?.title }}
           </div>
           <div class="flex justify-center pt-2">
