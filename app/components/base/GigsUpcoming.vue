@@ -7,8 +7,10 @@
       </BaseCtaTitle>
     </article>
 
-    <!-- Gigs page: neon title -->
-    <article v-else class="flex justify-center container">
+    <!-- Gigs page: neon title. The glow behind it is 3x the title's width, which
+         on phones reaches past the screen edge and made the page pan sideways;
+         clip it horizontally (clip, not hidden, so the glow above and below is kept) -->
+    <article v-else class="flex justify-center container overflow-x-clip">
       <div class="neon-wrapper">
         <div class="neon-glow" />
         <h2 class="neon-text text-5xl lg:text-7xl text-center uppercase">

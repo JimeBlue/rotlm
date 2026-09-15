@@ -6,6 +6,15 @@
 /* No global scroll-behavior: smooth — it would also animate the router's
    scroll to top on navigation, so a new page would visibly scroll up instead
    of simply appearing from the top. */
+
+/* The document itself is black, not only the layout wrappers: on phones the
+   browser paints this colour when the page rubber-bands or the toolbar
+   collapses, so those edges no longer flash white. */
+html,
+body {
+  @apply bg-black;
+}
+
 body {
   @apply antialiased;
     /* Override Reka UI scroll lock styles that cause layout shift */
