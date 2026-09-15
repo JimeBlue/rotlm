@@ -67,31 +67,32 @@ export default defineNuxtConfig({
     buildAssetsDir: '/_nuxt/',
   },
 
-  // Production only: cache the rendered pages and the Sanity API responses on
-  // Vercel's CDN (stale-while-revalidate). Visitors get the stored copy
-  // instantly instead of waiting for a serverless cold start plus Sanity round
-  // trips; a copy older than 60 s is still served and refreshed in the
-  // background, so Sanity edits show up within about a minute.
+  // Production only: the rendered pages and the Sanity API responses are kept
+  // on Vercel as static copies (ISR). A visitor always gets the stored copy at
+  // once, never waiting for a serverless cold start plus Sanity round trips;
+  // a copy older than 60 s is still served and re-rendered in the background,
+  // so Sanity edits show up within about a minute plus one request. Only the
+  // first request of a page after a deploy renders on demand.
   // Not enabled in dev: Vite injects CSS at runtime, so a cached dev page
   // would render unstyled, and edits would not show up for 60 s.
   // The contact form endpoint is not listed.
   $production: {
     routeRules: {
-      '/': { swr: 60 },
-      '/gigs': { swr: 60 },
-      '/music': { swr: 60 },
-      '/merch': { swr: 60 },
-      '/contact': { swr: 60 },
-      '/impressum': { swr: 60 },
-      '/datenschutz': { swr: 60 },
-      '/en': { swr: 60 },
-      '/en/**': { swr: 60 },
-      '/it': { swr: 60 },
-      '/it/**': { swr: 60 },
-      '/es': { swr: 60 },
-      '/es/**': { swr: 60 },
-      '/sitemap.xml': { swr: 60 },
-      '/api/sanity/**': { swr: 60 },
+      '/': { isr: 60 },
+      '/gigs': { isr: 60 },
+      '/music': { isr: 60 },
+      '/merch': { isr: 60 },
+      '/contact': { isr: 60 },
+      '/impressum': { isr: 60 },
+      '/datenschutz': { isr: 60 },
+      '/en': { isr: 60 },
+      '/en/**': { isr: 60 },
+      '/it': { isr: 60 },
+      '/it/**': { isr: 60 },
+      '/es': { isr: 60 },
+      '/es/**': { isr: 60 },
+      '/sitemap.xml': { isr: 60 },
+      '/api/sanity/**': { isr: 60 },
     },
   },
 
