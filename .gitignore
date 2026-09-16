@@ -13,6 +13,7 @@ nuxt/
 .nitro
 .output
 docs/*
+!docs/screenshots/
 .claude
 
 # Compiled Java class files
