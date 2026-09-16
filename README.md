@@ -11,27 +11,27 @@ A multilingual, content-managed band website built with Nuxt 4, with a focus on 
 <table>
   <tr>
     <td width="50%"><img src="docs/screenshots/home-hero.png" alt="Home page with the band's logo over a background video" /></td>
-    <td width="50%"><img src="docs/screenshots/merch-tablet.png" alt="Merch page on a tablet" /></td>
+    <td width="50%"><img src="docs/screenshots/gigs.png" alt="Gigs page with the upcoming concerts" /></td>
   </tr>
   <tr>
     <td align="center"><sub>Home hero with background video</sub></td>
-    <td align="center"><sub>Merch showcase (tablet)</sub></td>
-  </tr>
-  <tr>
-    <td width="50%"><img src="docs/screenshots/gigs.png" alt="Gigs page with the upcoming concerts" /></td>
-    <td width="50%"><img src="docs/screenshots/band.png" alt="Band section on the home page" /></td>
-  </tr>
-  <tr>
     <td align="center"><sub>Upcoming gigs, managed in Sanity</sub></td>
-    <td align="center"><sub>Band section</sub></td>
   </tr>
   <tr>
-    <td width="50%"><img src="docs/screenshots/music-mobile.png" alt="Music page on a phone" /></td>
+    <td width="50%"><img src="docs/screenshots/merch-tablet.png" alt="Merch page on a tablet" /></td>
     <td width="50%"><img src="docs/screenshots/contact-tablet.png" alt="Contact form on a tablet" /></td>
   </tr>
   <tr>
-    <td align="center"><sub>Music page (mobile)</sub></td>
+    <td align="center"><sub>Merch showcase (tablet)</sub></td>
     <td align="center"><sub>Contact form (tablet)</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/music-mobile.png" alt="Music page on a phone" /></td>
+    <td width="50%"><img src="docs/screenshots/band-mobile.png" alt="Band section on a phone" /></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Music page (mobile)</sub></td>
+    <td align="center"><sub>Band section (mobile)</sub></td>
   </tr>
 </table>
 
