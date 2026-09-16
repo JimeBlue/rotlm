@@ -1,10 +1,8 @@
 # Raiders of the Lost Missile
 
-Built for the Munich rock band Raiders of the Lost Missile: the band manages gigs, music, merch and texts themselves through the CMS Sanity Studio. Currently on a staging URL while the band finalises content; launch on rotlm.com is planned for December 2026.
+Website relaunch for the Munich rock band Raiders of the Lost Missile, a freelance client project. The band's previous site was an ageing WordPress install that limited performance, reach and the content workflow; it was rebuilt on Nuxt 4 with a headless CMS, so the band now manages gigs, music, merch and texts themselves through the CMS Sanity Studio. Currently on a staging URL while the band finalises content; launch on rotlm.com is planned for December 2026.
 
 **Staging:** [rotlm.vercel.app](https://rotlm.vercel.app)
-
-A multilingual, content-managed band website built with Nuxt 4, with a focus on fast loads on phones and on letting non-technical people keep the site up to date without a developer.
 
 ## Screenshots
 
@@ -35,6 +33,17 @@ A multilingual, content-managed band website built with Nuxt 4, with a focus on 
   </tr>
 </table>
 
+## Background and results
+
+| | Before (WordPress) | After (this project) |
+| --- | --- | --- |
+| Content updates | Through the developer | The band, in Sanity Studio |
+| Languages | German only | German, English, Italian, Spanish |
+| Lighthouse Accessibility | 88 | 100 |
+| Lighthouse SEO | 92 | 100 |
+
+The Lighthouse gains come from semantic HTML, proper heading structure and alt texts, per-page meta and `hreflang` tags, and rendering the pages on the server instead of shipping an empty shell. Performance work (ISR, responsive image and video renditions, prefetching) is described under [Engineering decisions](#engineering-decisions).
+
 ## Features
 
 - **Self-service content.** Gigs, albums, merch, band texts and images are edited in Sanity Studio and appear on the site within a minute, no deploy needed.
@@ -50,7 +59,7 @@ A multilingual, content-managed band website built with Nuxt 4, with a focus on 
 
 | Frontend | Content & infrastructure |
 | --- | --- |
-| [Nuxt 4](https://nuxt.com) / Vue 3 / TypeScript | [Sanity](https://www.sanity.io) headless CMS + Sanity Studio |
+| [Nuxt 4](https://nuxt.com) / Vue 3 (Composition API, SSR) / TypeScript | [Sanity v5](https://www.sanity.io) headless CMS + Sanity Studio |
 | [Tailwind CSS v4](https://tailwindcss.com) + [Nuxt UI](https://ui.nuxt.com) | Sanity image CDN for responsive image renditions |
 | [@nuxtjs/i18n](https://i18n.nuxtjs.org) | [Cloudinary](https://cloudinary.com) for video renditions |
 | [VueUse Motion](https://motion.vueuse.org) / [motion-v](https://motion.dev/docs/vue) | [Resend](https://resend.com) for transactional email |
