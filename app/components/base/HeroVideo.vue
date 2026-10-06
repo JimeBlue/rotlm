@@ -5,14 +5,17 @@
          while the deferred video fades in on top. -->
     <img
       v-if="posterSrc"
+      ref="posterEl"
       :src="posterSrc"
       alt=""
       fetchpriority="high"
       class="absolute inset-0 w-full h-full object-cover"
+      @load="startVideo"
+      @error="startVideo"
     >
     <video
       ref="videoEl"
-      class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+      class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
       :class="playing ? 'opacity-100' : 'opacity-0'"
       autoplay
       muted
@@ -21,7 +24,7 @@
       preload="metadata"
       @playing="playing = true"
     >
-      <!-- Sources are only attached after the page has loaded (see below).
+      <!-- Sources are only attached once the poster is on screen (see below).
            Phones get 720px, tablets/laptops 1280px, big screens 1920px; the last source is the fallback -->
       <template v-if="videoReady">
         <source :src="videoSrc.mobile" media="(max-width: 767px)">
@@ -80,37 +83,70 @@ const posterSrc = computed(() => {
     .replace(/\.[a-z0-9]+$/i, '.jpg')
 })
 
+// The host serving the poster and the video (res.cloudinary.com)
+const mediaOrigin = computed(() => {
+  const url = hero.value?.videoUrl
+  if (!url) {
+    return undefined
+  }
+  try {
+    return new URL(url).origin
+  }
+  catch {
+    return undefined
+  }
+})
+
 // The poster is the page's LCP image; preload it at high priority so the
 // browser fetches it as soon as the HTML arrives rather than when it reaches
-// the <img> element.
+// the <img> element. The preconnect gets the DNS lookup and TLS handshake to
+// the media host out of the way at the same time, so the video request that
+// follows does not pay for them.
 useHead(() => ({
-  link: posterSrc.value
-    ? [{ rel: 'preload', as: 'image', href: posterSrc.value, fetchpriority: 'high' }]
-    : [],
+  link: [
+    ...(mediaOrigin.value ? [{ rel: 'preconnect', href: mediaOrigin.value }] : []),
+    ...(posterSrc.value
+      ? [{ rel: 'preload', as: 'image', href: posterSrc.value, fetchpriority: 'high' }]
+      : []),
+  ],
 }))
 
-// The mobile rendition is still ~6.5 MB. Started at parse time it competes with
-// every other request and dominates the load, so the sources are attached only
-// once the page has fully loaded. Users see the poster (the clip's first frame)
-// until then and the video fades in over it.
+// The clip is a few megabytes. Started at parse time it competes with the
+// poster, which is the LCP image, so the sources are attached only once the
+// poster is on screen (or right away if there is no poster). Until the video
+// can play, users see the poster - the clip's own first frame - and the video
+// fades in over it.
 const videoEl = ref<HTMLVideoElement>()
+const posterEl = ref<HTMLImageElement>()
 const videoReady = ref(false)
 const playing = ref(false)
 
-onMounted(() => {
-  const start = () => {
-    videoReady.value = true
-    // Sources added after the element was created are only picked up by load()
-    nextTick(() => {
-      videoEl.value?.load()
-      videoEl.value?.play().catch(() => {})
-    })
+function startVideo() {
+  if (videoReady.value) {
+    return
   }
+  videoReady.value = true
+  // Sources added after the element was created are only picked up by load()
+  nextTick(() => {
+    videoEl.value?.load()
+    videoEl.value?.play().catch(() => {})
+  })
+}
+
+onMounted(() => {
+  // No poster to wait for, or the poster came from the cache and fired its
+  // load event before this component was mounted
+  if (!posterSrc.value || posterEl.value?.complete) {
+    startVideo()
+    return
+  }
+  // Backstop: if the poster's events never arrive, start no later than the
+  // page's load event, as before
   if (document.readyState === 'complete') {
-    start()
+    startVideo()
   }
   else {
-    window.addEventListener('load', start, { once: true })
+    window.addEventListener('load', startVideo, { once: true })
   }
 })
 </script>
