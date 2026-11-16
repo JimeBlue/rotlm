@@ -65,6 +65,10 @@
       "confirmed": {
         "title": "Messaggio ricevuto!",
         "text": "Grazie per il tuo messaggio! Ti ricontatteremo a breve."
+      },
+      "error": {
+        "title": "Messaggio non inviato",
+        "text": "Qualcosa è andato storto. Riprova o scrivici direttamente via e-mail."
       }
     }
   },
