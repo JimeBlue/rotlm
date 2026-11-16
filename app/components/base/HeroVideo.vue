@@ -54,12 +54,12 @@ const { hero } = useHero()
 // Inserting transformations right after "/upload/" lets Cloudinary scale the clip
 // (w_*,c_limit), pick a quality tier and format (q_auto:*,f_auto) and generate
 // a poster from the first frame (so_0). The original upload is ~40 MB, so the
-// rendition sizes matter a lot on mobile; phones get the "eco" tier, larger
-// screens "good" so the clip does not look blocky when it fills a monitor.
+// rendition sizes matter a lot on mobile, so every tier uses "eco". The clip is
+// muted, so ac_none drops the audio track from the download.
 const UPLOAD_SEGMENT = '/video/upload/'
 
 function videoRendition(url: string, width: number, quality: 'eco' | 'good') {
-  return url.replace(UPLOAD_SEGMENT, `${UPLOAD_SEGMENT}w_${width},c_limit,q_auto:${quality},f_auto/`)
+  return url.replace(UPLOAD_SEGMENT, `${UPLOAD_SEGMENT}w_${width},c_limit,q_auto:${quality},f_auto,ac_none/`)
 }
 
 const videoSrc = computed(() => {
@@ -70,8 +70,8 @@ const videoSrc = computed(() => {
   }
   return {
     mobile: videoRendition(url, 720, 'eco'),
-    desktop: videoRendition(url, 1280, 'good'),
-    large: videoRendition(url, 1920, 'good'),
+    desktop: videoRendition(url, 1280, 'eco'),
+    large: videoRendition(url, 1920, 'eco'),
   }
 })
 
