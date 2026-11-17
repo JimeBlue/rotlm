@@ -20,10 +20,10 @@ useSeoMeta({
   description: () => t('seo.merch.description'),
   ogTitle: () => `${t('seo.merch.title')} | Raiders of the Lost Missile`,
   ogDescription: () => t('seo.merch.description'),
-  ogImage: 'https://rotlm.com/images/OG-image.jpg',
-  ogUrl: () => `https://rotlm.com${route.path}`,
+  ogImage: 'https://rotlm.de/images/OG-image.jpg',
+  ogUrl: () => `https://rotlm.de${route.path}`,
   twitterTitle: () => `${t('seo.merch.title')} | Raiders of the Lost Missile`,
   twitterDescription: () => t('seo.merch.description'),
-  twitterImage: 'https://rotlm.com/images/OG-image.jpg',
+  twitterImage: 'https://rotlm.de/images/OG-image.jpg',
 })
 </script>

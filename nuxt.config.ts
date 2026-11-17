@@ -154,7 +154,7 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'de',
     strategy: 'prefix_except_default',
-    baseUrl: 'https://rotlm.com',
+    baseUrl: 'https://rotlm.de',
     // No browser-language redirect: it made the root URL's response differ per
     // visitor, so it could not be cached on the CDN and every visit to `/`
     // waited for a serverless render (2-3 s cold). `/` is simply the German

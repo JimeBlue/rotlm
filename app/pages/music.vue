@@ -41,10 +41,10 @@ useSeoMeta({
   description: () => t('seo.music.description'),
   ogTitle: () => `${t('seo.music.title')} | Raiders of the Lost Missile`,
   ogDescription: () => t('seo.music.description'),
-  ogImage: 'https://rotlm.com/images/OG-image.jpg',
-  ogUrl: () => `https://rotlm.com${route.path}`,
+  ogImage: 'https://rotlm.de/images/OG-image.jpg',
+  ogUrl: () => `https://rotlm.de${route.path}`,
   twitterTitle: () => `${t('seo.music.title')} | Raiders of the Lost Missile`,
   twitterDescription: () => t('seo.music.description'),
-  twitterImage: 'https://rotlm.com/images/OG-image.jpg',
+  twitterImage: 'https://rotlm.de/images/OG-image.jpg',
 })
 </script>

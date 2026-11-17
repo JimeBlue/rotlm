@@ -19,11 +19,11 @@ useSeoMeta({
   description: () => t('seo.home.description'),
   ogTitle: 'Raiders of the Lost Missile',
   ogDescription: () => t('seo.home.description'),
-  ogImage: 'https://rotlm.com/images/OG-image.jpg',
-  ogUrl: () => `https://rotlm.com${route.path}`,
+  ogImage: 'https://rotlm.de/images/OG-image.jpg',
+  ogUrl: () => `https://rotlm.de${route.path}`,
   twitterTitle: 'Raiders of the Lost Missile',
   twitterDescription: () => t('seo.home.description'),
-  twitterImage: 'https://rotlm.com/images/OG-image.jpg',
+  twitterImage: 'https://rotlm.de/images/OG-image.jpg',
 })
 
 useHead({
@@ -34,8 +34,8 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'MusicGroup',
         'name': 'Raiders of the Lost Missile',
-        'url': 'https://rotlm.com',
-        'image': 'https://rotlm.com/images/OG-image.jpg',
+        'url': 'https://rotlm.de',
+        'image': 'https://rotlm.de/images/OG-image.jpg',
         'sameAs': [
           'https://www.instagram.com/raidersofthelostmissile/',
           'https://open.spotify.com/artist/2L3tyjOm09NgkqtIC4LnLF',
