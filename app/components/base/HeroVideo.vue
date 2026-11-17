@@ -23,6 +23,7 @@
       playsinline
       preload="metadata"
       @playing="playing = true"
+      @error="useMp4"
     >
       <!-- Sources are only attached once the poster is on screen (see below).
            Phones get 720px, tablets/laptops 1280px, big screens 1920px; the last source is the fallback -->
@@ -75,6 +76,20 @@ const videoSrc = computed(() => {
   }
 })
 
+// Adaptive (HLS) stream: Cloudinary builds a ladder of renditions (270 kbps up
+// to 720p) and the player starts on the smallest one, so the first seconds are
+// a couple of hundred KB instead of a multi-MB MP4. Quality then climbs on its
+// own as the connection allows - the same trick YouTube embeds use.
+const hlsSrc = computed(() => {
+  const url = hero.value?.videoUrl
+  if (!url || !url.includes(UPLOAD_SEGMENT)) {
+    return undefined
+  }
+  return url
+    .replace(UPLOAD_SEGMENT, `${UPLOAD_SEGMENT}sp_auto/`)
+    .replace(/\.[a-z0-9]+$/i, '.m3u8')
+})
+
 const posterSrc = computed(() => {
   const url = hero.value?.videoUrl
   if (!url || !url.includes(UPLOAD_SEGMENT)) { return undefined }
@@ -121,17 +136,74 @@ const posterEl = ref<HTMLImageElement>()
 const videoReady = ref(false)
 const playing = ref(false)
 
-function startVideo() {
+const HLS_MIME = 'application/vnd.apple.mpegurl'
+let started = false
+let hls: { destroy: () => void } | undefined
+
+// Safari/iOS play HLS natively; other browsers get hls.js, loaded on demand so
+// it never competes with the poster. If anything goes wrong we fall back to
+// the plain MP4 renditions below.
+async function startVideo() {
+  if (started) {
+    return
+  }
+  started = true
+  const video = videoEl.value
+  const src = hlsSrc.value
+  if (!video || !src) {
+    useMp4()
+    return
+  }
+  if (video.canPlayType(HLS_MIME)) {
+    video.src = src
+    video.play().catch(() => {})
+    return
+  }
+  try {
+    const { default: Hls } = await import('hls.js/light')
+    if (!Hls.isSupported()) {
+      useMp4()
+      return
+    }
+    const player = new Hls({
+      startLevel: 0, // begin on the smallest rendition, ABR takes over from there
+      capLevelToPlayerSize: true,
+      maxBufferLength: 10,
+    })
+    hls = player
+    player.on(Hls.Events.ERROR, (_event, data) => {
+      if (data.fatal) {
+        useMp4()
+      }
+    })
+    player.loadSource(src)
+    player.attachMedia(video)
+    video.play().catch(() => {})
+  }
+  catch {
+    useMp4()
+  }
+}
+
+function useMp4() {
   if (videoReady.value) {
     return
   }
+  hls?.destroy()
+  hls = undefined
+  const video = videoEl.value
+  video?.removeAttribute('src')
   videoReady.value = true
   // Sources added after the element was created are only picked up by load()
   nextTick(() => {
-    videoEl.value?.load()
-    videoEl.value?.play().catch(() => {})
+    video?.load()
+    video?.play().catch(() => {})
   })
 }
+
+onBeforeUnmount(() => {
+  hls?.destroy()
+})
 
 onMounted(() => {
   // No poster to wait for, or the poster came from the cache and fired its
