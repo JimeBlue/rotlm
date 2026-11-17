@@ -527,6 +527,10 @@
       "confirmed": {
         "title": "Message received!",
         "text": "Thanks for your message! We'll get back to you shortly."
+      },
+      "error": {
+        "title": "Message not sent",
+        "text": "Something went wrong. Please try again or email us directly."
       }
     }
   },

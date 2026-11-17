@@ -40,10 +40,6 @@
       </UCheckbox>
     </UFormField>
 
-    <p v-if="submitError" class="text-red-400 text-sm text-center">
-      {{ t('merch.order.error') }}
-    </p>
-
     <div class="flex justify-center">
       <UButton
         type="submit"
@@ -66,7 +62,6 @@ const { Alert } = useAlert()
 
 const formRef = ref()
 const submitting = ref(false)
-const submitError = ref(false)
 
 const orderForm = reactive({
   first_name: '',
@@ -97,7 +92,6 @@ function resetForm() {
 
 async function onSubmit() {
   submitting.value = true
-  submitError.value = false
 
   let sent = false
 
@@ -112,13 +106,20 @@ async function onSubmit() {
     sent = true
   }
   catch {
-    submitError.value = true
+    // handled below, once the button's loading state is cleared
   }
   finally {
     submitting.value = false
   }
 
   if (!sent) {
+    // Keep the form filled in so the visitor can simply retry
+    await Alert({
+      icon: 'error',
+      title: t('contact.form.error.title'),
+      text: t('contact.form.error.text'),
+      confirmButtonText: t('buttons.close'),
+    })
     return
   }
 

@@ -582,6 +582,10 @@
       "confirmed": {
         "title": "Nachricht erhalten!",
         "text": "Danke für deine Nachricht! Wir melden uns in Kürze bei dir."
+      },
+      "error": {
+        "title": "Nachricht nicht gesendet",
+        "text": "Etwas ist schiefgelaufen. Bitte versuche es erneut oder schreib uns direkt per E-Mail."
       }
     }
   },
