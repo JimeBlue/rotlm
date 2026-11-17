@@ -1,6 +1,6 @@
 # Raiders of the Lost Missile
 
-Website relaunch for the Munich rock band Raiders of the Lost Missile, a freelance client project. The band's previous site was an ageing WordPress install that limited performance, reach and the content workflow; it was rebuilt on Nuxt 4 with a headless CMS, so the band now manages gigs, music, merch and texts themselves through the CMS Sanity Studio. Currently on a staging URL while the band finalises content; launch on rotlm.com is planned for December 2026.
+Website relaunch for the Munich rock band Raiders of the Lost Missile, a freelance client project. The band's previous site was an ageing WordPress install that limited performance, reach and the content workflow; it was rebuilt on Nuxt 4 with a headless CMS, so the band now manages gigs, music, merch and texts themselves through the CMS Sanity Studio. Currently on a staging URL while the band finalises content; launch on rotlm.de is planned for December 2026.
 
 **Staging:** [rotlm.vercel.app](https://rotlm.vercel.app)
 

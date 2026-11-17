@@ -1,5 +1,5 @@
 export default defineEventHandler((event) => {
-  const baseUrl = 'https://rotlm.com'
+  const baseUrl = 'https://rotlm.de'
 
   const staticPages = [
     // German (default — no prefix)

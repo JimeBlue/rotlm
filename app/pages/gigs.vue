@@ -161,10 +161,10 @@ useSeoMeta({
   description: () => t('seo.gigs.description'),
   ogTitle: () => `${t('seo.gigs.title')} | Raiders of the Lost Missile`,
   ogDescription: () => t('seo.gigs.description'),
-  ogImage: 'https://rotlm.com/images/OG-image.jpg',
-  ogUrl: () => `https://rotlm.com${route.path}`,
+  ogImage: 'https://rotlm.de/images/OG-image.jpg',
+  ogUrl: () => `https://rotlm.de${route.path}`,
   twitterTitle: () => `${t('seo.gigs.title')} | Raiders of the Lost Missile`,
   twitterDescription: () => t('seo.gigs.description'),
-  twitterImage: 'https://rotlm.com/images/OG-image.jpg',
+  twitterImage: 'https://rotlm.de/images/OG-image.jpg',
 })
 </script>

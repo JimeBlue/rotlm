@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rotlm.com/sitemap.xml
+Sitemap: https://rotlm.de/sitemap.xml
