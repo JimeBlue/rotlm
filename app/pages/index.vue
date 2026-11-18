@@ -16,6 +16,9 @@ useSeoCanonical()
 
 useSeoMeta({
   title: 'Raiders of the Lost Missile',
+  // The band name already is the title, so skip the global "%s | Raiders of
+  // the Lost Missile" template to avoid "Raiders of the Lost Missile | Raiders..."
+  titleTemplate: '%s',
   description: () => t('seo.home.description'),
   ogTitle: 'Raiders of the Lost Missile',
   ogDescription: () => t('seo.home.description'),
